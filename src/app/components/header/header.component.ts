@@ -6,10 +6,14 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./header.component.scss']
 })
 export class HeaderComponent implements OnInit {
-
+  isOpenedNav: boolean = false
   constructor() { }
 
   ngOnInit(): void {
   }
 
+  toggleMenu() {
+    this.isOpenedNav = !this.isOpenedNav;
+
+  }
 }

@@ -39,7 +39,6 @@ nav {
     align-items: center;
     justify-content: center;
     position: relative;
-
 }
 
 .header-link__active > div::after {
@@ -51,19 +50,103 @@ nav {
     height: 6px;
     background-color: white;
 }
+.burger-menu{
+    display: none;
+    
+}
+.burger-toggle{
+    display: none;
+    width: 80px;
+    height: 80px;
+    background: none;
+    border: none;
+    position: relative;
+    z-index: 1;
 
-@media screen and (max-width: 1740px) {
-    nav{
-        display: none;
+    &::after{
+        content: '';
+        width: 80px;
+        height: 6.5px;
+        background-color: #fff;
+        position: absolute;
+        top: 28px;
+        right: 0;
+    }
+    &::before{
+        content: '';
+        width: 70px;
+        height: 6.5px;
+        background-color: #fff;
+        position: absolute;
+        top: 38px;
+        right: 0;
+    }
+    &:hover{
+        cursor: pointer;
     }
 }
-@media screen and (max-width: 700px) {
-    header{
-        padding: 24px 102px 0px 40px;
-    }
 
-    .company-logo{
-        font-size: 24px !important;
-        line-height: 30px !important;
+.burger-menu.opened{
+    display: block;
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0,0,0,0.3);
+
+    .menu{
+        position: absolute;
+        top: 0;
+        right: 0;
+        background: rgba(0,0,0);
+        height: 100vh;
+        width: 100%;
+        max-width: 500px;
+        nav{
+            display: flex;
+            flex-direction: column;
+            margin-top: 200px;
+        }
     }
+}
+
+.burger-toggle.close{
+    &::after{
+        content: '';
+        width: 80px;
+        height: 6.5px;
+        background-color: #fff;
+        position: absolute;
+        top: 28px;
+        right: 0;
+    }
+    &::before{
+        content: '';
+        width: 70px;
+        height: 6.5px;
+        background-color: #fff;
+        position: absolute;
+        top: 38px;
+        right: 0;
+    }
+}
+
+
+
+
+@media screen and (max-width: 1740px) {
+    .desktop-nav {
+        display: none;
+    }
+    .burger-toggle{
+        display: block;
+    }
+    
+}
+@media screen and (max-width: 835px) {
+    header {
+        padding: 63px 48px;
+    }
+    
 }

@@ -18,4 +18,9 @@ export class ApiService {
       `${this.apiUrl}/report`,
     );
   }
+  getTotal(): Observable<any>{
+    return this.httpClient.get<any>(
+      `${this.apiUrl}/total`
+    )
+  }
 }

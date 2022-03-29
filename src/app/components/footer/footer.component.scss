@@ -164,36 +164,50 @@
 }
 @media screen and(max-width: 700px) {
     .footer-container{
-        margin-top: 65px !important;
+        margin-top: 0 !important;
+        padding-top: 40px !important;
     }
     .footer-logo {
         h2 {
-            font-size: 40px !important;
-            line-height: 46px !important;
+            font-size: 38px !important;
+            line-height: 48px !important;
         }
         span {
-            font-size: 12px !important;
-            line-height: 8px !important;
+            font-size: 13px !important;
+            line-height: 16px !important;
+            margin-top: 0 !important;
         }
     }
 
     .footer-socials {
-        margin-top: 48px !important;
+        margin-top: 15px !important;
+        a{
+
+            img{
+                max-width: 35px;
+            }
+        }
     }
 
-    .footer-info {
+    .footer-second .footer-info {
+        
         h4 {
-            font-size: 22px !important;
-            line-height: 24px !important;
+            font-size: 20px !important;
+            line-height: 25px !important;
         }
-        p {
-            font-size: 18px !important;
-            line-height: 22px !important;
+        p, a {
+            font-size: 16px !important;
+            line-height: 20px !important;
         }
-        a {
-            font-size: 18px !important;
-            line-height: 22px !important;
+    }
+    .footer-third{
+        .footer-info{
+            display: none;
         }
+        .copyright{
+            margin-top: 0 !important;
+        }
+        
     }
 
     .subscribe-input {
