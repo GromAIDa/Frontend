@@ -1,0 +1,223 @@
+.footer-container {
+    background: #141618;
+    min-height: 465px;
+    padding: 101px 176px;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+
+    .footer-logo {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+        .company-logo {
+            font-weight: 500;
+            font-size: 60px;
+            line-height: 76px;
+            color: #4a93c8;
+        }
+
+        > span {
+            font-weight: 300;
+            font-size: 16px;
+            line-height: 20px;
+            text-align: center;
+            text-transform: uppercase;
+
+            color: #4a93c8;
+            margin-top: 15px;
+        }
+    }
+
+    .footer-socials {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-top: 88px;
+
+        a {
+            margin: 10px;
+        }
+    }
+
+    .footer-second {
+        max-width: 280px;
+        width: 100%;
+        .footer-info {
+            margin-bottom: 40px;
+        }
+        .footer-info h4 {
+            font-weight: 500;
+            font-size: 30px;
+            line-height: 38px;
+
+            text-transform: uppercase;
+
+            color: #8a949f;
+        }
+
+        .footer-info p {
+            font-weight: 400;
+            font-size: 24px;
+            line-height: 30px;
+            text-transform: capitalize;
+
+            color: #4f5658;
+        }
+        .footer-info a {
+            font-weight: 400;
+            font-size: 24px;
+            line-height: 30px;
+            text-transform: capitalize;
+
+            color: #4f5658;
+        }
+    }
+
+    .footer-third {
+        .footer-info {
+            h4 {
+                font-weight: 500;
+                font-size: 30px;
+                line-height: 38px;
+
+                text-transform: uppercase;
+                margin-bottom: 70px;
+                color: #8a949f;
+            }
+
+            .subscribe-input {
+                position: relative;
+
+                input {
+                    border: none;
+                    background: #252829;
+                    border-radius: 20px;
+                    width: 534px;
+                    height: 54px;
+                    padding-left: 40px;
+                    font-size: 20px;
+
+                    &::placeholder {
+                        font-weight: 400;
+                        font-size: 20px;
+                        line-height: 25px;
+                        text-transform: uppercase;
+
+                        color: #4f5658;
+                    }
+                }
+                button {
+                    width: 178px;
+                    height: 54px;
+
+                    background: #4a93c8;
+                    border-radius: 20px;
+                    border: none;
+                    font-weight: 500;
+                    font-size: 20px;
+                    line-height: 25px;
+                    text-transform: uppercase;
+
+                    color: #ffffff;
+                    position: absolute;
+                    right: 0;
+                }
+            }
+        }
+        .copyright {
+            font-weight: 400;
+            font-size: 24px;
+            line-height: 30px;
+            text-align: center;
+            text-transform: uppercase;
+
+            color: #2e3134;
+            margin-top: 65px;
+        }
+    }
+}
+
+@media screen and (max-width: 1560px) {
+    .footer-container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .footer-info {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin-top: 30px;
+        text-align: center;
+        > h4 {
+            margin-bottom: 10px !important;
+        }
+    }
+}
+
+@media screen and(max-width: 1050px) {
+    .footer-container {
+        padding: 69px 25px !important;
+    }
+}
+@media screen and(max-width: 700px) {
+    .footer-container{
+        margin-top: 65px !important;
+    }
+    .footer-logo {
+        h2 {
+            font-size: 40px !important;
+            line-height: 46px !important;
+        }
+        span {
+            font-size: 12px !important;
+            line-height: 8px !important;
+        }
+    }
+
+    .footer-socials {
+        margin-top: 48px !important;
+    }
+
+    .footer-info {
+        h4 {
+            font-size: 22px !important;
+            line-height: 24px !important;
+        }
+        p {
+            font-size: 18px !important;
+            line-height: 22px !important;
+        }
+        a {
+            font-size: 18px !important;
+            line-height: 22px !important;
+        }
+    }
+
+    .subscribe-input {
+        input {
+            max-width: 534px !important;
+            width: 100% !important;
+            margin-top: 20px;
+            font-size: 16px !important;
+
+            &::placeholder {
+                font-size: 16px !important;
+                line-height: 25px;
+            }
+        }
+        button {
+            position: relative !important;
+            margin-top: 15px;
+            width: 147px !important;
+            height: 42px !important;
+            font-size: 15px !important;
+        }
+    }
+    .copyright {
+        font-size: 14px !important;
+        line-height: 16px !important;
+    }
+}

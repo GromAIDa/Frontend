@@ -1,0 +1,235 @@
+<div class="top-background top-background-2">
+    <div class="background-blur">
+        <app-header></app-header>
+        <div class="donates-container">
+            <div class="donate">
+                <h2>Donate For Better World</h2>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore
+                    et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+                    aliquip ex ea commodo consequat. </p>
+                <div class="donate__create">
+                    <app-button text="Donate"></app-button>
+                    <app-button text="Read more" [transparent]="true"></app-button>
+                </div>
+            </div>
+            <div class="reports-gallery">
+                <div class="first-gallery">
+                    <div class="item">
+                        <div class="background-image">
+                            <img src="../../../assets/join-block-background.png" alt="">
+                        </div>
+                        <div class="content">
+                            <h3>The amount donated</h3>
+                            <span>$ 1200</span>
+                            <h3>What was bought</h3>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt
+                                ut
+                                labore et dolore magna. </p>
+                            <button>See more</button>
+                        </div>
+                    </div>
+                    <div class="item">
+                        <div class="background-image">
+                            <img src="../../../assets/join-block-background.png" alt="">
+                        </div>
+                        <div class="content">
+                            <h3>The amount donated</h3>
+                            <span>$ 1200</span>
+                            <h3>What was bought</h3>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt
+                                ut
+                                labore et dolore magna. </p>
+                            <button>See more</button>
+                        </div>
+                    </div>
+                    <div class="item">
+                        <div class="background-image">
+                            <img src="../../../assets/join-block-background.png" alt="">
+                        </div>
+                        <div class="content">
+                            <h3>The amount donated</h3>
+                            <span>$ 1200</span>
+                            <h3>What was bought</h3>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt
+                                ut
+                                labore et dolore magna. </p>
+                            <button>See more</button>
+                        </div>
+                    </div>
+                    <div class="item">
+                        <div class="background-image">
+                            <img src="../../../assets/join-block-background.png" alt="">
+                        </div>
+                        <div class="content">
+                            <h3>The amount donated</h3>
+                            <span>$ 1200</span>
+                            <h3>What was bought</h3>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt
+                                ut
+                                labore et dolore magna. </p>
+                            <button>See more</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="second-gallery">
+
+                    <div class="item">
+                        <div class="background-image">
+                            <img src="../../../assets/join-block-background.png" alt="">
+                        </div>
+                        <div class="content">
+                            <h3>The amount donated</h3>
+                            <span>$ 1200</span>
+                            <h3>What was bought</h3>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt
+                                ut
+                                labore et dolore magna. </p>
+                            <button>See more</button>
+                        </div>
+                    </div>
+                    <div class="item">
+                        <div class="background-image">
+                            <img src="../../../assets/join-block-background.png" alt="">
+                        </div>
+                        <div class="content">
+                            <h3>The amount donated</h3>
+                            <span>$ 1200</span>
+                            <h3>What was bought</h3>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt
+                                ut
+                                labore et dolore magna. </p>
+                            <button>See more</button>
+                        </div>
+                    </div>
+                    <div class="item">
+                        <div class="background-image">
+                            <img src="../../../assets/join-block-background.png" alt="">
+                        </div>
+                        <div class="content">
+                            <h3>The amount donated</h3>
+                            <span>$ 1200</span>
+                            <h3>What was bought</h3>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt
+                                ut
+                                labore et dolore magna. </p>
+                            <button>See more</button>
+                        </div>
+                    </div>
+                    <div class="item">
+                        <div class="background-image">
+                            <img src="../../../assets/join-block-background.png" alt="">
+                        </div>
+                        <div class="content">
+                            <h3>The amount donated</h3>
+                            <span>$ 1200</span>
+                            <h3>What was bought</h3>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt
+                                ut
+                                labore et dolore magna. </p>
+                            <button>See more</button>
+                        </div>
+                    </div>
+                    <div class="item">
+                        <div class="background-image">
+                            <img src="../../../assets/join-block-background.png" alt="">
+                        </div>
+                        <div class="content">
+                            <h3>The amount donated</h3>
+                            <span>$ 1200</span>
+                            <h3>What was bought</h3>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt
+                                ut
+                                labore et dolore magna. </p>
+                            <button>See more</button>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+
+
+</div>
+
+<div class="swiper-container">
+    <div class="top-section">
+        <div class="top-swiper">
+            <swiper [effect]="'fade'" [grabCursor]="true" [navigation]="true" class="mySwiper">
+                <ng-template swiperSlide *ngFor="let image of currentDonat.images; let i = index"><img src={{image}} /></ng-template>
+            </swiper>
+        </div>
+        <div class="donat-info">
+            <h3>The amount donated</h3>
+            <span>$ {{currentDonat.donated}}</span>
+            <p>{{currentDonat.description}}</p>
+            <ul>
+                <li *ngFor="let product of currentDonat.products">
+                    <div>{{product.name}}</div>
+                    <div>{{product.quantity}}pcs</div>
+                </li>
+                
+            </ul>
+        </div>
+    </div>
+    <div class="middle-section">
+        <div class="check-item">
+            <div class="radio-label">Last Week</div>
+            <input type="radio" name="time" id="">
+        </div>
+        <div class="check-item">
+            <div class="radio-label">Last Mounth</div>
+            <input type="radio" name="time" id="">
+        </div>
+        <div class="check-item">
+            <div class="radio-label">All Time</div>
+            <input type="radio" name="time" id="">
+        </div>
+    </div>
+    <div class="bottom-section">
+        <swiper [freeMode]="true" [slidesPerView]="1" class="bottomSwiper" [breakpoints]="{
+            '640': {
+              slidesPerView: 2,
+              spaceBetween: 20
+            },
+            '768': {
+              slidesPerView: 4,
+              spaceBetween: 40
+            },
+            '1024': {
+              slidesPerView: 8,
+              spaceBetween: 25
+            }
+          }">
+            <ng-template *ngFor="let donat of mockData; let i = index" swiperSlide ><img src={{donat.images[0]}} (click)="selectDonat(donat)"/></ng-template>
+
+        </swiper>
+    </div>
+</div>
+
+<div class="campaign-join">
+    <div class="bg-image"><img src="../../../assets/Rectangle 66.png" alt=""></div>
+    <div class="content">
+        <div class="short-info">
+            <div class="item">
+                <span>100k  $</span>
+                <p>donate so far </p>
+            </div>
+            <div class="item">
+                <span>150+</span>
+                <p>donators</p>
+            </div>
+            <div class="item">
+                <span>24 Days </span>
+                <p>time left</p>
+            </div>
+        </div>
+        <div class="long-info">
+            <h2>join our campaing!</h2>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. </p>
+            <app-button text="Donate"></app-button>
+        </div>
+    </div>
+</div>
