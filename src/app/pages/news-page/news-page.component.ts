@@ -1,11 +1,11 @@
 import { Component, OnInit, ViewEncapsulation } from '@angular/core';
-import { EffectFade, SwiperOptions } from 'swiper';
-
-import SwiperCore, { EffectFlip, Pagination, Navigation } from "swiper";
-import { donates } from './mockData';
+import { EffectFade } from 'swiper';
+import SwiperCore, { Navigation } from "swiper";
 import { ApiService } from 'src/app/services/api.service';
-import { report } from 'process';
-import { environment } from 'src/environments/environment';
+import { Report } from 'src/app/types/report';
+import { Pagination } from 'src/app/types/pagination';
+import { ImgService } from 'src/app/services/img.service';
+import { TotalDonations } from 'src/app/types/totalDonations';
 
 SwiperCore.use([EffectFade, Navigation]);
 
@@ -16,54 +16,35 @@ SwiperCore.use([EffectFade, Navigation]);
   encapsulation: ViewEncapsulation.None
 })
 export class NewsPageComponent implements OnInit {
-  mockData: any
-  currentDonat: any
-  reports: any;
-  environment: string = environment.API_URL
 
-  constructor(private apiServise: ApiService) {
-    this.mockData = donates;
-    this.currentDonat = this.mockData[0]
-    apiServise.getReports().subscribe((data: {data:{
-      docs: [{
-        products: [{
-          price: number,
-        }],
-        donated?: number
-      }]
-    }
-      
-    }) => {
-      let formattedProducts = data.data.docs.map(donat => {
-        let donated = 0;
-        donat.products.map(product =>{
-          donated += product.price
-        })
-        return {
-          ...donat,
-          donated
-        }
-      })
+  currentReport!: Report;
+  reports!: Pagination<Report[]>;
+  totalDontions!: TotalDonations;
+  firstMainReports!: Report[];
+  secondMainReports!: Report[];
 
-      this.reports = formattedProducts
-      console.log(this.reports);
-      
+  
 
-    });
-  }
+  constructor(private apiServise: ApiService, public imgService: ImgService) {}
 
   ngOnInit(): void {
+    this.apiServise.getReports().subscribe((response) => {
+      this.reports = response.data;
+      this.currentReport = response.data.docs[0];
+      this.firstMainReports = this.reports.docs.slice(0, this.reports.docs.length/2);
+      this.secondMainReports = this.reports.docs.slice(this.reports.docs.length/2, this.reports.docs.length);
+    });
+    this.apiServise.getTotalDontions().subscribe((response) => {
+      this.totalDontions = response.data;
+    })
   }
 
-
-  onSlideChange() {
-    console.log('slide change');
+  selectDonat(report: Report) {
+    this.currentReport = report;
+    document.getElementById('scroll-position')?.scrollIntoView({behavior: "smooth"})
   }
 
-  selectDonat(donat: any) {
-    console.log(donat);
-
-    this.currentDonat = donat
+  getTimeLeft(year: string) {
+    return Math.ceil((Number(new Date()) - Number(new Date(year)))/1000/60/60/24)
   }
-
 }
