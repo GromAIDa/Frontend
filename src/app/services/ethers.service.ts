@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { Injectable, OnInit } from '@angular/core';
 
 import { BigNumber, ethers } from 'ethers';
 import { environment } from 'src/environments/environment';
@@ -20,12 +20,15 @@ const usdc = {
 @Injectable({
   providedIn: 'root',
 })
-export class EthersService {
+export class EthersService implements OnInit{
   provider: any;
   address: string = '';
   currentBlock: string = '';
   private amounts: ethers.BigNumber | undefined = undefined;
   constructor() {
+    
+  }
+  ngOnInit(): void {
     this.provider = new ethers.providers.Web3Provider(window.ethereum, 'any');
   }
 

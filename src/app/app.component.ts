@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-import { EthersService } from './services/ethers.service';
 
 @Component({
   selector: 'app-root',
