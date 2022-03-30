@@ -432,9 +432,19 @@
         min-width: 150px;
     }
 
-    app-button {
-        align-self: flex-start !important;
+    .donates-container .mobile {
+        display: flex;
+        width: 100%;
+        margin: auto;
+        margin-bottom: 80px;
+        justify-content: space-between;
+        z-index: 1;
+        max-width: 480px;
     }
+
+    // app-button {
+    //     align-self: flex-start !important;
+    // }
 
     .story-image img {
         width: 100%;
@@ -621,6 +631,9 @@
 }
 
 @media screen and (max-width: 580px) {
+    .donates-container .mobile {
+        max-width: 350px;
+    }
     header {
         padding: 32px !important;
         .company-logo {

@@ -33,12 +33,7 @@
   background: none !important;
 }
 header {
-  background: linear-gradient(
-    179.75deg,
-    #141618 0.22%,
-    rgba(20, 22, 24, 0.65) 50.8%,
-    rgba(20, 22, 24, 0) 99.78%
-  );
+  background: linear-gradient(179.75deg, #141618 0.22%, rgba(20, 22, 24, 0.65) 50.8%, rgba(20, 22, 24, 0) 99.78%);
   z-index: 30;
   position: relative;
 }
@@ -50,7 +45,7 @@ header {
   a {
     cursor: pointer;
     &:hover {
-      color: #9EA8AB;
+      color: #9ea8ab;
     }
   }
   .current {
@@ -154,10 +149,12 @@ nav {
           cursor: pointer;
           backdrop-filter: blur(2px);
           span {
-            color: #CBB023;
+            color: #cbb023;
           }
-          h3, p, button {
-            color: #9EA8AB;
+          h3,
+          p,
+          button {
+            color: #9ea8ab;
           }
         }
         h3 {
@@ -166,7 +163,6 @@ nav {
           line-height: 45px;
           margin-bottom: 15px;
           color: #6c7172;
-
         }
         span {
           font-weight: 600;
@@ -181,7 +177,6 @@ nav {
           font-size: 22px;
           line-height: 28px;
           color: #6c7172;
-
         }
 
         button {
@@ -608,7 +603,6 @@ nav {
       .donate__create {
         margin-left: auto;
         margin-right: auto;
-        
       }
     }
     .gallery-flex {
@@ -748,7 +742,6 @@ nav {
     }
   }
   .donates-container {
-    
     .donate {
       h2,
       p,
@@ -861,6 +854,53 @@ nav {
         }
       }
     }
+  }
+  .long-info {
+    max-width: 100%;
+    padding: 0 50px;
+  }
+  app-button {
+    align-self: center !important;
+  }
+
+  .campaign-join .content .long-info h2 {
+    font-weight: 600;
+    font-size: 23px;
+    line-height: 30px;
+    text-transform: uppercase;
+    color: #dadada;
+  }
+  .campaign-join .content .long-info p {
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 14px;
+    margin-top: 23px;
+    color: #808587;
+    margin-bottom: 40px;
+  }
+  .paginations {
+    width: 100%;
+  }
+  .campaign-join .content .short-info .item span {
+    font-weight: 600;
+    font-size: 20px;
+    line-height: 25px;
+    text-transform: uppercase;
+    color: #cbb023;
+  }
+  .campaign-join .content .short-info .item p {
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 13px;
+    margin-top: 14px;
+    text-transform: uppercase;
+    color: #8f9597;
+  }
+  .campaign-join {
+    height: 408px;
+    width: 100%;
+    position: relative;
+    margin-top: 76px;
   }
 }
 

@@ -166,3 +166,78 @@ body.jw-modal-open {
         }
     }
 }
+
+@media screen and (max-width: 800px) {
+    .donate-modal .jw-modal .jw-modal-body .payment-methods {
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+    }
+    
+    .donate-modal .jw-modal .jw-modal-body .payment-methods .method {
+        max-width: 97px;
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: left;
+        /* flex-wrap: wrap; */
+        margin-right: 5px;
+        margin-bottom: 10px;
+    }
+    .donate-modal .jw-modal .jw-modal-body .payment-methods .method .method-image {
+        width: 66px;
+        height: 44px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border: 1.6px solid #343539;
+        border-radius: 8px;
+        margin-left: 17px;
+    }
+    .donate-modal .jw-modal .jw-modal-body .payment-methods .method .method-image img {
+        object-fit: contain;
+        width: 100%;
+        height: 100%;
+    }
+    .donate-modal .jw-modal .jw-modal-body .pm-form h4 {
+        font-weight: 700;
+        font-size: 22px;
+        line-height: 30px;
+        text-align: center;
+        color: #ffffff;
+        margin-top: 30px;
+        margin-bottom: 30px;
+        font-family: "Inter";
+    }
+    .donate-modal .jw-modal .jw-modal-body .pm-form form label {
+        font-weight: 400;
+        font-size: 14px;
+        line-height: 16px;
+        margin-bottom: 10px;
+        color: #ffffff;
+        font-family: "Inter";
+    }
+    .donate-modal .jw-modal .jw-modal-body .pm-form form input {
+        background: #242628;
+        border-radius: 20px;
+        border: none;
+        margin-bottom: 20px;
+        font-family: "Inter";
+        width: 100%;
+        height: 47px;
+        padding: 0 15px;
+        font-size: 23px;
+    }
+    jw-modal .jw-modal .jw-modal-body {
+        padding: 20px;
+        margin: 0;
+        max-width: 808px;
+        width: 100%;
+        max-height: unset;
+        height: 100%;
+        background: #141618;
+        border-radius: unset;
+    }
+}
+
+

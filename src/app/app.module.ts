@@ -23,7 +23,8 @@ const routes: Routes = [
   { path: 'about', component: HomePageComponent },
   { path: 'join-us', component: HomePageComponent },
   { path: 'news', component: NewsPageComponent },
-  { path: 'contacts', component: HomePageComponent }
+  { path: 'contacts', component: HomePageComponent },
+  { path: '', redirectTo: 'home', pathMatch: 'full' }
 ]
 
 @NgModule({
