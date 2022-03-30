@@ -127,11 +127,11 @@
             </ng-template>
         </swiper>
     </div>
-    <div class="paginations">
+    <div class="paginations" *ngIf="reports">
         <a (click)="getReprots(1)">First</a>
         <a (click)="getReprots(reports.prevPage)">Previous</a>
         <span>
-            <span class="current">{{reports.page}}</span> | <span class="last">{{reports.totalPages}}</span>
+            <span class="current">{{reports?.page}}</span> | <span class="last">{{reports?.totalPages}}</span>
         </span>
         <a (click)="getReprots(reports.nextPage)">Next</a>
         <a (click)="getReprots(reports.totalPages)">Last</a>

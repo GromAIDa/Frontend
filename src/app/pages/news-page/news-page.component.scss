@@ -59,6 +59,23 @@ header {
 }
 .top-background-2 {
   background: #141618 !important;
+
+  >.donate {
+    z-index: 1;
+    margin-bottom: 295px;
+  
+    p {
+      font-weight: 400;
+      font-size: 22px;
+      line-height: 28px;
+      color: #808587;
+    }
+    h2 {
+    }
+    .donate__create {
+      margin-top: 65px !important;
+    }
+  }
 }
 .mobile {
   display: none;
@@ -79,6 +96,7 @@ nav {
 
 .donate {
   z-index: 1;
+  margin-bottom: 295px;
 
   p {
     font-weight: 400;

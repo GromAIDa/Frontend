@@ -11,15 +11,22 @@ import { ModalService } from '../modal';
 })
 export class DonateModalComponent implements OnInit {
   paymentDataForm = new FormGroup({
-    address: new FormControl(environment.ADDRESS),
+    address: new FormControl({ value: environment.ADDRESS, disabled: true }),
     amount: new FormControl('300'),
   });
+  errors: string[] = []
   constructor(public ethersService: EthersService, private modalService: ModalService,) { }
 
   ngOnInit(): void {
   }
-  async startTransaction(){
-    await this.ethersService.transferUsdc(this.paymentDataForm.value.address, this.paymentDataForm.value.amount)
+  async startTransaction() {
+    try {
+      await this.ethersService.transferUsdc(this.paymentDataForm.value.address, this.paymentDataForm.value.amount)
+    } catch ({message}) {
+      if(message === environment.METAMASK_ERRORS.notInstalled){
+          this.errors.push(message)
+      }
+    }
   }
 
   closeModal(id: string) {

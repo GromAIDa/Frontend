@@ -18,7 +18,7 @@ html {
 .hidden {
   overflow: hidden;
 }
-button {
+button, a {
   &:hover {
     cursor: pointer;
     filter: brightness(0.8);

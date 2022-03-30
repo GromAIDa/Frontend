@@ -68,7 +68,7 @@
         slidesPerView: 5,
         spaceBetween: 25
       }}">
-        <ng-template swiperSlide *ngFor="a of defaultArray">
+        <ng-template swiperSlide *ngFor="let a of defaultArray">
             <div class="company">
                 <img src="../../../assets/company.svg" alt="">
                 <span>company name</span>
@@ -123,7 +123,7 @@
             slidesPerView: 8,
             spaceBetween: 25
           }}">
-            <ng-template swiperSlide *ngFor="a of defaultArray">
+            <ng-template swiperSlide *ngFor="let a of defaultArray">
                 <div class="image-wrap"><img src="../../../assets/story-1.png" alt=""></div>
             </ng-template>            
         </swiper>

@@ -1,6 +1,7 @@
 import { Injectable, OnInit } from '@angular/core';
 
 import { BigNumber, ethers } from 'ethers';
+import { throwError } from 'rxjs/internal/observable/throwError';
 import { environment } from 'src/environments/environment';
 import * as abi from '../../assets/erc20abi';
 declare let window: any;
@@ -20,7 +21,7 @@ const usdc = {
 @Injectable({
   providedIn: 'root',
 })
-export class EthersService implements OnInit{
+export class EthersService implements OnInit {
   provider: any;
   address: string = '';
   currentBlock: string = '';
@@ -29,8 +30,21 @@ export class EthersService implements OnInit{
     
   }
   ngOnInit(): void {
+    console.log('hello');
+    
+    
     this.provider = new ethers.providers.Web3Provider(window.ethereum, 'any');
   }
+
+  isMetaMaskInstalled(): boolean {
+    let status = !!window?.ethereum;
+    if (!status || status === undefined) {
+      window.open(environment.METAMASK_LINK, '_blank');
+      return false
+    }
+    return true;
+  }
+
 
   async getUserAddress() {
     await this.provider.send('eth_requestAccounts', []);
@@ -50,6 +64,9 @@ export class EthersService implements OnInit{
   }
 
   async transferUsdc(receiverId: string, amountMoney: string) {
+    if (!this.isMetaMaskInstalled()) {
+      throw {message: environment.METAMASK_ERRORS.notInstalled};
+    }
     let receiver = receiverId;
     let response;
 

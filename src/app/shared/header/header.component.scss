@@ -147,7 +147,7 @@ nav {
         height: 6.5px;
         background-color: #fff;
         position: absolute;
-        top: 38px;
+        top: 40px;
         transform: rotate(-45deg);
     }
 }
@@ -156,17 +156,18 @@ nav {
 
 
 @media screen and (max-width: 1740px) {
-    .desktop-nav {
-        display: none;
-    }
-    .burger-toggle{
-        display: block;
-    }
+    
     
 }
 @media screen and (max-width: 835px) {
     header {
         padding: 63px 48px;
+    }
+    .desktop-nav {
+        display: none;
+    }
+    .burger-toggle{
+        display: block;
     }
 }
 
