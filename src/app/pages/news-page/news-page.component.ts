@@ -2,11 +2,11 @@ import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { EffectFade } from 'swiper';
 import SwiperCore, { Navigation } from "swiper";
 import { ApiService } from 'src/app/services/api.service';
-import { Report } from 'src/app/types/report';
-import { Pagination } from 'src/app/types/pagination';
+import { Report } from 'src/app/core/types/report';
+import { Pagination } from 'src/app/core/types/pagination';
 import { ImgService } from 'src/app/services/img.service';
-import { TotalDonations } from 'src/app/types/totalDonations';
-import { ModalService } from 'src/app/components/modal';
+import { TotalDonations } from 'src/app/core/types/totalDonations';
+import { ModalService } from 'src/app/shared/modal';
 
 SwiperCore.use([EffectFade, Navigation]);
 

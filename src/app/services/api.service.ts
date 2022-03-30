@@ -2,11 +2,11 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
-import { Pagination } from '../types/pagination';
-import { PaginationsRequest } from '../types/paginations.request';
-import { Report } from '../types/report';
-import { Response } from '../types/response';
-import { TotalDonations } from '../types/totalDonations';
+import { Pagination } from '../core/types/pagination';
+import { PaginationsRequest } from '../core/types/paginations.request';
+import { Report } from '../core/types/report';
+import { Response } from '../core/types/response';
+import { TotalDonations } from '../core/types/totalDonations';
 
 @Injectable({
   providedIn: 'root',

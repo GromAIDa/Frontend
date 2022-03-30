@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-header',
@@ -7,7 +8,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HeaderComponent implements OnInit {
   isOpenedNav: boolean = false;
-  constructor() {}
+  constructor(private router: Router) {}
 
   ngOnInit(): void {
     document
@@ -20,9 +21,10 @@ export class HeaderComponent implements OnInit {
       });
   }
 
-  toggleMenu() { 
+  toggleMenu(router: string) {
     this.isOpenedNav = !this.isOpenedNav;
     this.changeBody();
+    this.router.navigate([router]);
   }
 
   changeBody() {

@@ -13,11 +13,11 @@
     <button class="burger-toggle" (click)="toggleMenu()" [ngClass]="{'close': isOpenedNav}" id="click-outside"></button>
     <div class="burger-menu" [ngClass]="{'opened': isOpenedNav}">
         <div class="menu" id="click-outside">
-            <nav>
-                <a class="header-link" routerLink="/" routerLinkActive="header-link__active" (click)="toggleMenu()">
-                    <div>Home</div>
+            <nav >
+                <a class="header-link" routerLink="/" routerLinkActive="header-link__active" (click)="toggleMenu('')" >
+                    <div >Home</div>
                 </a>
-                <a class="header-link" routerLink="/news" routerLinkActive="header-link__active" (click)="toggleMenu()">
+                <a class="header-link"  routerLinkActive="header-link__active" (click)="toggleMenu('news')">
                     <div>News</div>
                 </a>
             </nav>

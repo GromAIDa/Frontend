@@ -1,11 +1,8 @@
 import { Component, OnInit, ViewEncapsulation } from '@angular/core';
-import { FormControl, FormGroup } from '@angular/forms';
-import { get } from 'https';
-import { ModalService } from 'src/app/components/modal';
+import { ModalService } from 'src/app/shared/modal';
 import { ApiService } from 'src/app/services/api.service';
 import { EthersService } from 'src/app/services/ethers.service';
-import { TotalDonations } from 'src/app/types/totalDonations';
-import { environment } from 'src/environments/environment';
+import { TotalDonations } from 'src/app/core/types/totalDonations';
 import SwiperCore, { EffectFade, Navigation } from 'swiper';
 
 SwiperCore.use([EffectFade, Navigation]);
