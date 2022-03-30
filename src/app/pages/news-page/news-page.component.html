@@ -1,3 +1,7 @@
+<jw-modal id="donate-modal" class="donate-modal">
+    <app-donate-modal></app-donate-modal> 
+  </jw-modal>
+
 <div class="top-background top-background-2">
     <div class="background-blur">
         <div class="shadow"></div>
@@ -10,7 +14,7 @@
                     et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
                     aliquip ex ea commodo consequat. </p>
                 <div class="donate__create desktop">
-                    <app-button text="Donate"></app-button>
+                    <app-button text="Donate" (open)="modalService.open('donate-modal')"></app-button>
                     <app-button text="Read more" [transparent]="true"></app-button>
                 </div>
             </div>
@@ -49,7 +53,7 @@
                 
             </div>
             <div class="donate__create mobile">
-                <app-button text="Donate"></app-button>
+                <app-button text="Donate"  (open)="modalService.open('donate-modal')"></app-button>
                 <app-button text="Read more" [transparent]="true"></app-button>
             </div>
         </div>
@@ -121,8 +125,16 @@
                     </div>
                 </div>
             </ng-template>
-
         </swiper>
+    </div>
+    <div class="paginations">
+        <a (click)="getReprots(1)">First</a>
+        <a (click)="getReprots(reports.prevPage)">Previous</a>
+        <span>
+            <span class="current">{{reports.page}}</span> | <span class="last">{{reports.totalPages}}</span>
+        </span>
+        <a (click)="getReprots(reports.nextPage)">Next</a>
+        <a (click)="getReprots(reports.totalPages)">Last</a>
     </div>
 </div>
 
@@ -146,7 +158,7 @@
         <div class="long-info">
             <h2>join our campaing!</h2>
             <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. </p>
-            <app-button text="Donate"></app-button>
+            <app-button text="Donate"  (open)="modalService.open('donate-modal')"></app-button>
         </div>
     </div>
 </div>

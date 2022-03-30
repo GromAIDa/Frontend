@@ -4,6 +4,8 @@ import { get } from 'https';
 import { ModalService } from 'src/app/components/modal';
 import { ApiService } from 'src/app/services/api.service';
 import { EthersService } from 'src/app/services/ethers.service';
+import { TotalDonations } from 'src/app/types/totalDonations';
+import { environment } from 'src/environments/environment';
 import SwiperCore, { EffectFade, Navigation } from 'swiper';
 
 SwiperCore.use([EffectFade, Navigation]);
@@ -15,47 +17,26 @@ SwiperCore.use([EffectFade, Navigation]);
   encapsulation: ViewEncapsulation.None
 })
 export class HomePageComponent implements OnInit {
-  donatesSoFar: number = 0;
-  donatorsNumber:number = 0;
-  timeLeft: number = 0;
-  paymentDataForm = new FormGroup({
-    address: new FormControl('0x5923B28c59c027b3Cd6a8E51e794BF8004d2ecc3'),
-    amount: new FormControl('300'),
-  });
+  
 
-  constructor(public ethersService: EthersService, private modalService: ModalService, private apiService: ApiService) {
+  defaultArray: any[] = new Array(8);
 
+  totalDontions: TotalDonations = {
+    donated: 0,
+    donators: 0,
+    start: new Date().toDateString()
+  };
+  constructor(public ethersService: EthersService, public modalService: ModalService, private apiService: ApiService) {
+    
   }
 
   ngOnInit(){
-    this.apiService.getTotal().subscribe(response => {
-      console.log(response);
-      this.donatesSoFar = response.donated;
-      this.donatorsNumber = response.donators;
-      this.timeLeft = this.getDays(response.start)
+    this.apiService.getTotalDontions().subscribe(response => {
+      this.totalDontions = response.data;
     })
   }
 
-  getDays(start:string):number{
-    let startDate = new Date(start).getTime()
-    let end = new Date().getTime()
-    
-    let difference = startDate - end
-    let days = Math. ceil(difference / (1000 * 3600 * 24));
-    return days
-  }
-
-  async startTransaction(){
-    await this.ethersService.transferUsdc(this.paymentDataForm.value.address, this.paymentDataForm.value.amount)
-  }
-
-  openModal(id: string) {
-    console.log('open: ', id);
-    
-    this.modalService.open(id);
-  }
-
-  closeModal(id: string) {
-    this.modalService.close(id);
+  getTimeLeft(year: string) {
+    return Math.ceil((Number(new Date()) - Number(new Date(year)))/1000/60/60/24)
   }
 }

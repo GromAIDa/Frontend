@@ -15,6 +15,7 @@ import { SwiperModule} from 'swiper/angular'
 import { ModalModule } from './components/modal';
 import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
+import { DonateModalComponent } from './components/donate-modal/donate-modal.component';
 
 
 const routes: Routes = [
@@ -36,7 +37,8 @@ const routes: Routes = [
     NewsPageComponent,
     ContactsPageComponent,
     HomePageComponent,
-    ButtonComponent
+    ButtonComponent,
+    DonateModalComponent
   ],
   imports: [
     BrowserModule,

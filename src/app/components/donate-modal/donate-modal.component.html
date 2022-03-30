@@ -1,0 +1,40 @@
+<button class="modal-close" (click)="closeModal('donate-modal');"></button>
+<div class="payment-methods">
+    <div class="method">
+        <input type="radio" name="payment">
+        <div class="method-image">
+            <img src="../../../assets/paypal.svg" alt="">
+        </div>
+    </div>
+    <div class="method">
+        <input type="radio" name="payment">
+        <div class="method-image">
+            <img src="../../../assets/master.svg" alt="">
+        </div>
+    </div>
+    <div class="method">
+        <input type="radio" name="payment">
+        <div class="method-image">
+            <img src="../../../assets/visa.svg" alt="">
+        </div>
+    </div>
+    <div class="method">
+        <input type="radio" name="payment" checked="true">
+        <div class="method-image">
+            <div>Other</div>
+        </div>
+    </div>
+</div>
+<div class="pm-form">
+    <h4>Transfer Usdt</h4>
+    <form [formGroup]="paymentDataForm">
+
+        <label for="address">Receiver address</label>
+        <input id="address" type="text" formControlName="address" [disabled]="true">
+
+        <label for="amount">Amount</label>
+        <input id="amount" type="text" formControlName="amount">
+
+        <app-button text="Continue" (click)="startTransaction()"></app-button>
+    </form>
+</div>

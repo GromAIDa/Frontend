@@ -42,7 +42,26 @@ header {
   z-index: 30;
   position: relative;
 }
-
+.paginations {
+  width: 500px;
+  margin: 40px auto 80px auto;
+  display: flex;
+  justify-content: space-between;
+  a {
+    cursor: pointer;
+    &:hover {
+      color: #9EA8AB;
+    }
+  }
+  .current {
+    margin-right: 10px;
+    border-bottom: 2px solid;
+    padding: 0 10px 5px 10px;
+  }
+  .last {
+    margin-left: 20px;
+  }
+}
 .top-background-2 {
   background: #141618 !important;
 }

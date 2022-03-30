@@ -1,44 +1,5 @@
 <jw-modal id="donate-modal" class="donate-modal">
-    <button class="modal-close" (click)="closeModal('donate-modal');"></button>
-    <div class="payment-methods">
-        <div class="method">
-            <input type="radio" name="payment">
-            <div class="method-image">
-                <img src="../../../assets/paypal.svg" alt="">
-            </div>
-        </div>
-        <div class="method">
-            <input type="radio" name="payment">
-            <div class="method-image">
-                <img src="../../../assets/master.svg" alt="">
-            </div>
-        </div>
-        <div class="method">
-            <input type="radio" name="payment">
-            <div class="method-image">
-                <img src="../../../assets/visa.svg" alt="">
-            </div>
-        </div>
-        <div class="method">
-            <input type="radio" name="payment" checked="true">
-            <div class="method-image">
-                <div>Other</div>
-            </div>
-        </div>
-    </div>
-    <div class="pm-form">
-        <h4>Transfer Usdt</h4>
-        <form [formGroup]="paymentDataForm">
-
-            <label for="address">Receiver address</label>
-            <input id="address" type="text" formControlName="address">
-
-            <label for="amount">Amount</label>
-            <input id="amount" type="text" formControlName="amount">
-
-            <app-button text="Continue" (click)="startTransaction()"></app-button>
-        </form>
-    </div>
+  <app-donate-modal></app-donate-modal> 
 </jw-modal>
 <div class="top-background">
     <div class="background-blur">
@@ -47,7 +8,7 @@
             <div class="donate">
                 <h2>Donate For Better World</h2>
                 <div class="donate__create">
-                    <app-button text="Donate" (open)="openModal('donate-modal')"></app-button>
+                    <app-button text="Donate" (open)="modalService.open('donate-modal')"></app-button>
                     <app-button text="Read more" [transparent]="true"></app-button>
                 </div>
             </div>
@@ -55,11 +16,11 @@
                 <h4>Donate so far:</h4>
                 <div class="counter">
                     <p>$</p>
-                    <span>{{donatesSoFar}}</span>
+                    <span>{{totalDontions.donated | currency:'USD':'':'1.0' }}</span>
                 </div>
             </div>
             <div class="donate__create-mobile">
-                <app-button text="Donate" (open)="openModal('donate-modal')"></app-button>
+                <app-button text="Donate" (open)="modalService.open('donate-modal')"></app-button>
                 <app-button text="Read more" [transparent]="true"></app-button>
             </div>
         </div>
@@ -107,37 +68,7 @@
         slidesPerView: 5,
         spaceBetween: 25
       }}">
-        <ng-template swiperSlide>
-            <div class="company">
-                <img src="../../../assets/company.svg" alt="">
-                <span>company name</span>
-            </div>
-        </ng-template>
-        <ng-template swiperSlide>
-            <div class="company">
-                <img src="../../../assets/company.svg" alt="">
-                <span>company name</span>
-            </div>
-        </ng-template>
-        <ng-template swiperSlide>
-            <div class="company">
-                <img src="../../../assets/company.svg" alt="">
-                <span>company name</span>
-            </div>
-        </ng-template>
-        <ng-template swiperSlide>
-            <div class="company">
-                <img src="../../../assets/company.svg" alt="">
-                <span>company name</span>
-            </div>
-        </ng-template>
-        <ng-template swiperSlide>
-            <div class="company">
-                <img src="../../../assets/company.svg" alt="">
-                <span>company name</span>
-            </div>
-        </ng-template>
-        <ng-template swiperSlide>
+        <ng-template swiperSlide *ngFor="a of defaultArray">
             <div class="company">
                 <img src="../../../assets/company.svg" alt="">
                 <span>company name</span>
@@ -192,37 +123,9 @@
             slidesPerView: 8,
             spaceBetween: 25
           }}">
-            <ng-template swiperSlide>
+            <ng-template swiperSlide *ngFor="a of defaultArray">
                 <div class="image-wrap"><img src="../../../assets/story-1.png" alt=""></div>
-            </ng-template>
-            <ng-template swiperSlide>
-                <div class="image-wrap"><img src="../../../assets/story-1.png" alt=""></div>
-            </ng-template>
-            <ng-template swiperSlide>
-                <div class="image-wrap"><img src="../../../assets/story-1.png" alt=""></div>
-            </ng-template>
-            <ng-template swiperSlide>
-                <div class="image-wrap"><img src="../../../assets/story-1.png" alt=""></div>
-            </ng-template>
-            <ng-template swiperSlide>
-                <div class="image-wrap"><img src="../../../assets/story-1.png" alt=""></div>
-            </ng-template>
-            <ng-template swiperSlide>
-                <div class="image-wrap"><img src="../../../assets/story-1.png" alt=""></div>
-            </ng-template>
-            <ng-template swiperSlide>
-                <div class="image-wrap"><img src="../../../assets/story-1.png" alt=""></div>
-            </ng-template>
-            <ng-template swiperSlide>
-                <div class="image-wrap"><img src="../../../assets/story-1.png" alt=""></div>
-            </ng-template>
-            <ng-template swiperSlide>
-                <div class="image-wrap"><img src="../../../assets/story-1.png" alt=""></div>
-            </ng-template>
-            <ng-template swiperSlide>
-                <div class="image-wrap"><img src="../../../assets/story-1.png" alt=""></div>
-            </ng-template>
-            
+            </ng-template>            
         </swiper>
     </div>
 </div>
@@ -244,19 +147,19 @@
             <div class="join-info">
                 <div class="info-block">
                     <div class="info-name">Donators</div>
-                    <div class="info-value">{{donatorsNumber}}</div>
+                    <div class="info-value">{{totalDontions.donators}}</div>
                 </div>
                 <div class="info-block">
                     <div class="info-name">Time left</div>
-                    <div class="info-value">{{timeLeft}} days left</div>
+                    <div class="info-value">{{getTimeLeft(totalDontions.start)}} days left</div>
                 </div>
                 <div class="info-block">
                     <div class="info-name">donated</div>
-                    <div class="info-value">{{donatesSoFar}} $</div>
+                    <div class="info-value">{{totalDontions.donated | currency:'USD':'symbol-narrow':'1.0' }}</div>
                 </div>
                 
             </div>
-            <app-button text="Donate" (open)="openModal('donate-modal')"></app-button>
+            <app-button text="Donate" (open)="modalService.open('donate-modal')"></app-button>
         </div>
     </div>
 </div>

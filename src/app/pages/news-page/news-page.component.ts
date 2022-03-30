@@ -6,6 +6,7 @@ import { Report } from 'src/app/types/report';
 import { Pagination } from 'src/app/types/pagination';
 import { ImgService } from 'src/app/services/img.service';
 import { TotalDonations } from 'src/app/types/totalDonations';
+import { ModalService } from 'src/app/components/modal';
 
 SwiperCore.use([EffectFade, Navigation]);
 
@@ -23,17 +24,10 @@ export class NewsPageComponent implements OnInit {
   firstMainReports!: Report[];
   secondMainReports!: Report[];
 
-  
-
-  constructor(private apiServise: ApiService, public imgService: ImgService) {}
+  constructor(private apiServise: ApiService, public imgService: ImgService, public modalService: ModalService) {}
 
   ngOnInit(): void {
-    this.apiServise.getReports().subscribe((response) => {
-      this.reports = response.data;
-      this.currentReport = response.data.docs[0];
-      this.firstMainReports = this.reports.docs.slice(0, this.reports.docs.length/2);
-      this.secondMainReports = this.reports.docs.slice(this.reports.docs.length/2, this.reports.docs.length);
-    });
+    this.getReprots()
     this.apiServise.getTotalDontions().subscribe((response) => {
       this.totalDontions = response.data;
     })
@@ -46,5 +40,16 @@ export class NewsPageComponent implements OnInit {
 
   getTimeLeft(year: string) {
     return Math.ceil((Number(new Date()) - Number(new Date(year)))/1000/60/60/24)
+  }
+
+  getReprots(page?: number | null) {
+    if (page !== null) {
+      this.apiServise.getReports({page}).subscribe((response) => {
+        this.reports = response.data;
+        this.currentReport = response.data.docs[0];
+        this.firstMainReports = this.reports.docs.slice(0, this.reports.docs.length/2);
+        this.secondMainReports = this.reports.docs.slice(this.reports.docs.length/2, this.reports.docs.length);
+      });
+    }
   }
 }

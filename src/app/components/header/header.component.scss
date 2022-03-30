@@ -4,7 +4,9 @@ header {
     align-items: center;
     padding: 55px 115px 55px 155px;
 }
-
+.hidden {
+    overflow: hidden;
+}
 .company-logo {
     font-weight: 500;
     font-size: 60px;
@@ -51,8 +53,18 @@ nav {
     background-color: white;
 }
 .burger-menu{
-    display: none;
-    
+    pointer-events: none;
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 100vw;
+    height: 100vh;
+    opacity: 0;
+    background: rgba(0,0,0,0.3);
+    .menu {
+        right: -500px;
+        transition: all 0.3s ease-in-out;
+    }
 }
 .burger-toggle{
     display: none;
@@ -87,14 +99,15 @@ nav {
 }
 
 .burger-menu.opened{
-    display: block;
+    pointer-events:all;
     position: fixed;
     top: 0;
     right: 0;
     width: 100vw;
     height: 100vh;
     background: rgba(0,0,0,0.3);
-
+    transition: all 0.3s ease-in-out;
+    opacity: 1;
     .menu{
         position: absolute;
         top: 0;
@@ -103,6 +116,7 @@ nav {
         height: 100vh;
         width: 100%;
         max-width: 500px;
+        transition: all 0.3s ease-in-out;
         nav{
             display: flex;
             flex-direction: column;
