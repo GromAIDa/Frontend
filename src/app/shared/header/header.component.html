@@ -3,10 +3,10 @@
         <h2 class="company-logo">GromAIDa</h2>
     </a>
     <nav class="desktop-nav">
-        <a class="header-link" routerLink="/" routerLinkActive="header-link__active">
+        <a class="header-link" (click)="openRouter('/')" [class.header-link__active]="router.url === '/'">
             <div>Home</div>
         </a>
-        <a class="header-link" routerLink="/news" routerLinkActive="header-link__active">
+        <a class="header-link" (click)="openRouter('news')"  [class.header-link__active]="router.url === '/news'">
             <div>News</div>
         </a>
     </nav>
@@ -14,10 +14,10 @@
     <div class="burger-menu" [ngClass]="{'opened': isOpenedNav}">
         <div class="menu" id="click-outside">
             <nav >
-                <a class="header-link" routerLink="/" routerLinkActive="header-link__active" (click)="toggleMenu('')" >
+                <a class="header-link" [class.header-link__active]="router.url === '/'" (click)="toggleMenu('/')" >
                     <div >Home</div>
                 </a>
-                <a class="header-link"  routerLinkActive="header-link__active" (click)="toggleMenu('news')">
+                <a class="header-link"  [class.header-link__active]="router.url === '/news'" (click)="toggleMenu('news')">
                     <div>News</div>
                 </a>
             </nav>
