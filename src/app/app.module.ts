@@ -19,12 +19,11 @@ import { DonateModalComponent } from './components/donate-modal/donate-modal.com
 
 
 const routes: Routes = [
-  { path: 'home', component: HomePageComponent },
+  { path: '', component: HomePageComponent },
   { path: 'about', component: HomePageComponent },
   { path: 'join-us', component: HomePageComponent },
   { path: 'news', component: NewsPageComponent },
-  { path: 'contacts', component: HomePageComponent },
-  { path: '', redirectTo: '/home', pathMatch: 'full' }
+  { path: 'contacts', component: HomePageComponent }
 ]
 
 @NgModule({

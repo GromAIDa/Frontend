@@ -3,10 +3,11 @@ header {
     justify-content: space-between;
     align-items: center;
     padding: 55px 115px 55px 155px;
+    a{
+        text-decoration: none;
+    }
 }
-.hidden {
-    overflow: hidden;
-}
+
 .company-logo {
     font-weight: 500;
     font-size: 60px;
@@ -53,18 +54,8 @@ nav {
     background-color: white;
 }
 .burger-menu{
-    pointer-events: none;
-    position: fixed;
-    top: 0;
-    right: 0;
-    width: 100vw;
-    height: 100vh;
-    opacity: 0;
-    background: rgba(0,0,0,0.3);
-    .menu {
-        right: -500px;
-        transition: all 0.3s ease-in-out;
-    }
+    display: none;
+    
 }
 .burger-toggle{
     display: none;
@@ -83,6 +74,7 @@ nav {
         position: absolute;
         top: 28px;
         right: 0;
+        transition: all 0.3s ease-in;
     }
     &::before{
         content: '';
@@ -92,6 +84,7 @@ nav {
         position: absolute;
         top: 38px;
         right: 0;
+        transition: all 0.3s ease-in;
     }
     &:hover{
         cursor: pointer;
@@ -99,15 +92,14 @@ nav {
 }
 
 .burger-menu.opened{
-    pointer-events:all;
+    display: block;
     position: fixed;
     top: 0;
     right: 0;
     width: 100vw;
     height: 100vh;
     background: rgba(0,0,0,0.3);
-    transition: all 0.3s ease-in-out;
-    opacity: 1;
+
     .menu{
         position: absolute;
         top: 0;
@@ -116,7 +108,6 @@ nav {
         height: 100vh;
         width: 100%;
         max-width: 500px;
-        transition: all 0.3s ease-in-out;
         nav{
             display: flex;
             flex-direction: column;
@@ -125,15 +116,17 @@ nav {
     }
 }
 
+
 .burger-toggle.close{
     &::after{
         content: '';
-        width: 80px;
+        width: 70px;
         height: 6.5px;
         background-color: #fff;
         position: absolute;
-        top: 28px;
+        top: 40px;
         right: 0;
+        transform: rotate(45deg);
     }
     &::before{
         content: '';
@@ -142,7 +135,7 @@ nav {
         background-color: #fff;
         position: absolute;
         top: 38px;
-        right: 0;
+        transform: rotate(-45deg);
     }
 }
 
@@ -162,5 +155,55 @@ nav {
     header {
         padding: 63px 48px;
     }
-    
+}
+
+@media screen and (max-width: 580px) {
+    .burger-toggle::before {
+        content: "";
+        width: 27px;
+        height: 3px;
+        background-color: #fff;
+        position: absolute;
+        top: 17px;
+        right: 0;
+        transition: all 0.3s ease-in;
+    }
+    .burger-toggle::after {
+        content: "";
+        width: 33px;
+        height: 3px;
+        background-color: #fff;
+        position: absolute;
+        top: 11px;
+        right: 0;
+        transition: all 0.3s ease-in;
+    }
+    .burger-toggle{
+        width: 33px;
+        height: 33px;
+    }
+
+    .burger-toggle.close{
+        
+        border:1px solid red;
+        &::after{
+            content: '';
+            width: 33px;
+            height: 3px;
+            background-color: #fff;
+            position: absolute;
+            top: 11px;
+            right: 0;
+            transform: rotate(45deg);
+        }
+        &::before{
+            content: '';
+            width: 33px;
+            height: 3px;
+            background-color: #fff;
+            position: absolute;
+            top: 11px;
+            transform: rotate(-45deg);
+        }
+    }
 }

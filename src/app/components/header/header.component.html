@@ -1,7 +1,7 @@
 <header>
-    <h2 class="company-logo">GromAIDa</h2>
-    <nav class="desktop-nav" *ngIf="isOpenedNav">
-        <a class="header-link" routerLink="/home" routerLinkActive="header-link__active">
+    <a routerLink="/"><h2 class="company-logo">GromAIDa</h2></a>
+    <nav class="desktop-nav">
+        <a class="header-link" routerLink="/" routerLinkActive="header-link__active">
             <div>Home</div>
         </a>
         <a class="header-link" routerLink="/about" routerLinkActive="header-link__active">
@@ -21,7 +21,7 @@
     <div class="burger-menu" [ngClass]="{'opened': isOpenedNav}">
         <div class="menu" id="click-outside">
             <nav >
-                <a class="header-link" routerLink="/home" routerLinkActive="header-link__active" (click)="toggleMenu()">
+                <a class="header-link" routerLink="/" routerLinkActive="header-link__active" (click)="toggleMenu()">
                     <div>Home</div>
                 </a>
                 <a class="header-link" routerLink="/about" routerLinkActive="header-link__active" (click)="toggleMenu()">
