@@ -14,7 +14,7 @@ SwiperCore.use([EffectFade, Navigation]);
 @Component({
   selector: 'app-news-page',
   templateUrl: './news-page.component.html',
-  styleUrls: ['./news-page.component.scss', '../home-page/home-page.component.scss'],
+  styleUrls: ['./news-page.component.scss'],
   encapsulation: ViewEncapsulation.None
 })
 export class NewsPageComponent implements OnInit {

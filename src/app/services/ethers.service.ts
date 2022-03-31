@@ -27,13 +27,11 @@ export class EthersService implements OnInit {
   currentBlock: string = '';
   private amounts: ethers.BigNumber | undefined = undefined;
   constructor() {
-    
+
   }
   ngOnInit(): void {
     console.log('hello');
-    
-    
-    this.provider = new ethers.providers.Web3Provider(window.ethereum, 'any');
+
   }
 
   isMetaMaskInstalled(): boolean {
@@ -65,8 +63,9 @@ export class EthersService implements OnInit {
 
   async transferUsdc(receiverId: string, amountMoney: string) {
     if (!this.isMetaMaskInstalled()) {
-      throw {message: environment.METAMASK_ERRORS.notInstalled};
+      throw { message: environment.METAMASK_ERRORS.notInstalled };
     }
+    this.provider = new ethers.providers.Web3Provider(window.ethereum, 'any');
     let receiver = receiverId;
     let response;
 
@@ -81,6 +80,8 @@ export class EthersService implements OnInit {
     );
 
     try {
+      console.log(receiver);
+      
       receiver = ethers.utils.getAddress(receiver);
     } catch {
       response = `Invalid address: ${receiver}`;

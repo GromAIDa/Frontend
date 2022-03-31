@@ -5,7 +5,7 @@
 <div class="top-background top-background-2">
     <div class="background-blur">
         <div class="shadow"></div>
-        <div class="shadow-top"></div>
+        
         <app-header></app-header>
         <div class="donates-container">
             <div class="donate">
@@ -20,6 +20,7 @@
             </div>
             <div class="gallery-flex">
                 <div class="reports-gallery" *ngIf="reports">
+                    <div class="shadow-top"></div>
                     <div class="first-gallery">
                         <div class="item" *ngFor="let report of firstMainReports;">
                             <div class="background-image">
@@ -98,6 +99,10 @@
     </div>
     <div class="bottom-section" *ngIf="reports && !burgerService.isOpenedNav">
         <swiper [freeMode]="true" [slidesPerView]="1" class="bottomSwiper" [breakpoints]="{
+            '300': {
+                slidesPerView: 1.5,
+                spaceBetween: 10
+            },
             '710': {
               slidesPerView: 2,
               spaceBetween: 30
