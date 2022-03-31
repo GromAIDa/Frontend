@@ -64,7 +64,7 @@
 </div>
 
 <div class="swiper-container" id="scroll-position">
-    <div class="top-section" *ngIf="currentReport">
+    <div class="top-section" *ngIf="currentReport && !burgerService.isOpenedNav">
         <div class="top-swiper">
             <swiper [effect]="'fade'" [grabCursor]="true" [navigation]="true" class="mySwiper">
                 <ng-template swiperSlide *ngFor="let image of currentReport.photos; let i = index"><img src={{imgService.getUrlImg(image.photo)}} /></ng-template>
@@ -96,7 +96,7 @@
             <input type="radio" name="time" id="">
         </div>
     </div>
-    <div class="bottom-section" *ngIf="reports">
+    <div class="bottom-section" *ngIf="reports && !burgerService.isOpenedNav">
         <swiper [freeMode]="true" [slidesPerView]="1" class="bottomSwiper" [breakpoints]="{
             '710': {
               slidesPerView: 2,

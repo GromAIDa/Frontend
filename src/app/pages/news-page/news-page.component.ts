@@ -7,6 +7,7 @@ import { Pagination } from 'src/app/core/types/pagination';
 import { ImgService } from 'src/app/services/img.service';
 import { TotalDonations } from 'src/app/core/types/totalDonations';
 import { ModalService } from 'src/app/shared/modal';
+import { BurgerToggleService } from 'src/app/services/burger-toggle.service';
 
 SwiperCore.use([EffectFade, Navigation]);
 
@@ -24,7 +25,10 @@ export class NewsPageComponent implements OnInit {
   firstMainReports!: Report[];
   secondMainReports!: Report[];
 
-  constructor(private apiServise: ApiService, public imgService: ImgService, public modalService: ModalService) {}
+  constructor(private apiServise: ApiService,
+    public imgService: ImgService,
+    public modalService: ModalService,
+    public burgerService: BurgerToggleService) { }
 
   ngOnInit(): void {
     this.getReprots()
@@ -35,20 +39,20 @@ export class NewsPageComponent implements OnInit {
 
   selectDonat(report: Report) {
     this.currentReport = report;
-    document.getElementById('scroll-position')?.scrollIntoView({behavior: "smooth"})
+    document.getElementById('scroll-position')?.scrollIntoView({ behavior: "smooth" })
   }
 
   getTimeLeft(year: string) {
-    return Math.ceil((Number(new Date()) - Number(new Date(year)))/1000/60/60/24)
+    return Math.ceil((Number(new Date()) - Number(new Date(year))) / 1000 / 60 / 60 / 24)
   }
 
   getReprots(page?: number | null) {
     if (page !== null) {
-      this.apiServise.getReports({page}).subscribe((response) => {
+      this.apiServise.getReports({ page }).subscribe((response) => {
         this.reports = response.data;
         this.currentReport = response.data.docs[0];
-        this.firstMainReports = this.reports.docs.slice(0, this.reports.docs.length/2);
-        this.secondMainReports = this.reports.docs.slice(this.reports.docs.length/2, this.reports.docs.length);
+        this.firstMainReports = this.reports.docs.slice(0, this.reports.docs.length / 2);
+        this.secondMainReports = this.reports.docs.slice(this.reports.docs.length / 2, this.reports.docs.length);
       });
     }
   }

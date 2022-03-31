@@ -50,7 +50,7 @@
     </div>
 </div>
 
-<div class="companies">
+<div class="companies" *ngIf="!burgerService.isOpenedNav">
     <swiper [freeMode]="true" [slidesPerView]="5" class="companiesSwiper" [breakpoints]="{
         '300': {
         slidesPerView: 1.5,

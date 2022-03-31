@@ -4,6 +4,7 @@ import { ApiService } from 'src/app/services/api.service';
 import { EthersService } from 'src/app/services/ethers.service';
 import { TotalDonations } from 'src/app/core/types/totalDonations';
 import SwiperCore, { EffectFade, Navigation } from 'swiper';
+import { BurgerToggleService } from 'src/app/services/burger-toggle.service';
 
 SwiperCore.use([EffectFade, Navigation]);
 
@@ -14,7 +15,7 @@ SwiperCore.use([EffectFade, Navigation]);
   encapsulation: ViewEncapsulation.None
 })
 export class HomePageComponent implements OnInit {
-  
+
 
   defaultArray: any[] = new Array(8);
 
@@ -23,17 +24,21 @@ export class HomePageComponent implements OnInit {
     donators: 0,
     start: new Date().toDateString()
   };
-  constructor(public ethersService: EthersService, public modalService: ModalService, private apiService: ApiService) {
-    
+  constructor(public ethersService: EthersService,
+    public modalService: ModalService,
+    private apiService: ApiService,
+    public burgerService: BurgerToggleService
+    ) {
+
   }
 
-  ngOnInit(){
+  ngOnInit() {
     this.apiService.getTotalDontions().subscribe(response => {
       this.totalDontions = response.data;
     })
   }
 
   getTimeLeft(year: string) {
-    return Math.ceil((Number(new Date()) - Number(new Date(year)))/1000/60/60/24)
+    return Math.ceil((Number(new Date()) - Number(new Date(year))) / 1000 / 60 / 60 / 24)
   }
 }

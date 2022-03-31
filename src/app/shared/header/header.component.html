@@ -1,23 +1,23 @@
 <header>
-    <a (click)="openRouter('/')">
+    <a (click)="burgerService.openRouter('/')">
         <h2 class="company-logo">GromAIDa</h2>
     </a>
     <nav class="desktop-nav">
-        <a class="header-link" (click)="openRouter('/')" [class.header-link__active]="router.url === '/'">
+        <a class="header-link" (click)="burgerService.openRouter('/')" [class.header-link__active]="router.url === '/'">
             <div>Home</div>
         </a>
-        <a class="header-link" (click)="openRouter('news')"  [class.header-link__active]="router.url === '/news'">
+        <a class="header-link" (click)="burgerService.openRouter('news')"  [class.header-link__active]="router.url === '/news'">
             <div>News</div>
         </a>
     </nav>
-    <button class="burger-toggle" (click)="toggleMenu()" [ngClass]="{'close': isOpenedNav}" id="click-outside"></button>
-    <div class="burger-menu" [ngClass]="{'opened': isOpenedNav}">
+    <button class="burger-toggle" (click)="burgerService.toggleMenu()" [ngClass]="{'close': burgerService.isOpenedNav}" id="click-outside"></button>
+    <div class="burger-menu" [ngClass]="{'opened': burgerService.isOpenedNav}">
         <div class="menu" id="click-outside">
             <nav >
-                <a class="header-link" [class.header-link__active]="router.url === '/'" (click)="toggleMenu('/')" >
+                <a class="header-link" [class.header-link__active]="router.url === '/'" (click)="burgerService.toggleMenu('/')" >
                     <div >Home</div>
                 </a>
-                <a class="header-link"  [class.header-link__active]="router.url === '/news'" (click)="toggleMenu('news')">
+                <a class="header-link"  [class.header-link__active]="router.url === '/news'" (click)="burgerService.toggleMenu('news')">
                     <div>News</div>
                 </a>
             </nav>

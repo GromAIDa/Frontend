@@ -678,7 +678,8 @@ nav {
       margin-bottom: 80px;
       justify-content: space-between;
       z-index: 1;
-    }
+      max-width: 310px;
+  }
   }
   .swiper-container {
     .top-section {

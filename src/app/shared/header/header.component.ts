@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { BurgerToggleService } from 'src/app/services/burger-toggle.service';
 
 @Component({
   selector: 'app-header',
@@ -7,37 +8,19 @@ import { ActivatedRoute, Router } from '@angular/router';
   styleUrls: ['./header.component.scss'],
 })
 export class HeaderComponent implements OnInit {
-  isOpenedNav: boolean = false;
-  constructor(public router: Router) {}
+  
+  constructor(public burgerService: BurgerToggleService, public router: Router) {}
 
   ngOnInit(): void {
     document
-      .getElementsByTagName('body')[0]
+      .getElementsByClassName('burger-menu')[0]
       ?.addEventListener('click', (ev: any) => {
         if (!ev?.path?.find((element: any) => element.id === 'click-outside')) {
-          this.isOpenedNav = false;
-          this.changeBody();
+          this.burgerService.isOpenedNav = false;
+          this.burgerService.changeBody();
         }
       });
   }
 
-  toggleMenu(router?: string) {
-    this.isOpenedNav = !this.isOpenedNav;
-    this.changeBody();
-    if(router) {
-      this.openRouter(router);
-    }
-  }
-
-  openRouter(router: string) {
-    this.router.navigate([router]);
-  }
-
-  changeBody() {
-    if (!this.isOpenedNav) {
-      document.getElementsByTagName('body')[0].classList.remove('hidden');
-    } else {
-      document.getElementsByTagName('body')[0].classList.add('hidden');
-    }
-  }
+  
 }

@@ -3,7 +3,7 @@ header {
     justify-content: space-between;
     align-items: center;
     padding: 55px 115px 55px 155px;
-    a{
+    a {
         text-decoration: none;
     }
 }
@@ -47,13 +47,13 @@ nav {
 .header-link__active > div::after {
     content: "";
     position: absolute;
-    bottom: 0;
+    top: calc(50% - 20px);
     left: 0;
-    width: 100%;
-    height: 6px;
+    width: 3px;
+    height: 40px;
     background-color: white;
 }
-.burger-menu{
+.burger-menu {
     pointer-events: none;
     position: fixed;
     top: 0;
@@ -61,23 +61,24 @@ nav {
     width: 100vw;
     height: 100vh;
     opacity: 0;
-    background: rgba(0,0,0,0.3);
+    background: rgba(0, 0, 0, 0.3);
+    z-index: 2;
     .menu {
         right: -500px;
         transition: all 0.3s ease-in-out;
     }
 }
-.burger-toggle{
+.burger-toggle {
     display: none;
     width: 80px;
     height: 80px;
     background: none;
     border: none;
     position: relative;
-    z-index: 1;
+    z-index: 3;
 
-    &::after{
-        content: '';
+    &::after {
+        content: "";
         width: 80px;
         height: 6.5px;
         background-color: #fff;
@@ -86,8 +87,8 @@ nav {
         right: 0;
         transition: all 0.3s ease-in;
     }
-    &::before{
-        content: '';
+    &::before {
+        content: "";
         width: 70px;
         height: 6.5px;
         background-color: #fff;
@@ -96,32 +97,31 @@ nav {
         right: 0;
         transition: all 0.3s ease-in;
     }
-    &:hover{
+    &:hover {
         cursor: pointer;
     }
 }
 
-.burger-menu.opened{
-    pointer-events:all;
+.burger-menu.opened {
+    pointer-events: all;
     position: fixed;
     top: 0;
     right: 0;
     width: 100vw;
     height: 100vh;
-    background: rgba(0,0,0,0.3);
+    background: rgba(0, 0, 0, 0.3);
     transition: all 0.3s ease-in-out;
     opacity: 1;
 
-    .menu{
+    .menu {
         position: absolute;
         top: 0;
         right: 0;
-        background: rgba(0,0,0);
+        background: rgba(0, 0, 0);
         height: 100vh;
         width: 100%;
-        max-width: 500px;
-        
-        nav{
+
+        nav {
             display: flex;
             flex-direction: column;
             margin-top: 200px;
@@ -129,10 +129,9 @@ nav {
     }
 }
 
-
-.burger-toggle.close{
-    &::after{
-        content: '';
+.burger-toggle.close {
+    &::after {
+        content: "";
         width: 70px;
         height: 6.5px;
         background-color: #fff;
@@ -141,8 +140,8 @@ nav {
         right: 0;
         transform: rotate(45deg);
     }
-    &::before{
-        content: '';
+    &::before {
+        content: "";
         width: 70px;
         height: 6.5px;
         background-color: #fff;
@@ -152,21 +151,16 @@ nav {
     }
 }
 
-
-
-
 @media screen and (max-width: 1740px) {
-    
-    
 }
-@media screen and (max-width: 835px) {
+@media screen and (max-width: 900px) {
     header {
         padding: 63px 48px;
     }
     .desktop-nav {
         display: none;
     }
-    .burger-toggle{
+    .burger-toggle {
         display: block;
     }
 }
@@ -192,16 +186,14 @@ nav {
         right: 0;
         transition: all 0.3s ease-in;
     }
-    .burger-toggle{
+    .burger-toggle {
         width: 33px;
         height: 33px;
     }
 
-    .burger-toggle.close{
-        
-        border:1px solid red;
-        &::after{
-            content: '';
+    .burger-toggle.close {
+        &::after {
+            content: "";
             width: 33px;
             height: 3px;
             background-color: #fff;
@@ -210,8 +202,8 @@ nav {
             right: 0;
             transform: rotate(45deg);
         }
-        &::before{
-            content: '';
+        &::before {
+            content: "";
             width: 33px;
             height: 3px;
             background-color: #fff;
