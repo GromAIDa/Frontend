@@ -1,0 +1,30 @@
+button {
+    width: 197px;
+    height: 60px;
+    border: none;
+
+    background: #4a93c8;
+    border-radius: 28px;
+    font-weight: 600;
+    font-size: 25px;
+    line-height: 32px;
+    text-align: center;
+    text-transform: uppercase;
+
+    color: #ccdeeb;
+}
+
+button[isTransparent="true"] {
+    background: #4a93c800;
+    border: 3px solid #4a93c8;
+    color: #4a93c8;
+}
+
+@media screen and (max-width: 580px) {
+    button {
+        width: 126px ;
+        height: 40px ;
+        font-size: 15px !important;
+        line-height: 20px !important;
+    }
+}

@@ -1,0 +1,215 @@
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 55px 115px 55px 155px;
+    a {
+        text-decoration: none;
+    }
+}
+
+.company-logo {
+    font-weight: 500;
+    font-size: 60px;
+    line-height: 76px;
+    text-align: center;
+    color: #4a93c8;
+}
+
+nav {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.header-link {
+    font-weight: 300;
+    font-size: 26px;
+    line-height: 33px;
+    text-align: center;
+    text-transform: uppercase;
+    color: #c5c8c9;
+    text-decoration: none;
+    margin-left: 21px;
+    width: 230px;
+    height: 76px;
+}
+
+.header-link > div {
+    height: 100%;
+    width: unset;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+
+.header-link__active > div::after {
+    content: "";
+    position: absolute;
+    top: calc(50% - 20px);
+    left: 0;
+    width: 3px;
+    height: 40px;
+    background-color: white;
+}
+.burger-menu {
+    pointer-events: none;
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 100vw;
+    height: 100vh;
+    opacity: 0;
+    background: rgba(0, 0, 0, 0.3);
+    z-index: 2;
+    .menu {
+        right: -500px;
+        transition: all 0.3s ease-in-out;
+    }
+}
+.burger-toggle {
+    display: none;
+    width: 80px;
+    height: 80px;
+    background: none;
+    border: none;
+    position: relative;
+    z-index: 3;
+
+    &::after {
+        content: "";
+        width: 80px;
+        height: 6.5px;
+        background-color: #fff;
+        position: absolute;
+        top: 28px;
+        right: 0;
+        transition: all 0.3s ease-in;
+    }
+    &::before {
+        content: "";
+        width: 70px;
+        height: 6.5px;
+        background-color: #fff;
+        position: absolute;
+        top: 38px;
+        right: 0;
+        transition: all 0.3s ease-in;
+    }
+    &:hover {
+        cursor: pointer;
+    }
+}
+
+.burger-menu.opened {
+    pointer-events: all;
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.3);
+    transition: all 0.3s ease-in-out;
+    opacity: 1;
+
+    .menu {
+        position: absolute;
+        top: 0;
+        right: 0;
+        background: rgba(0, 0, 0);
+        height: 100vh;
+        width: 100%;
+
+        nav {
+            display: flex;
+            flex-direction: column;
+            margin-top: 200px;
+        }
+    }
+}
+
+.burger-toggle.close {
+    &::after {
+        content: "";
+        width: 70px;
+        height: 6.5px;
+        background-color: #fff;
+        position: absolute;
+        top: 40px;
+        right: 0;
+        transform: rotate(45deg);
+    }
+    &::before {
+        content: "";
+        width: 70px;
+        height: 6.5px;
+        background-color: #fff;
+        position: absolute;
+        top: 40px;
+        transform: rotate(-45deg);
+    }
+}
+
+@media screen and (max-width: 1740px) {
+}
+@media screen and (max-width: 900px) {
+    header {
+        padding: 63px 48px;
+    }
+    .desktop-nav {
+        display: none;
+    }
+    .burger-toggle {
+        display: block;
+    }
+}
+
+@media screen and (max-width: 580px) {
+    .burger-toggle::before {
+        content: "";
+        width: 27px;
+        height: 3px;
+        background-color: #fff;
+        position: absolute;
+        top: 17px;
+        right: 0;
+        transition: all 0.3s ease-in;
+    }
+    .burger-toggle::after {
+        content: "";
+        width: 33px;
+        height: 3px;
+        background-color: #fff;
+        position: absolute;
+        top: 11px;
+        right: 0;
+        transition: all 0.3s ease-in;
+    }
+    .burger-toggle {
+        width: 33px;
+        height: 33px;
+    }
+
+    .burger-toggle.close {
+        &::after {
+            content: "";
+            width: 33px;
+            height: 3px;
+            background-color: #fff;
+            position: absolute;
+            top: 11px;
+            right: 0;
+            transform: rotate(45deg);
+        }
+        &::before {
+            content: "";
+            width: 33px;
+            height: 3px;
+            background-color: #fff;
+            position: absolute;
+            top: 11px;
+            transform: rotate(-45deg);
+        }
+    }
+}
