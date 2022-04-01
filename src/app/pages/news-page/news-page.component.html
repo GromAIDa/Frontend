@@ -75,7 +75,7 @@
                 </ng-template>
             </swiper>
         </div>
-        <div class="donat-info">
+        <div class="donat-info" >
             <h3>The amount donated</h3>
             <span>{{currentReport.price | currency:'USD':'symbol-narrow':'1.0' }}</span>
             <p>{{currentReport.description}}</p>
@@ -90,7 +90,7 @@
 
         </div>
     </div>
-    <div class="middle-section">
+    <div class="middle-section" *ngIf="!burgerService.isOpenedNav">
         <div class="check-item">
             <div class="radio-label">Last Week</div>
             <input type="radio" name="time" id="">
@@ -146,7 +146,7 @@
     </div>
 </div>
 
-<div class="campaign-join">
+<div class="campaign-join" *ngIf="!burgerService.isOpenedNav">
     <div class="bg-image"><img src="../../../assets/Rectangle 66.png" alt=""></div>
     <div class="content" *ngIf="totalDontions">
         <div class="short-info">
