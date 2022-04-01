@@ -132,7 +132,6 @@ app-home-page {
 .companies {
     background: #2e3134;
     width: 100%;
-    max-height: 100px;
 
     .companiesSwiper {
         width: 100%;
@@ -806,6 +805,9 @@ app-home-page {
     }
     .join-container .join-box .join-us .join-info .info-block {
         padding: 0 0 0 23px;
+    }
+    .companies{
+        max-height: 100px;
     }
     .companies .company {
         display: flex;
