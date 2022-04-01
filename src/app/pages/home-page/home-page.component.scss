@@ -387,11 +387,7 @@ app-home-page {
         max-width: unset !important;
     }
 
-    .donate {
-        padding-left: 80px !important;
-        margin-top: 32px !important;
-        max-width: unset;
-    }
+    
 
     .donate__create {
         margin-top: 43px;
@@ -408,6 +404,10 @@ app-home-page {
     }
     .donates-container {
         .donate {
+                padding-left: 80px !important;
+                margin-top: 32px !important;
+                max-width: unset;
+            
             .donate__create {
                 display: none;
             }

@@ -18,16 +18,24 @@ header {
   margin: 40px auto 80px auto;
   display: flex;
   justify-content: space-between;
+  font-size: 18px;
+  line-height: 23px;
   a {
+    color: #494c4e;
+
     cursor: pointer;
     &:hover {
       color: #9ea8ab;
     }
   }
+  span {
+    color: #494c4e;
+  }
   .current {
     margin-right: 10px;
-    border-bottom: 2px solid;
+    border-bottom: 2px solid #a8a8a8;
     padding: 0 10px 5px 10px;
+    color: #a8a8a8;
   }
   .last {
     margin-left: 20px;
@@ -224,19 +232,17 @@ nav {
   overflow: visible;
 
   .swiper-slide {
-    background-position: center;
-    background-size: cover;
-    width: 500px;
-    height: 500px;
-    overflow: hidden;
-    border-radius: 10px;
-  }
-
-  .swiper-slide img {
-    display: block;
-    width: 100%;
-    height: 100%;
-    object-fit: contain;
+    .report-item {
+      width: 500px;
+      height: 500px;
+      overflow: hidden;
+      border-radius: 10px;
+      img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+    }
   }
 
   .swiper-button-prev,
@@ -250,19 +256,19 @@ nav {
 
   .swiper-button-prev,
   .swiper-rtl .swiper-button-next {
-    left: -70px;
+    left: -60px;
     right: auto;
   }
 
   .swiper-button-next,
   .swiper-rtl .swiper-button-prev {
-    right: -70px;
+    right: -60px;
     left: auto;
   }
 }
 
 .swiper-container {
-  margin-top: 130px;
+  margin-top: 103px;
   padding-left: 30px;
   padding-right: 30px;
 
@@ -282,7 +288,7 @@ nav {
         font-size: 36px;
         line-height: 45px;
         text-transform: capitalize;
-
+        margin-bottom: 15px;
         color: #878d8e;
       }
       span {
@@ -291,12 +297,15 @@ nav {
         line-height: 81px;
         margin-bottom: 32px;
         color: #cbb023;
+        &.price-mobile {
+          display: none;
+        }
       }
       p {
         font-weight: 400;
         font-size: 22px;
         line-height: 28px;
-        margin-bottom: 32px;
+        margin: 32px 0;
         color: #5f6668;
       }
       ul {
@@ -305,8 +314,8 @@ nav {
         line-height: 30px;
         padding-left: 22px;
         color: #9ea8ab;
+        max-width: 630px;
         li {
-          width: 80%;
           display: flex;
           justify-content: space-between;
           position: relative;
@@ -319,6 +328,24 @@ nav {
             position: absolute;
             left: -18px;
             top: calc(50% - 2px);
+          }
+        }
+      }
+      div {
+        max-width: 630px;
+        button {
+          float: right;
+          font-weight: 600;
+          font-size: 25px;
+          line-height: 32px;
+          text-transform: uppercase;
+          background: none;
+          border: none;
+          color: #494c4e;
+          align-self: flex-end;
+          margin-top: 28px;
+          img {
+            margin-left: 20px;
           }
         }
       }
@@ -336,14 +363,18 @@ nav {
       align-items: center;
       margin: 0 13px;
 
-      input[type="radio"]:checked + .check-item.radio-label {
-        color: red;
+      //  .radio-label + input[name="time"]:checked {
+      //   color: red;
+      // }
+      .radio-label {
+        font-size: 18px;
+        line-height: 23px;
       }
-
       input[type="radio"] {
         cursor: pointer;
         margin-top: 38px;
         position: relative;
+
         &::after {
           content: "";
           position: absolute;
@@ -363,7 +394,7 @@ nav {
             background-color: #a8a8a8;
             border-radius: 50%;
             top: -4px;
-            left: -4px;
+            left: -2px;
           }
           &::before {
             content: "";
@@ -373,7 +404,7 @@ nav {
             border: 1px solid #a8a8a8;
             border-radius: 50%;
             top: -18px;
-            left: -18px;
+            left: -16px;
           }
         }
       }
@@ -386,7 +417,7 @@ nav {
   height: 200px;
   margin-top: 60px;
   .swiper-slide {
-    width: 200px !important;
+    width: 200px;
     height: 200px;
     overflow: hidden;
     border-radius: 10px;
@@ -417,7 +448,7 @@ nav {
       .content {
         position: absolute;
         top: 0;
-        padding: 33px 26px;
+        padding: 23px 20px;
         height: 200px;
         background: rgba(20, 22, 24, 0.8);
         backdrop-filter: blur(5px);
@@ -769,6 +800,42 @@ nav {
     width: 100%;
     justify-content: space-between;
   }
+  .mySwiper {
+    width: 400px;
+    height: 400px;
+    .swiper-slide .report-item {
+      width: 400px;
+      height: 400px;
+      overflow: hidden;
+      border-radius: 10px;
+    }
+  }
+  .bottomSwiper {
+    height: 170px;
+    margin-top: 44px;
+    .swiper-slide .item {
+      width: 170px;
+      height: 170px;
+
+      .background-image {
+        width: 100%;
+        height: 100%;
+      }
+      .content {
+        padding: 18px 16px;
+        height: 100%;
+        width: 100%;
+      }
+    }
+  }
+  .paginations {
+    width: 500px;
+    margin: 33px auto 60px auto;
+    display: flex;
+    justify-content: space-between;
+    font-size: 18px;
+    line-height: 23px;
+  }
 }
 @media screen and (max-width: 1024px) {
   .reports-gallery {
@@ -803,13 +870,14 @@ nav {
     }
   }
   .swiper-container {
+    margin-top: 94px;
     .top-section {
       flex-direction: column;
       .top-swiper {
         max-width: 100%;
       }
       .donat-info {
-        max-width: 500px;
+        max-width: 560px;
         width: 100%;
         margin: auto;
         margin-top: 50px;
@@ -828,14 +896,63 @@ nav {
   .top-background-2 .background-blur .donates-container .donate {
     margin-top: 35px;
   }
+  .mySwiper {
+    width: 500px;
+    height: 500px;
+    .swiper-slide .report-item {
+      width: 500px;
+      height: 500px;
+      overflow: hidden;
+      border-radius: 10px;
+    }
+  }
+  .swiper-container .top-section .donat-info {
+    h3 {
+      margin-bottom: 0;
+    }
+    p {
+      margin-top: 10px;
+      margin-bottom: 20px;
+    }
+  }
+  .swiper-container .middle-section {
+    margin-top: 60px;
+  }
 }
 
 @media screen and (max-width: 767px) {
+  .campaign-join {
+    margin-top: 47px;
+  }
+  .mySwiper .swiper-button-next,
+  .mySwiper .swiper-rtl .swiper-button-prev {
+    right: -56px;
+    left: auto;
+  }
+  .mySwiper .swiper-button-prev,
+  .mySwiper .swiper-rtl .swiper-button-next {
+    left: -56px;
+    right: auto;
+  }
+  .paginations {
+    max-width: 480px;
+    width: 100%;
+  }
   .bottomSwiper {
-    .swiper-slide {
-      width: 50% !important;
-      .item {
-        margin: auto;
+    height: 200px;
+    margin-top: 44px;
+    .swiper-slide .item {
+      width: 200px;
+      height: 200px;
+
+      .background-image {
+        width: 100%;
+        height: 100%;
+      }
+      .content {
+        padding: 18px 16px;
+        height: 100%;
+        width: 100%;
       }
     }
   }
@@ -920,16 +1037,10 @@ nav {
   .swiper-container {
     .top-section {
       flex-direction: column;
+      .swiper-wrapper {
+      }
       .top-swiper {
-        max-width: calc(100vw - 150px);
-        margin: auto;
-        .mySwiper {
-          width: 100%;
-          height: fit-content;
-          .swiper-slide {
-            height: auto;
-          }
-        }
+        overflow: hidden;
       }
       .donat-info {
         max-width: 500px;
@@ -1054,13 +1165,160 @@ nav {
 }
 
 @media screen and (max-width: 580px) {
+  .swiper-container {
+    margin-top: 55px;
+  }
+  .swiper-container .top-section .donat-info {
+    margin-top: 30px;
+  }
+  .mySwiper {
+    width: 250px;
+    height: 250px;
+    .swiper-slide .report-item {
+      width: 250px;
+      height: 250px;
+      overflow: hidden;
+      border-radius: 10px;
+    }
+  }
+  .swiper-container .top-section .donat-info span.price-mobile {
+    display: block;
+  }
+  .swiper-container .top-section .donat-info span {
+    display: none;
+  }
+  .swiper-container .top-section .donat-info p {
+    margin-top: 10px;
+    margin-bottom: 9px;
+  }
+  .swiper-container .top-section .donat-info ul {
+    max-width: 260px;
+    margin: 0 auto;
+  }
+  .swiper-container .top-section .donat-info div button img {
+    margin-left: 10px;
+    width: 38px;
+  }
+  .swiper-container .top-section .donat-info div button {
+    font-size: 10px;
+    line-height: 12px;
+
+    margin-top: 13px;
+  }
+  .swiper-container .middle-section .check-item .radio-label {
+    font-size: 10px;
+    line-height: 12px;
+  }
+  .swiper-container .middle-section .check-item input[type="radio"] {
+    cursor: pointer;
+    margin-top: 21px;
+    position: relative;
+  }
+  .swiper-container .middle-section .check-item input[type="radio"] {
+    cursor: pointer;
+    margin-top: 21px;
+    position: relative;
+    width: 10px;
+    height: 10px;
+  }
+  .swiper-container .middle-section .check-item input[type="radio"]:checked::before {
+    content: "";
+    position: absolute;
+    width: 25px;
+    height: 25px;
+    border: 1px solid #a8a8a8;
+    border-radius: 50%;
+    top: -9px;
+    left: -8.5px;
+  }
+  .swiper-container .middle-section .check-item input[type="radio"]:checked::after {
+    content: "";
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    background-color: #a8a8a8;
+    border-radius: 50%;
+    top: 0px;
+    left: 0px;
+  }
+  .swiper-container .middle-section .check-item input[type="radio"]::after {
+    content: "";
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    background-color: #494c4e;
+    border-radius: 50%;
+    top: 0px;
+    left: 0px;
+  }
+  .swiper-container .middle-section {
+    margin-top: 33px;
+  }
+  .paginations {
+    width: 500px;
+    margin: 33px auto 60px auto;
+    display: flex;
+    justify-content: space-between;
+    font-size: 10px;
+    line-height: 13px;
+    max-width: 260px;
+  }
   .bottomSwiper {
+    height: 110px;
+    margin-top: 22px;
     .swiper-slide {
-      width: 100% !important;
+      width: 110px;
+      height: 110px;
       .item {
-        margin: auto;
+        width: 110px;
+        height: 110px;
+
+        .background-image {
+          width: 100%;
+          height: 100%;
+        }
+        .content {
+          padding: 12px 11px;
+          height: 100%;
+          width: 100%;
+          h3 {
+            font-size: 8px;
+            line-height: 10px;
+            margin-bottom: 0;
+          }
+          span {
+            font-size: 14px;
+            line-height: 18px;
+            margin: 4px 0;
+          }
+          p {
+            font-size: 5px;
+            line-height: 6px;
+          }
+        }
       }
     }
+  }
+  .mySwiper .swiper-button-prev::after,
+  .mySwiper .swiper-button-next::after {
+    font-size: 30px;
+  }
+  .mySwiper .swiper-button-next,
+  .mySwiper .swiper-rtl .swiper-button-prev {
+    right: -36px;
+    left: auto;
+  }
+  .mySwiper .swiper-button-prev,
+  .mySwiper .swiper-rtl .swiper-button-next {
+    left: -36px;
+    right: auto;
+  }
+  .paginations {
+    margin: 33px auto 36px auto;
+  }
+  .campaign-join {
+   
+    margin-top: 0px;
   }
   .top-background-2 .background-blur .donates-container .donate__create.mobile {
     max-width: 300px;
