@@ -1144,6 +1144,7 @@ nav {
   .top-background-2 .background-blur .donates-container .donate {
     margin-top: 40px;
     padding-left: 0;
+    padding: 0;
   }
   .top-background-2 .background-blur .donates-container .gallery-flex .reports-gallery .first-gallery {
     margin-top: 80px;
@@ -1317,8 +1318,19 @@ nav {
     margin: 33px auto 36px auto;
   }
   .campaign-join {
-   
     margin-top: 0px;
+  }
+  .long-info {
+    max-width: 100%;
+    padding: 0 44px;
+  }
+  .campaign-join .content .long-info p {
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 14px;
+    margin-top: 17px;
+    color: #808587;
+    margin-bottom: 35px;
   }
   .top-background-2 .background-blur .donates-container .donate__create.mobile {
     max-width: 300px;

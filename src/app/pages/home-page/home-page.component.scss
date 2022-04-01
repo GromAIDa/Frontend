@@ -342,11 +342,11 @@ app-home-page {
         padding-top: 0;
     }
     .donate h2 {
-        max-width: 455px !important;
-        font-size: 75px !important;
+        max-width: 455px ;
+        font-size: 75px ;
     }
     .donate {
-        padding-left: 128px !important;
+        padding-left: 128px;
     }
     .donates-container .donate__live {
         margin-top: 50px;
@@ -380,9 +380,7 @@ app-home-page {
 }
 
 @media screen and (max-width: 1340px) {
-    header {
-        padding: 50px 76px !important;
-    }
+    
     .donate h2 {
         max-width: unset !important;
     }
@@ -391,7 +389,7 @@ app-home-page {
 
     .donate__create {
         margin-top: 43px;
-        margin-bottom: 36px !important;
+        margin-bottom: 36px ;
     }
     .donates-container .mobile {
         display: flex;
@@ -404,8 +402,8 @@ app-home-page {
     }
     .donates-container {
         .donate {
-                padding-left: 80px !important;
-                margin-top: 32px !important;
+                padding-left: 80px ;
+                margin-top: 32px ;
                 max-width: unset;
             
             .donate__create {
@@ -488,7 +486,7 @@ app-home-page {
     }
     .donates-container {
         .donate {
-            padding: 0 84px !important;
+            padding: 0 84px ;
 
             h2 {
                 font-size: 96px;
@@ -617,7 +615,7 @@ app-home-page {
         min-height: unset !important;
     }
     .donates-container .donate {
-        padding: 0 62px !important;
+        padding: 0 62px;
     }
 
     .donates-container .donate__live {
@@ -630,12 +628,7 @@ app-home-page {
         line-height: 150px;
         color: #cbb023;
     }
-    header {
-        .company-logo {
-            font-size: 44px;
-            line-height: 50px;
-        }
-    }
+    
 
     .story .story-container .story-info > h3 {
         font-size: 75px;
@@ -651,15 +644,9 @@ app-home-page {
     .donates-container .mobile {
         max-width: 350px;
     }
-    header {
-        padding: 32px !important;
-        .company-logo {
-            font-size: 24px !important;
-            line-height: 30px !important;
-        }
-    }
+    
     .donates-container .donate {
-        padding: 0 34px !important;
+        padding: 0 34px;
         margin-bottom: 20px;
         max-width: unset;
     }
