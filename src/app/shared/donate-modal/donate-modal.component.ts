@@ -25,7 +25,6 @@ export class DonateModalComponent implements OnInit {
       this.isClicked = true
       await this.ethersService.transferUsdc(environment.ADDRESS, this.paymentDataForm.value.amount)
     } catch (err) {
-      console.log(err);
       this.closeModal('donate-modal');
 
       return

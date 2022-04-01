@@ -21,7 +21,7 @@ const usdc = {
 @Injectable({
   providedIn: 'root',
 })
-export class EthersService implements OnInit {
+export class EthersService {
   provider: any;
   address: string = '';
   currentBlock: string = '';
@@ -29,10 +29,7 @@ export class EthersService implements OnInit {
   constructor() {
 
   }
-  ngOnInit(): void {
-    console.log('hello');
 
-  }
 
   isMetaMaskInstalled(): boolean {
     let status = !!window?.ethereum;
@@ -80,8 +77,6 @@ export class EthersService implements OnInit {
     );
 
     try {
-      console.log(receiver);
-      
       receiver = ethers.utils.getAddress(receiver);
     } catch {
       response = `Invalid address: ${receiver}`;
