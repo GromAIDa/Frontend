@@ -4,13 +4,15 @@ import { SharedModule } from '../../shared/shared.module';
 
 import { GoodsPageComponent } from './goods.component';
 import { GoodsPageRoutingModule } from './goods-routing.module';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [GoodsPageComponent],
   imports: [
     CommonModule,
     GoodsPageRoutingModule,
-    SharedModule
+    SharedModule,
+    FormsModule
   ],
 })
 export class GoodsPageModule {}

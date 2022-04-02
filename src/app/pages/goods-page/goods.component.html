@@ -3,17 +3,8 @@
         <div class="company-logo"><img src="../../../assets/Logotype.svg" alt=""></div>
         <div class="goods-categories">
             <ul class="list">
-                <li class="item"><input type="radio" name="good-category">
-                    <div>MEDICAL GOODS</div>
-                </li>
-                <li class="item"><input type="radio" name="good-category">
-                    <div>MEDICAL GOODS</div>
-                </li>
-                <li class="item"><input type="radio" name="good-category">
-                    <div>MEDICAL GOODS</div>
-                </li>
-                <li class="item"><input type="radio" name="good-category">
-                    <div>MEDICAL GOODS</div>
+                <li class="item" *ngFor="let type of goodsTypes"><input type="radio" name="good-category" (click)="setCurrentType(type)">
+                    <div>{{type}}</div>
                 </li>
             </ul>
         </div>
@@ -24,14 +15,14 @@
             <span class="title">List of necessary goods</span>
             <div class="search">
                 <img src="../../../assets/Search.svg" alt="">
-                <input type="text" name="" id="">
+                <input type="text" [ngModel]='searchTerm' (ngModelChange)='searchTermChanged.next($event)'/> 
             </div>
         </div>
         <div class="goods-list">
-            <div class="items">
-                <div class="item">
+            <div class="items" *ngIf="goods">
+                <div class="item" *ngFor="let goodsItem of goods.docs">
                     <div class="image">
-                        <img src="../../../assets/Rectangle 66.png" alt="">
+                        <img [src]="goodsItem.photo || noPhotoUrl" alt="">
                     </div>
                     <div class="info">
                         <div class="headers">
@@ -39,34 +30,19 @@
                             <div>Unit of measurement</div>
                             <div>Quantity</div>
                         </div>
-                        <div class="name">Name</div>
-                        <div class="units">kg</div>
-                        <div class="quantity">400</div>
+                        <div class="name">{{goodsItem.productName}}</div>
+                        <div class="units">{{goodsItem.packing}}</div>
+                        <div class="quantity">{{goodsItem.count}}</div>
                     </div>
                 </div>
-                <div class="item">
-                    <div class="image">
-                        <img src="../../../assets/Rectangle 66.png" alt="">
-                    </div>
-                    <div class="info">
-                        <div class="headers">
-                            <div>Goods name</div>
-                            <div>Unit of measurement</div>
-                            <div>Quantity</div>
-                        </div>
-                        <div class="name">Name</div>
-                        <div class="units">kg</div>
-                        <div class="quantity">400</div>
-                    </div>
-                    
-                </div>
+                
             </div>
         </div>
         <div class="paginations" *ngIf="goods">
             <a (click)="getGoods(1)">First</a>
             <a (click)="getGoods(goods.prevPage)">Previous</a>
             <span>
-                <span class="current">{{goods?.page}}</span> of <span class="last">{{goods?.totalPages}}</span>
+                <span class="current">{{goods.page}}</span> of <span class="last">{{goods.totalPages}}</span>
             </span>
             <a (click)="getGoods(goods.nextPage)">Next</a>
             <a (click)="getGoods(goods.totalPages)">Last</a>
