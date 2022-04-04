@@ -58,7 +58,7 @@
     }
     .right-box {
         width: 72.4%;
-        padding: 100px 160px 68px 100px;
+        padding: 100px 83px 68px 100px;
         .top-menu {
             display: flex;
             justify-content: space-between;
@@ -156,7 +156,9 @@
 
                         .name,
                         .units,
-                        .quantity {
+                        .quantity,
+                        .size,
+                        .bought{
                             font-weight: 400;
                             font-size: 25px;
                             line-height: 32px;
@@ -168,6 +170,14 @@
                             width: 100%;
                             text-transform: capitalize;
                         }
+                        .size{
+                            img{
+                                margin-bottom: 6px;
+                            }
+                        }
+                        .bought{
+                            margin-right: 20px;
+                        }
 
                         &::after {
                             content: "";
@@ -175,7 +185,7 @@
                             bottom: -30px;
                             left: 0;
                             width: 100%;
-                            border: 1px solid #3b3e41;
+                            border-bottom: 1px solid #3b3e41;
                             border-radius: 1px;
                         }
                     }

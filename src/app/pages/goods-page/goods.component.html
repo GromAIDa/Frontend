@@ -33,11 +33,15 @@
                         <div class="headers">
                             <div>Goods name</div>
                             <div>Unit of measurement</div>
+                            <div>Size</div>
                             <div>Quantity</div>
+                            <div>Bought</div>
                         </div>
                         <div class="name">{{goodsItem.productName}}</div>
                         <div class="units">{{goodsItem.packing}}</div>
+                        <div class="size">{{goodsItem.size}}<img *ngIf="!goodsItem.size" src="../../../assets/noneIcon.svg"></div>
                         <div class="quantity">{{goodsItem.count}}</div>
+                        <div class="bought"><img [src]="goodsItem.isBought ? '../../../assets/trueIcon.svg': '../../../assets/falseIcon.svg'" alt=""></div>
                     </div>
                 </div>
 
