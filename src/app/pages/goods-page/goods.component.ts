@@ -48,6 +48,11 @@ export class GoodsPageComponent implements OnInit {
         if (page !== null) {
             this.apiService.getGoods({ page }, { query: this.searchTerm, type: this.currentType }).subscribe((responce) => {
                 this.goods = responce.data;
+                window.scroll({ 
+                    top: 0, 
+                    left: 0, 
+                    behavior: 'smooth' 
+             });
             });
         }
     }
@@ -55,6 +60,7 @@ export class GoodsPageComponent implements OnInit {
         this.apiService.getGoodsTypes().subscribe((responce) => {
             this.goodsTypes = responce.data;
             console.log(this.goodsTypes);
+            this.setCurrentType(this.goodsTypes[0])
         })
     }
     setCurrentType(type: string): void {
