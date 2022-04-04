@@ -1,9 +1,12 @@
 <div class="goods-container">
     <div class="left-box">
-        <div class="company-logo"><img src="../../../assets/Logotype.svg" alt=""></div>
+        <a routerLink="/">
+            <div class="company-logo"><img src="../../../assets/Logotype.svg" alt=""></div>
+        </a>
         <div class="goods-categories">
             <ul class="list">
-                <li class="item" *ngFor="let type of goodsTypes"><input type="radio" name="good-category" (click)="setCurrentType(type)">
+                <li class="item" *ngFor="let type of goodsTypes" (click)="setCurrentType(type)"><input type="radio" name="good-category"
+                         [checked]="currentType === type">
                     <div>{{type}}</div>
                 </li>
             </ul>
@@ -11,11 +14,13 @@
     </div>
     <div class="right-box">
         <div class="top-menu">
-            <a routerLink="/news"><div class="back-button">news</div></a>
+            <a routerLink="/news">
+                <div class="back-button">news</div>
+            </a>
             <span class="title">List of necessary goods</span>
             <div class="search">
                 <img src="../../../assets/Search.svg" alt="">
-                <input type="text" [ngModel]='searchTerm' (ngModelChange)='searchTermChanged.next($event)'/> 
+                <input type="text" [ngModel]='searchTerm' (ngModelChange)='searchTermChanged.next($event)' />
             </div>
         </div>
         <div class="goods-list">
@@ -35,7 +40,7 @@
                         <div class="quantity">{{goodsItem.count}}</div>
                     </div>
                 </div>
-                
+
             </div>
         </div>
         <div class="paginations" *ngIf="goods">
