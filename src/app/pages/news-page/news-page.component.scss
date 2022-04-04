@@ -362,6 +362,7 @@ nav {
       flex-direction: column;
       align-items: center;
       margin: 0 13px;
+      cursor: pointer;
 
       //  .radio-label + input[name="time"]:checked {
       //   color: red;
@@ -403,8 +404,8 @@ nav {
             height: 45px;
             border: 1px solid #a8a8a8;
             border-radius: 50%;
-            top: -18px;
-            left: -16px;
+            top: -19px;
+            left: -17px;
           }
         }
       }

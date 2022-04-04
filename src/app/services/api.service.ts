@@ -22,7 +22,7 @@ export class ApiService {
 
   public getReports(req: PaginationsRequest): Observable<Response<Pagination<Report[]>>> {
     return this.httpClient.get<Response<Pagination<Report[]>>>(
-      `${this.apiUrl}/report?page=${req.page || 1}&limit=${req.limit || 10}`,
+      `${this.apiUrl}/report?page=${req.page || 1}&limit=${req.limit || 10}&time=${req.time}`,
     );
   }
 
@@ -37,6 +37,7 @@ export class ApiService {
   }
 
   public getGoods(req: PaginationsRequest, search: SearchRequest): Observable<Response<Pagination<GoodsItem[]>>> {
-    return this.httpClient.get<Response<Pagination<GoodsItem[]>>>(`${this.apiUrl}/products?page=${req.page || 1}&limit=${req.limit || 10}&query=${search.query || ''}${search.type ? '&type='+search.type : ''}`)
+    return this.httpClient.get<Response<Pagination<GoodsItem[]>>>(
+      `${this.apiUrl}/products?page=${req.page || 1}&limit=${req.limit || 10}&query=${search.query || ''}${search.type ? '&type=' + search.type : ''}`)
   }
 }

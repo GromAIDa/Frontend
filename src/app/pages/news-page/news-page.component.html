@@ -97,17 +97,17 @@
         </div>
     </div>
     <div class="middle-section" *ngIf="!burgerService.isOpenedNav">
-        <div class="check-item">
+        <div class="check-item" (click)="setCurrentTimePeriod('week')">
             <div class="radio-label">Last Week</div>
-            <input type="radio" name="time" id="">
+            <input type="radio" name="time" id="" [checked]="currentTimePeriod === 'week'">
         </div>
-        <div class="check-item">
+        <div class="check-item" (click)="setCurrentTimePeriod('mounth')">
             <div class="radio-label">Last Mounth</div>
-            <input type="radio" name="time" id="">
+            <input type="radio" name="time" id="" [checked]="currentTimePeriod === 'mounth'">
         </div>
-        <div class="check-item">
+        <div class="check-item" (click)="setCurrentTimePeriod('all')">
             <div class="radio-label">All Time</div>
-            <input type="radio" name="time" id="" checked>
+            <input type="radio" name="time" id="" [checked]="currentTimePeriod === 'all'">
         </div>
     </div>
     <div class="bottom-section" *ngIf="reports && !burgerService.isOpenedNav">
