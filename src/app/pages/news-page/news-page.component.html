@@ -82,7 +82,7 @@
             <span class="price-mobile">{{currentReport.price | currency:'USD':'symbol-narrow':'1.0' }}</span>
             <ul>
                 <li *ngFor="let product of currentReport.products">
-                    <div>{{product.productType}}</div>
+                    <div>{{product.productName}}</div>
                     <div>{{product.count}}pcs | {{product.price | currency:'USD':'symbol-narrow':'1.0' }}</div>
                 </li>
             </ul>
