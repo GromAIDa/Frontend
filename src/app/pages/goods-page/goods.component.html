@@ -5,14 +5,24 @@
         </a>
         <div class="goods-categories">
             <ul class="list">
-                <li class="item" *ngFor="let type of goodsTypes" (click)="setCurrentType(type)"><input type="radio" name="good-category"
-                         [checked]="currentType === type">
+                <li class="item" *ngFor="let type of goodsTypes" (click)="setCurrentType(type)"
+                    [ngClass]="{'unChecked': currentType !== type}">
+                    <input type="radio" name="good-category" [checked]="currentType === type" [ngClass]="{'checked': currentType === type}">
                     <div>{{type}}</div>
                 </li>
             </ul>
         </div>
     </div>
     <div class="right-box">
+        <div class="header-mobile">
+            <a routerLink="/">
+                <div class="company-logo"><img src="../../../assets/Logotype.svg" alt=""></div>
+            </a>
+            <div class="search">
+                <img src="../../../assets/Search.svg" alt="">
+                <input type="text" [ngModel]='searchTerm' (ngModelChange)='searchTermChanged.next($event)' />
+            </div>
+        </div>
         <div class="top-menu">
             <a routerLink="/news">
                 <div class="back-button">news</div>
@@ -22,6 +32,15 @@
                 <img src="../../../assets/Search.svg" alt="">
                 <input type="text" [ngModel]='searchTerm' (ngModelChange)='searchTermChanged.next($event)' />
             </div>
+        </div>
+        <div class="goods-categories-mobile">
+            <ul class="list">
+                <li class="item" *ngFor="let type of goodsTypes" (click)="setCurrentType(type)"
+                    [ngClass]="{'unChecked': currentType !== type}">
+                    <div>{{type}}</div>
+                    <input type="radio" name="good-category" [checked]="currentType === type" [ngClass]="{'checked': currentType === type}">
+                </li>
+            </ul>
         </div>
         <div class="goods-list">
             <div class="items" *ngIf="goods">
@@ -37,11 +56,17 @@
                             <div>Quantity</div>
                             <div>Bought</div>
                         </div>
-                        <div class="name">{{goodsItem.productName}}<img *ngIf="!goodsItem.productName" class="noData" src="../../../assets/noneIcon.svg"></div>
-                        <div class="units">{{goodsItem.packing}}<img *ngIf="!goodsItem.packing" class="noData" src="../../../assets/noneIcon.svg"></div>
-                        <div class="size">{{goodsItem.size}}<img *ngIf="!goodsItem.size" class="noData" src="../../../assets/noneIcon.svg"></div>
-                        <div class="quantity">{{goodsItem.count}}<img *ngIf="!goodsItem.count" class="noData" src="../../../assets/noneIcon.svg"></div>
-                        <div class="bought"><img [src]="goodsItem.isBought ? '../../../assets/trueIcon.svg': '../../../assets/falseIcon.svg'" alt=""></div>
+                        <div class="name">{{goodsItem.productName}}<img *ngIf="!goodsItem.productName" class="noData"
+                                src="../../../assets/noneIcon.svg"></div>
+                        <div class="units">{{goodsItem.packing}}<img *ngIf="!goodsItem.packing" class="noData"
+                                src="../../../assets/noneIcon.svg"></div>
+                        <div class="size">{{goodsItem.size}}<img *ngIf="!goodsItem.size" class="noData"
+                                src="../../../assets/noneIcon.svg"></div>
+                        <div class="quantity">{{goodsItem.count}}<img *ngIf="!goodsItem.count" class="noData"
+                                src="../../../assets/noneIcon.svg"></div>
+                        <div class="bought"><img
+                                [src]="goodsItem.isBought ? '../../../assets/trueIcon.svg': '../../../assets/falseIcon.svg'"
+                                alt=""></div>
                     </div>
                 </div>
 
