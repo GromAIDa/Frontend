@@ -10,7 +10,7 @@ app-home-page {
     }
 }
 .top-background {
-    background: url(../../../assets/pict.png);
+    background: url(../../../assets/home-bg-desktop.png);
     background-size: cover;
 }
 .background-blur {
@@ -260,6 +260,11 @@ app-home-page {
                 height: 100%;
                 object-fit: cover;
             }
+            .laptop,
+            .tablet,
+            .mobile {
+                display: none;
+            }
         }
         .join-us {
             position: absolute;
@@ -342,8 +347,8 @@ app-home-page {
         padding-top: 0;
     }
     .donate h2 {
-        max-width: 455px ;
-        font-size: 75px ;
+        max-width: 455px;
+        font-size: 75px;
     }
     .donate {
         padding-left: 128px;
@@ -380,16 +385,13 @@ app-home-page {
 }
 
 @media screen and (max-width: 1340px) {
-    
     .donate h2 {
         max-width: unset !important;
     }
 
-    
-
     .donate__create {
         margin-top: 43px;
-        margin-bottom: 36px ;
+        margin-bottom: 36px;
     }
     .donates-container .mobile {
         display: flex;
@@ -402,10 +404,10 @@ app-home-page {
     }
     .donates-container {
         .donate {
-                padding-left: 80px ;
-                margin-top: 32px ;
-                max-width: unset;
-            
+            padding-left: 80px;
+            margin-top: 32px;
+            max-width: unset;
+
             .donate__create {
                 display: none;
             }
@@ -449,7 +451,26 @@ app-home-page {
         margin: 50px 40px !important;
     }
 }
-
+@media screen and(max-width:1280px) {
+    .top-background {
+        background: url(../../../assets/home-bg-laptop.png);
+        background-size: cover;
+    }
+    .join-container {
+        .join-box {
+            .bg-image {
+                .laptop{
+                    display: block;
+                }
+                .desktop,
+                .tablet,
+                .mobile {
+                    display: none;
+                }
+            }
+        }
+    }
+}
 @media screen and (max-width: 1040px) {
     .join-us {
         max-width: unset !important;
@@ -480,13 +501,36 @@ app-home-page {
 }
 
 @media screen and (max-width: 835px) {
+    .top-background {
+        background: url(../../../assets/home-bg-tablet.png);
+        background-size: cover;
+    }
+    .join-container {
+        .bg-image-mobile{
+            .mobile{
+                display: none;
+            }
+        }
+        .join-box {
+            .bg-image {
+                .tablet{
+                    display: block;
+                }
+                .desktop,
+                .laptop,
+                .mobile {
+                    display: none;
+                }
+            }
+        }
+    }
     .top-background,
     .background-blur {
         min-height: unset;
     }
     .donates-container {
         .donate {
-            padding: 0 84px ;
+            padding: 0 84px;
 
             h2 {
                 font-size: 96px;
@@ -628,7 +672,6 @@ app-home-page {
         line-height: 150px;
         color: #cbb023;
     }
-    
 
     .story .story-container .story-info > h3 {
         font-size: 75px;
@@ -644,7 +687,7 @@ app-home-page {
     .donates-container .mobile {
         max-width: 350px;
     }
-    
+
     .donates-container .donate {
         padding: 0 34px;
         margin-bottom: 20px;
@@ -793,7 +836,7 @@ app-home-page {
     .join-container .join-box .join-us .join-info .info-block {
         padding: 0 0 0 23px;
     }
-    .companies{
+    .companies {
         max-height: 100px;
     }
     .companies .company {
@@ -821,6 +864,32 @@ app-home-page {
     .companies .companiesSwiper {
         width: 100%;
         height: 100px;
+    }
+    .top-background {
+        background: url(../../../assets/home-bg-mobile.png);
+        background-size: cover;
+    }
+    .join-container {
+        .bg-image-mobile{
+            .mobile{
+                display: block;
+            }
+            .tablet{
+                display: none;
+            }
+        }
+        .join-box {
+            .bg-image {
+                .mobile{
+                    display: block;
+                }
+                .desktop,
+                .laptop,
+                .tablet {
+                    display: none;
+                }
+            }
+        }
     }
 }
 

@@ -513,6 +513,12 @@ nav {
     height: 100%;
     overflow: hidden;
 
+    .laptop,
+    .tablet,
+    .mobile {
+      display: none;
+    }
+
     img {
       width: 100%;
       height: 100%;
@@ -837,6 +843,18 @@ nav {
     font-size: 18px;
     line-height: 23px;
   }
+  .campaign-join {
+    .bg-image {
+      .laptop{
+        display: block;
+      }
+      .desktop,
+      .tablet,
+      .mobile {
+        display: none;
+      }
+    }
+  }
 }
 @media screen and (max-width: 1024px) {
   .reports-gallery {
@@ -921,6 +939,20 @@ nav {
   }
 }
 
+@media screen and (max-width: 835px) {
+  .campaign-join {
+    .bg-image {
+      .tablet{
+        display: block;
+      }
+      .desktop,
+      .laptop,
+      .mobile {
+        display: none;
+      }
+    }
+  }
+}
 @media screen and (max-width: 767px) {
   .campaign-join {
     margin-top: 47px;
@@ -1336,5 +1368,17 @@ nav {
   .top-background-2 .background-blur .donates-container .donate__create.mobile {
     max-width: 300px;
     margin-top: 0;
+  }
+  .campaign-join {
+    .bg-image {
+      .mobile{
+        display: block;
+      }
+      .desktop,
+      .tablet,
+      .laptop {
+        display: none;
+      }
+    }
   }
 }

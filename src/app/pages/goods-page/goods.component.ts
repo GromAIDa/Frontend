@@ -35,7 +35,6 @@ export class GoodsPageComponent implements OnInit {
             )
             .subscribe(newText => {
                 this.searchTerm = newText;
-                console.log(newText);
                 this.getGoods(1, this.searchTerm, this.currentType)
 
             });
@@ -59,7 +58,6 @@ export class GoodsPageComponent implements OnInit {
     getGoodsTypes(): void {
         this.apiService.getGoodsTypes().subscribe((responce) => {
             this.goodsTypes = responce.data;
-            console.log(this.goodsTypes);
             this.setCurrentType(this.goodsTypes[0])
         })
     }
