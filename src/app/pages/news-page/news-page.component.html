@@ -1,11 +1,11 @@
 <jw-modal id="donate-modal" class="donate-modal">
-    <app-donate-modal></app-donate-modal> 
-  </jw-modal>
+    <app-donate-modal></app-donate-modal>
+</jw-modal>
 
 <div class="top-background top-background-2">
     <div class="background-blur">
         <div class="shadow"></div>
-        <div class="shadow-top"></div>
+
         <app-header></app-header>
         <div class="donates-container">
             <div class="donate">
@@ -20,17 +20,18 @@
             </div>
             <div class="gallery-flex">
                 <div class="reports-gallery" *ngIf="reports">
+                    <div class="shadow-top"></div>
                     <div class="first-gallery">
                         <div class="item" *ngFor="let report of firstMainReports;">
                             <div class="background-image">
                                 <img src="{{imgService.getUrlImg(report.photos[0].photo)}}" alt="">
                             </div>
-                            <div class="content">
+                            <div class="content" (click)="selectDonat(report)">
                                 <h3>The amount donated</h3>
                                 <span>{{report.price | currency:'USD':'symbol-narrow':'1.0' }}</span>
                                 <h3>What was bought</h3>
                                 <p>{{report.description}}</p>
-                                <button (click)="selectDonat(report)">See more</button>
+                                <button>See more</button>
                             </div>
                         </div>
                     </div>
@@ -39,21 +40,21 @@
                             <div class="background-image">
                                 <img src="{{imgService.getUrlImg(report.photos[0].photo)}}" alt="">
                             </div>
-                            <div class="content">
+                            <div class="content" (click)="selectDonat(report)">
                                 <h3>The amount donated</h3>
                                 <span>{{report.price | currency:'USD':'symbol-narrow':'1.0' }}</span>
                                 <h3>What was bought</h3>
                                 <p>{{report.description}}</p>
-                                <button (click)="selectDonat(report)">See more</button>
+                                <button>See more</button>
                             </div>
                         </div>
                     </div>
-                    
+
                 </div>
-                
+
             </div>
             <div class="donate__create mobile">
-                <app-button text="Donate"  (open)="modalService.open('donate-modal')"></app-button>
+                <app-button text="Donate" (open)="modalService.open('donate-modal')"></app-button>
                 <app-button text="Read more" [transparent]="true"></app-button>
             </div>
         </div>
@@ -67,61 +68,74 @@
     <div class="top-section" *ngIf="currentReport && !burgerService.isOpenedNav">
         <div class="top-swiper">
             <swiper [effect]="'fade'" [grabCursor]="true" [navigation]="true" class="mySwiper">
-                <ng-template swiperSlide *ngFor="let image of currentReport.photos; let i = index"><img src={{imgService.getUrlImg(image.photo)}} /></ng-template>
+                <ng-template swiperSlide *ngFor="let image of currentReport.photos; let i = index">
+                    <div class="report-item">
+                        <img src={{imgService.getUrlImg(image.photo)}} />
+                    </div>
+                </ng-template>
             </swiper>
         </div>
         <div class="donat-info">
             <h3>The amount donated</h3>
             <span>{{currentReport.price | currency:'USD':'symbol-narrow':'1.0' }}</span>
             <p>{{currentReport.description}}</p>
+            <span class="price-mobile">{{currentReport.price | currency:'USD':'symbol-narrow':'1.0' }}</span>
             <ul>
                 <li *ngFor="let product of currentReport.products">
-                    <div>{{product.productType}}</div>
+                    <div>{{product.productName}}</div>
                     <div>{{product.count}}pcs | {{product.price | currency:'USD':'symbol-narrow':'1.0' }}</div>
                 </li>
             </ul>
+            <div>
+                <a routerLink="/goods">
+                    <button>List of necessary goods<img src="../../../assets/arrowRight.svg" alt="">
+                    </button>
+                </a>
+                
+            </div>
+
         </div>
     </div>
-    <div class="middle-section">
-        <div class="check-item">
+    <div class="middle-section" *ngIf="!burgerService.isOpenedNav">
+        <div class="check-item" (click)="setCurrentTimePeriod('week')">
             <div class="radio-label">Last Week</div>
-            <input type="radio" name="time" id="">
+            <input type="radio" name="time" id="" [checked]="currentTimePeriod === 'week'">
         </div>
-        <div class="check-item">
+        <div class="check-item" (click)="setCurrentTimePeriod('mounth')">
             <div class="radio-label">Last Mounth</div>
-            <input type="radio" name="time" id="">
+            <input type="radio" name="time" id="" [checked]="currentTimePeriod === 'mounth'">
         </div>
-        <div class="check-item">
+        <div class="check-item" (click)="setCurrentTimePeriod('all')">
             <div class="radio-label">All Time</div>
-            <input type="radio" name="time" id="">
+            <input type="radio" name="time" id="" [checked]="currentTimePeriod === 'all'">
         </div>
     </div>
     <div class="bottom-section" *ngIf="reports && !burgerService.isOpenedNav">
-        <swiper [freeMode]="true" [slidesPerView]="1" class="bottomSwiper" [breakpoints]="{
-            '710': {
-              slidesPerView: 2,
-              spaceBetween: 30
+        <swiper [freeMode]="true" [slidesPerView]="'auto'" class="bottomSwiper" [breakpoints]="{
+            '300': {
+                spaceBetween: 10
+            },
+            '600': {
+              spaceBetween: 15
             },
             '768': {
-              slidesPerView: 3,
-              spaceBetween: 40
+              spaceBetween: 25
             },
-            '1024': {
-              slidesPerView: 8,
+            '1281': {
               spaceBetween: 25
             }
           }">
-            <ng-template *ngFor="let report of reports.docs;" swiperSlide >
+            <ng-template *ngFor="let report of reports.docs;" swiperSlide>
                 <div class="item">
                     <div class="background-image">
                         <img src="{{imgService.getUrlImg(report.photos[0].photo)}}" alt="">
                     </div>
-                    <div class="content">
+                    <div class="content" (click)="selectDonat(report)">
                         <h3>The amount donated</h3>
                         <span>{{report.price | currency:'USD':'symbol-narrow':'1.0' }}</span>
                         <h3>What was bought</h3>
                         <p>{{report.description}}</p>
-                        <button (click)="selectDonat(report)">See more</button>
+                        <button>See more</button>
                     </div>
                 </div>
             </ng-template>
@@ -131,15 +145,20 @@
         <a (click)="getReprots(1)">First</a>
         <a (click)="getReprots(reports.prevPage)">Previous</a>
         <span>
-            <span class="current">{{reports?.page}}</span> | <span class="last">{{reports?.totalPages}}</span>
+            <span class="current">{{reports?.page}}</span> of <span class="last">{{reports?.totalPages}}</span>
         </span>
         <a (click)="getReprots(reports.nextPage)">Next</a>
         <a (click)="getReprots(reports.totalPages)">Last</a>
     </div>
 </div>
 
-<div class="campaign-join">
-    <div class="bg-image"><img src="../../../assets/Rectangle 66.png" alt=""></div>
+<div class="campaign-join" *ngIf="!burgerService.isOpenedNav">
+    <div class="bg-image">
+        <img class="desktop" src="../../../assets/news-bg-desktop.png" alt="">
+        <img class="laptop" src="../../../assets/news-bg-laptop.png" alt="">
+        <img class="tablet" src="../../../assets/news-bg-tablet.png" alt="">
+        <img class="mobile" src="../../../assets/news-bg-mobile.png" alt="">
+    </div>
     <div class="content" *ngIf="totalDontions">
         <div class="short-info">
             <div class="item">
@@ -157,8 +176,9 @@
         </div>
         <div class="long-info">
             <h2>join our campaing!</h2>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. </p>
-            <app-button text="Donate"  (open)="modalService.open('donate-modal')"></app-button>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
+                dolore magna aliqua. </p>
+            <app-button text="Donate" (open)="modalService.open('donate-modal')"></app-button>
         </div>
     </div>
 </div>

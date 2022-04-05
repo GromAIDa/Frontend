@@ -10,6 +10,7 @@ import { ModalService } from '../modal';
   styleUrls: ['./donate-modal.component.scss']
 })
 export class DonateModalComponent implements OnInit {
+  isClicked: boolean = false
   paymentDataForm = new FormGroup({
     address: new FormControl({ value: environment.ADDRESS, disabled: true }),
     amount: new FormControl('300'),
@@ -19,14 +20,17 @@ export class DonateModalComponent implements OnInit {
 
   ngOnInit(): void {
   }
-  async startTransaction() {
+  async startTransaction(e: Event) {
     try {
-      await this.ethersService.transferUsdc(this.paymentDataForm.value.address, this.paymentDataForm.value.amount)
-    } catch ({message}) {
-      if(message === environment.METAMASK_ERRORS.notInstalled){
-          this.errors.push(message)
-      }
+      this.isClicked = true
+      await this.ethersService.transferUsdc(environment.ADDRESS, this.paymentDataForm.value.amount)
+    } catch (err) {
+      this.closeModal('donate-modal');
+
+      return
     }
+    this.isClicked = false
+    this.closeModal('donate-modal');
   }
 
   closeModal(id: string) {

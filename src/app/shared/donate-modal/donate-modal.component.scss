@@ -1,0 +1,26 @@
+.pm-form {
+    form {
+        button {
+            font-weight: 600;
+            font-size: 20px;
+            line-height: 25px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-transform: uppercase;
+            color: #ccdeeb;
+            width: 196px;
+            height: 47px;
+            background: #4a93c8;
+            border-radius: 17.9086px;
+            margin: 0 auto;
+            border: none;
+        }
+        button:disabled{
+            &:hover{
+                filter: unset;
+                cursor: not-allowed;
+            }
+        }
+    }
+}

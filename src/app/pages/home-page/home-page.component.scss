@@ -3,14 +3,14 @@
 @import "~swiper/scss/pagination";
 @import "~swiper/scss/navigation";
 
-app-home-page{
+app-home-page {
     .background-blur {
         background: rgba(25, 28, 30, 0.79);
         backdrop-filter: blur(5px);
     }
 }
 .top-background {
-    background: url(../../../assets/pict.png);
+    background: url(../../../assets/home-bg-desktop.png);
     background-size: cover;
 }
 .background-blur {
@@ -59,6 +59,7 @@ app-home-page{
             rgba(95, 102, 104, 0) 99.97%
         );
         padding-top: 47px;
+        padding-left: 156px;
 
         > h4 {
             font-weight: 500;
@@ -98,7 +99,7 @@ app-home-page{
     display: flex;
     justify-content: space-between;
     width: 100%;
-    padding: 161px 214px 0;
+    padding: 161px 214px 63px;
     flex-wrap: wrap;
 
     .jobs__item {
@@ -131,8 +132,6 @@ app-home-page{
 .companies {
     background: #2e3134;
     width: 100%;
-    max-height: 174px;
-    height: 100%;
 
     .companiesSwiper {
         width: 100%;
@@ -261,6 +260,11 @@ app-home-page{
                 height: 100%;
                 object-fit: cover;
             }
+            .laptop,
+            .tablet,
+            .mobile {
+                display: none;
+            }
         }
         .join-us {
             position: absolute;
@@ -343,12 +347,17 @@ app-home-page{
         padding-top: 0;
     }
     .donate h2 {
-        max-width: 455px !important;
-        font-size: 75px !important;
+        max-width: 455px;
+        font-size: 75px;
     }
     .donate {
-        padding-left: 128px !important;
-        margin-top: 120px !important;
+        padding-left: 128px;
+    }
+    .donates-container .donate__live {
+        margin-top: 50px;
+    }
+    .donates-container .donate {
+        margin-top: 50px;
     }
 
     .jobs-container {
@@ -370,25 +379,52 @@ app-home-page{
     .story-gallery > div {
         margin: 5px;
     }
+    .jobs-container .jobs__item {
+        max-width: 365px;
+    }
 }
 
 @media screen and (max-width: 1340px) {
-    header {
-        padding: 50px 76px !important;
-    }
     .donate h2 {
         max-width: unset !important;
     }
 
-    .donate {
-        padding-left: 80px !important;
-        margin-top: 32px !important;
-        max-width: unset !important;
-    }
-
     .donate__create {
-        margin-top: 43px !important;
-        margin-bottom: 36px !important;
+        margin-top: 43px;
+        margin-bottom: 36px;
+    }
+    .donates-container .mobile {
+        display: flex;
+        width: 100%;
+        margin: auto;
+        margin-bottom: 80px;
+        justify-content: space-between;
+        z-index: 1;
+        max-width: 480px;
+    }
+    .donates-container {
+        .donate {
+            padding-left: 80px;
+            margin-top: 32px;
+            max-width: unset;
+
+            .donate__create {
+                display: none;
+            }
+        }
+        .donate__create-mobile {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            margin-top: 50px;
+            max-width: 563px;
+            width: 100%;
+            margin: 77px auto 30px;
+            button {
+                width: 260px;
+                height: 75px;
+            }
+        }
     }
 
     .donate__live {
@@ -415,7 +451,26 @@ app-home-page{
         margin: 50px 40px !important;
     }
 }
-
+@media screen and(max-width:1280px) {
+    .top-background {
+        background: url(../../../assets/home-bg-laptop.png);
+        background-size: cover;
+    }
+    .join-container {
+        .join-box {
+            .bg-image {
+                .laptop{
+                    display: block;
+                }
+                .desktop,
+                .tablet,
+                .mobile {
+                    display: none;
+                }
+            }
+        }
+    }
+}
 @media screen and (max-width: 1040px) {
     .join-us {
         max-width: unset !important;
@@ -436,16 +491,6 @@ app-home-page{
         min-width: 150px;
     }
 
-    .donates-container .mobile {
-        display: flex;
-        width: 100%;
-        margin: auto;
-        margin-bottom: 80px;
-        justify-content: space-between;
-        z-index: 1;
-        max-width: 480px;
-    }
-
     // app-button {
     //     align-self: flex-start !important;
     // }
@@ -456,13 +501,36 @@ app-home-page{
 }
 
 @media screen and (max-width: 835px) {
+    .top-background {
+        background: url(../../../assets/home-bg-tablet.png);
+        background-size: cover;
+    }
+    .join-container {
+        .bg-image-mobile{
+            .mobile{
+                display: none;
+            }
+        }
+        .join-box {
+            .bg-image {
+                .tablet{
+                    display: block;
+                }
+                .desktop,
+                .laptop,
+                .mobile {
+                    display: none;
+                }
+            }
+        }
+    }
     .top-background,
     .background-blur {
         min-height: unset;
     }
     .donates-container {
         .donate {
-            padding: 0 84px !important;
+            padding: 0 84px;
 
             h2 {
                 font-size: 96px;
@@ -478,19 +546,6 @@ app-home-page{
             padding: 16px 83px !important;
             h4 {
                 margin-left: 44px;
-            }
-        }
-        .donate__create-mobile {
-            display: flex;
-            flex-direction: row;
-            justify-content: space-between;
-            margin-top: 50px;
-            max-width: 563px;
-            width: 100%;
-            margin: 77px auto 30px;
-            button {
-                width: 260px;
-                height: 75px;
             }
         }
     }
@@ -604,7 +659,7 @@ app-home-page{
         min-height: unset !important;
     }
     .donates-container .donate {
-        padding: 0 62px !important;
+        padding: 0 62px;
     }
 
     .donates-container .donate__live {
@@ -616,12 +671,6 @@ app-home-page{
         font-size: 100px;
         line-height: 150px;
         color: #cbb023;
-    }
-    header {
-        .company-logo {
-            font-size: 44px;
-            line-height: 50px;
-        }
     }
 
     .story .story-container .story-info > h3 {
@@ -638,16 +687,11 @@ app-home-page{
     .donates-container .mobile {
         max-width: 350px;
     }
-    header {
-        padding: 32px !important;
-        .company-logo {
-            font-size: 24px !important;
-            line-height: 30px !important;
-        }
-    }
+
     .donates-container .donate {
-        padding: 0 34px !important;
+        padding: 0 34px;
         margin-bottom: 20px;
+        max-width: unset;
     }
     .donates-container .donate h2 {
         font-size: 40px !important;
@@ -684,6 +728,9 @@ app-home-page{
     .donates-container .donate__create-mobile {
         max-width: 255px;
         margin: 35px auto;
+    }
+    .donates-container .donate__live {
+        margin-top: 0;
     }
     .jobs-container {
         padding: 0 45px 26px;
@@ -788,6 +835,61 @@ app-home-page{
     }
     .join-container .join-box .join-us .join-info .info-block {
         padding: 0 0 0 23px;
+    }
+    .companies {
+        max-height: 100px;
+    }
+    .companies .company {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        height: 100%;
+        justify-content: center;
+        img {
+            width: 23px;
+            height: 25px;
+            object-fit: contain;
+        }
+        span {
+            font-weight: 700;
+            font-size: 12px;
+            line-height: 15px;
+            display: flex;
+            align-items: center;
+            text-transform: uppercase;
+            color: #494c4e;
+            margin-top: 10px;
+        }
+    }
+    .companies .companiesSwiper {
+        width: 100%;
+        height: 100px;
+    }
+    .top-background {
+        background: url(../../../assets/home-bg-mobile.png);
+        background-size: cover;
+    }
+    .join-container {
+        .bg-image-mobile{
+            .mobile{
+                display: block;
+            }
+            .tablet{
+                display: none;
+            }
+        }
+        .join-box {
+            .bg-image {
+                .mobile{
+                    display: block;
+                }
+                .desktop,
+                .laptop,
+                .tablet {
+                    display: none;
+                }
+            }
+        }
     }
 }
 

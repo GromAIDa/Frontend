@@ -35,6 +35,6 @@
         <label for="amount">Amount</label>
         <input id="amount" type="text" formControlName="amount">
 
-        <app-button text="Continue" (click)="startTransaction()"></app-button>
+        <button (click)="startTransaction($event)" [disabled]="isClicked">Continue</button>
     </form>
 </div>

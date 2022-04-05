@@ -21,20 +21,15 @@ const usdc = {
 @Injectable({
   providedIn: 'root',
 })
-export class EthersService implements OnInit {
+export class EthersService {
   provider: any;
   address: string = '';
   currentBlock: string = '';
   private amounts: ethers.BigNumber | undefined = undefined;
   constructor() {
-    
+
   }
-  ngOnInit(): void {
-    console.log('hello');
-    
-    
-    this.provider = new ethers.providers.Web3Provider(window.ethereum, 'any');
-  }
+
 
   isMetaMaskInstalled(): boolean {
     let status = !!window?.ethereum;
@@ -65,8 +60,9 @@ export class EthersService implements OnInit {
 
   async transferUsdc(receiverId: string, amountMoney: string) {
     if (!this.isMetaMaskInstalled()) {
-      throw {message: environment.METAMASK_ERRORS.notInstalled};
+      throw { message: environment.METAMASK_ERRORS.notInstalled };
     }
+    this.provider = new ethers.providers.Web3Provider(window.ethereum, 'any');
     let receiver = receiverId;
     let response;
 
