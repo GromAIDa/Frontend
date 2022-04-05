@@ -43,6 +43,7 @@
             </ul>
         </div>
         <div class="goods-list">
+            <div class="notFound" *ngIf="!goods.docs.length">"{{searchTerm}}" goods not found</div>
             <div class="items" *ngIf="goods">
                 <div class="item" *ngFor="let goodsItem of goods.docs">
                     <div class="image">
@@ -72,7 +73,7 @@
 
             </div>
         </div>
-        <div class="paginations" *ngIf="goods">
+        <div class="paginations" *ngIf="goods.docs.length">
             <a (click)="getGoods(1)">First</a>
             <a (click)="getGoods(goods.prevPage)">Previous</a>
             <span>

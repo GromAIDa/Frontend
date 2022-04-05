@@ -73,7 +73,7 @@
     .right-box {
         width: 72.4%;
         padding: 92px 83px 68px 99px;
-        min-height: calc(100vh - 477px);
+        min-height: calc(100vh - 320px);
         .header-mobile {
             display: none;
             justify-content: space-between;
@@ -244,6 +244,16 @@
         }
         .goods-list {
             margin-top: 148px;
+            .notFound {
+                text-align: center;
+                font-weight: 300;
+                font-size: 25px;
+                line-height: 32px;
+                text-transform: capitalize;
+                color: #383c3f;
+                margin-top: -70px;
+                margin-right: 114px;
+            }
             .items {
                 .item {
                     display: flex;
@@ -504,6 +514,16 @@
             }
         }
     }
+    .goods-container .right-box .goods-list .notFound {
+        text-align: center;
+        font-weight: 300;
+        font-size: 20px;
+        line-height: 25px;
+        text-transform: capitalize;
+        color: #383c3f;
+        margin-top: -70px;
+        margin-right: 114px;
+    }
 }
 @media screen and (max-width: 1120px) {
     .goods-container .left-box {
@@ -607,6 +627,16 @@
             }
         }
     }
+    .goods-container .right-box .goods-list .notFound {
+        text-align: center;
+        font-weight: 300;
+        font-size: 20px;
+        line-height: 25px;
+        text-transform: capitalize;
+        color: #383c3f;
+        margin-top: 0;
+        margin-right: 0;
+    }
 }
 @media screen and (max-width: 750px) {
     .goods-container .right-box .goods-categories-mobile {
@@ -654,7 +684,7 @@
                     line-height: 14px;
                 }
 
-                .current::after{
+                .current::after {
                     content: "";
                     position: absolute;
                     bottom: -6px;
@@ -789,5 +819,15 @@
                 }
             }
         }
+    }
+    .goods-container .right-box .goods-list .notFound {
+        text-align: center;
+        font-weight: 300;
+        font-size: 14px;
+        line-height: 18px;
+        text-transform: capitalize;
+        color: #383c3f;
+        margin-top: 0;
+        margin-right: 0;
     }
 }
