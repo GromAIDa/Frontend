@@ -60,7 +60,7 @@ export class EthersService {
 
   async transferUsdc(receiverId: string, amountMoney: string) {
     if (!this.isMetaMaskInstalled()) {
-      throw { message: environment.METAMASK_ERRORS.notInstalled };
+      throw { message: 'Metamask not installed, please install it or choose another donate method.'};
     }
     this.provider = new ethers.providers.Web3Provider(window.ethereum, 'any');
     let receiver = receiverId;

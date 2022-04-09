@@ -1,31 +1,23 @@
 <button class="modal-close" (click)="closeModal('donate-modal');"></button>
 <div class="payment-methods">
-    <div class="method">
-        <input type="radio" name="payment" disabled>
-        <div class="method-image">
-            <img src="../../../assets/paypal.svg" alt="">
+    <form [formGroup]="methods">
+        <div class="method">
+            <input type="radio" value="card" name="method" formControlName="method">
+            <div class="method-image">
+                Card
+            </div>
         </div>
-    </div>
-    <div class="method" >
-        <input type="radio" name="payment" disabled>
-        <div class="method-image">
-            <img src="../../../assets/master.svg" alt="">
+
+        <div class="method">
+            <input type="radio" value="usdt" name="method" formControlName="method">
+            <div class="method-image">
+                <div>USDT</div>
+            </div>
         </div>
-    </div>
-    <div class="method">
-        <input type="radio" name="payment" disabled>
-        <div class="method-image">
-            <img src="../../../assets/visa.svg" alt="">
-        </div>
-    </div>
-    <div class="method">
-        <input type="radio" name="payment" checked="true">
-        <div class="method-image">
-            <div>USDT</div>
-        </div>
-    </div>
+    </form>
+
 </div>
-<div class="pm-form">
+<div class="pm-form" *ngIf="methods.get('method')?.value === 'usdt'">
     <h4>Transfer Usdt</h4>
     <form [formGroup]="paymentDataForm">
 
@@ -34,7 +26,22 @@
 
         <label for="amount">Amount</label>
         <input id="amount" type="text" formControlName="amount">
+        <div *ngIf="errors.length" class="errors">
+            <span *ngFor="let e of errors">{{e}}</span>
+        </div>
 
         <button (click)="startTransaction($event)" [disabled]="isClicked">Continue</button>
     </form>
+</div>
+<div class="pm-form" *ngIf="methods.get('method')?.value === 'card'">
+    <div ngxStripeCardGroup [formGroup]="stripeTest" [elementsOptions]="elementsOptions">
+        <input formControlName="name" />
+        <input formControlName="amount" />
+        <ngx-stripe-card-number [options]="cardOptions"></ngx-stripe-card-number>
+        <ngx-stripe-card-expiry [options]="cardOptions"></ngx-stripe-card-expiry>
+        <ngx-stripe-card-cvc [options]="cardOptions"></ngx-stripe-card-cvc>
+        <button type="submit" (click)="pay()">
+            PAY
+        </button>
+    </div>
 </div>

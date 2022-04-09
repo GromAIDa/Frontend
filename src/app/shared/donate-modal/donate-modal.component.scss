@@ -1,5 +1,10 @@
 .pm-form {
     form {
+        .errors{
+            span{
+                color: red;
+            }
+        }
         button {
             font-weight: 600;
             font-size: 20px;
