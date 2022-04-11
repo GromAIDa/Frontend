@@ -1,20 +1,18 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-cookies-modal',
   templateUrl: './cookies-modal.component.html',
   styleUrls: ['./cookies-modal.component.scss']
 })
-export class CookiesModalComponent implements OnInit {
+export class CookiesModalComponent {
 
   isConsented: boolean = false;
 
   constructor() {
     this.isConsented = this.getCookie('cookie_consent') === 'true';
   }
-  ngOnInit(): void {
-    throw new Error('Method not implemented.');
-  }
+ 
 
   private getCookie(name: string) {
     let ca: Array<string> = document.cookie.split(';');

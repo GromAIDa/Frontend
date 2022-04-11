@@ -42,7 +42,7 @@ export class ApiService {
       `${this.apiUrl}/products?page=${req.page || 1}&limit=${req.limit || 10}&query=${search.query || ''}${search.type ? '&type=' + search.type : ''}`)
   }
 
-  public createPaymentLink(req: PaymentRequest): Observable<Response<any>>{
-    return this.httpClient.post<Response<any>>(`${this.apiUrl}/create-payment-link`, req)
+  public createPaymentLink(req: PaymentRequest): Observable<{url: string}>{
+    return this.httpClient.post<{url: string}>(`${this.apiUrl}/create-payment-link`, req)
   }
 }
