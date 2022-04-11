@@ -60,7 +60,7 @@ body.jw-modal-open {
     .jw-modal {
         .jw-modal-body {
             position: relative;
-            padding: 134px 28px;
+            padding: 97px 28px;
             .modal-close {
                 position: absolute;
                 top: 45px;
@@ -91,17 +91,35 @@ body.jw-modal-open {
                 }
             }
             .payment-methods {
-                display: flex;
-                justify-content: left;
-                flex-wrap: wrap;
-                .method {
-                    max-width: 150px;
+                h4 {
+                    font-weight: 700;
+                    font-size: 32px;
+                    line-height: 39px;
+                    text-align: center;
+                    
+                    color: #ffffff;
+                }
+                p {
+                    font-weight: 200;
+                    font-size: 18px;
+                    line-height: 23px;
+                    text-align: center;
+                    margin-top: 15px;
+                    color: #3e4346;
+                }
+                form {
+                    display: flex;
+                    justify-content: space-between;
+                    margin: 60px auto;
                     width: 100%;
+                    max-width: 516px;
+                }
+                .method {
+                    margin: 0;
                     display: flex;
                     align-items: center;
                     justify-content: left;
-
-                    margin-right: 38px;
+                    cursor: pointer;
                     input {
                     }
                     .method-image {
@@ -112,7 +130,6 @@ body.jw-modal-open {
                         align-items: center;
                         border: 1.6px solid #343539;
                         border-radius: 8px;
-                        margin-left: 17px;
                         img {
                             object-fit: contain;
                         }
@@ -131,34 +148,34 @@ body.jw-modal-open {
                     color: #ffffff;
                     margin-top: 62px;
                     margin-bottom: 47px;
-                    font-family: 'Inter';
+                    font-family: "Inter";
                 }
 
                 form {
                     display: flex;
                     flex-direction: column;
-                    
+
                     label {
                         font-weight: 400;
                         font-size: 20px;
                         line-height: 24px;
-                        margin-bottom: 10px;
+                        margin-bottom: 15px;
                         color: #ffffff;
-                        font-family: 'Inter';
+                        font-family: "Inter";
                     }
                     input {
                         background: #242628;
                         border-radius: 20px;
                         border: none;
                         margin-bottom: 44px;
-                        font-family: 'Inter';
-                        
+                        font-family: "Inter";
+
                         width: 100%;
                         height: 47px;
                         padding: 0 15px;
                         font-size: 23px;
                     }
-                    app-button{
+                    app-button {
                         margin: 0 auto;
                     }
                 }
@@ -168,52 +185,68 @@ body.jw-modal-open {
 }
 
 @media screen and (max-width: 800px) {
-    .donate-modal .jw-modal .jw-modal-body .payment-methods {
-        display: flex;
-        justify-content: space-between;
-        flex-wrap: wrap;
+    .donate-modal .jw-modal .jw-modal-body .modal-close {
+        position: absolute;
+        top: 45px;
+        right: 30px;
+        width: 20px;
+        height: 20px;
+        background: none;
+        border: none;
     }
-    
-    .donate-modal .jw-modal .jw-modal-body .payment-methods .method {
-        max-width: 97px;
-        width: 100%;
-        display: flex;
-        align-items: center;
-        justify-content: left;
-        /* flex-wrap: wrap; */
-        margin-right: 5px;
-        margin-bottom: 10px;
+    .donate-modal .jw-modal .jw-modal-body .modal-close::before {
+        content: "";
+        position: absolute;
+        left: -5px;
+        width: 30px;
+        height: 2px;
+        background-color: #343539;
+        transform: rotate(-45deg);
     }
-    .donate-modal .jw-modal .jw-modal-body .payment-methods .method .method-image {
-        width: 66px;
-        height: 44px;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        border: 1.6px solid #343539;
-        border-radius: 8px;
-        margin-left: 17px;
+    .donate-modal .jw-modal .jw-modal-body .modal-close::after {
+        content: "";
+        position: absolute;
+        width: 30px;
+        height: 2px;
+        left: -5px;
+        background-color: #343539;
+        transform: rotate(45deg);
     }
-    .donate-modal .jw-modal .jw-modal-body .payment-methods .method .method-image img {
-        object-fit: contain;
+    jw-modal .jw-modal .jw-modal-body {
         width: 100%;
         height: 100%;
+        background: #141618;
+        border-radius: 0;
+        max-width: unset;
+        max-height: unset;
+        margin: 0;
     }
-    .donate-modal .jw-modal .jw-modal-body .pm-form h4 {
+    .donate-modal .jw-modal .jw-modal-body .payment-methods h4 {
         font-weight: 700;
-        font-size: 22px;
-        line-height: 30px;
+        font-size: 26px;
+        line-height: 33px;
         text-align: center;
         color: #ffffff;
-        margin-top: 30px;
-        margin-bottom: 30px;
-        font-family: "Inter";
+    }
+    .donate-modal .jw-modal .jw-modal-body .payment-methods p {
+        font-weight: 200;
+        font-size: 14px;
+        line-height: 18px;
+        text-align: center;
+        margin-top: 5px;
+        color: #3e4346;
+
+    }
+    .donate-modal .jw-modal .jw-modal-body .payment-methods form {
+        display: flex;
+        justify-content: center;
+        margin: 35px 0;
     }
     .donate-modal .jw-modal .jw-modal-body .pm-form form label {
         font-weight: 400;
-        font-size: 14px;
-        line-height: 16px;
-        margin-bottom: 10px;
+        font-size: 16px;
+        line-height: 20px;
+        margin: 15px 0;
         color: #ffffff;
         font-family: "Inter";
     }
@@ -221,23 +254,33 @@ body.jw-modal-open {
         background: #242628;
         border-radius: 20px;
         border: none;
-        margin-bottom: 20px;
+        margin-bottom: 0;
         font-family: "Inter";
         width: 100%;
-        height: 47px;
+        height: 40px;
         padding: 0 15px;
-        font-size: 23px;
+        font-size: 18px;
+        line-height: 23px;
     }
-    jw-modal .jw-modal .jw-modal-body {
-        padding: 20px;
-        margin: 0;
-        max-width: 808px;
-        width: 100%;
-        max-height: unset;
-        height: 100%;
-        background: #141618;
-        border-radius: unset;
+    .donate-modal .pm-form  form  button {
+        margin-top: 60px !important;
     }
 }
 
-
+@media screen and (max-width: 440px) {
+    .donate-modal .jw-modal .jw-modal-body .payment-methods .method .method-image {
+        width: 65px;
+        height: 46px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border: 1.6px solid #343539;
+        border-radius: 8px;
+        padding: 10px;
+    }
+    .donate-modal .jw-modal .jw-modal-body .payment-methods .method .method-image img {
+        object-fit: contain;
+        width: 100%;
+        height: 100%;
+    }
+}

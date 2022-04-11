@@ -5,14 +5,18 @@ import { DonateModalComponent } from './donate-modal/donate-modal.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
-import { NgxStripeModule } from 'ngx-stripe';
+
+import { CurrencyMaskModule } from 'ng2-currency-mask';
+import { CookiesModalComponent } from './cookies-modal/cookies-modal.component';
 
 
 @NgModule({
-  declarations: [ButtonComponent, DonateModalComponent, HeaderComponent, FooterComponent],
-  imports: [CommonModule, ReactiveFormsModule, 
-    NgxStripeModule.forRoot('pk_test_51KlrwWCKknVOzNZdeFeDCw6Bb4HI3OZ3putDJmLe1Gg20PI09dQEMJIJuRybUfK1HME5efRoPwgJ49KlUGb5JFv200Wjd4h9yp'),
+  declarations: [ButtonComponent, DonateModalComponent, HeaderComponent, FooterComponent, CookiesModalComponent],
+  imports: [
+    CommonModule,
+    ReactiveFormsModule,
+    CurrencyMaskModule
   ],
-  exports: [ButtonComponent, DonateModalComponent, HeaderComponent, FooterComponent],
+  exports: [ButtonComponent, DonateModalComponent, HeaderComponent, FooterComponent, CookiesModalComponent],
 })
-export class SharedModule {}
+export class SharedModule { }

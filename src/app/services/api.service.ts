@@ -5,6 +5,7 @@ import { environment } from 'src/environments/environment';
 import { GoodsItem } from '../core/types/goodsItem';
 import { Pagination } from '../core/types/pagination';
 import { PaginationsRequest } from '../core/types/paginations.request';
+import { PaymentRequest } from '../core/types/paymentRequest';
 import { Report } from '../core/types/report';
 import { Response } from '../core/types/response';
 import { SearchRequest } from '../core/types/searchRequest';
@@ -39,5 +40,9 @@ export class ApiService {
   public getGoods(req: PaginationsRequest, search: SearchRequest): Observable<Response<Pagination<GoodsItem[]>>> {
     return this.httpClient.get<Response<Pagination<GoodsItem[]>>>(
       `${this.apiUrl}/products?page=${req.page || 1}&limit=${req.limit || 10}&query=${search.query || ''}${search.type ? '&type=' + search.type : ''}`)
+  }
+
+  public createPaymentLink(req: PaymentRequest): Observable<Response<any>>{
+    return this.httpClient.post<Response<any>>(`${this.apiUrl}/create-payment-link`, req)
   }
 }

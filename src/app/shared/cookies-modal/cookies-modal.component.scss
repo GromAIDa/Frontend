@@ -1,0 +1,112 @@
+.cookies {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 156px;
+    background: rgba(20, 21, 22, 0.97);
+    z-index: 1000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 37px;
+
+    .cookies-image {
+        max-width: 72px;
+        max-height: 70px;
+        margin-right: 120px;
+        img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+        }
+    }
+    .cookies-info {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        p {
+            font-weight: 300;
+            font-size: 20px;
+            line-height: 25px;
+            color: #848a8e;
+            margin-bottom: 20px;
+        }
+        .accept {
+            width: 160px;
+            height: 30px;
+            border: none;
+            background: #848a8e;
+            border-radius: 15px;
+            font-weight: 500;
+            font-size: 16px;
+            line-height: 20px;
+            color: #141617;
+            cursor: pointer;
+        }
+        .decline {
+            margin-left: 100px;
+            font-weight: 400;
+            font-size: 16px;
+            line-height: 20px;
+            padding: 5px 10px;
+            color: #4a5055;
+            background: none;
+            border: none;
+            border-bottom: 1px solid #4a5055;
+            cursor: pointer;
+        }
+    }
+}
+@media screen and (max-width: 835px) {
+    .cookies {
+        padding: 24px;
+        .cookies-image {
+            margin-right: 45px;
+            max-width: 60px;
+            max-height: 60px;
+        }
+        .cookies-info {
+            max-width: 280px;
+            p {
+                font-weight: 200;
+                font-size: 16px;
+                line-height: 20px;
+                text-align: center;
+            }
+            .decline {
+                margin-left: 15px;
+            }
+        }
+    }
+}
+@media screen and (max-width: 580px) {
+    .cookies {
+        padding: 13px;
+        height: 90px;
+        .cookies-image {
+            margin-right: 32px;
+            max-width: 45px;
+            max-height: 45px;
+        }
+        .cookies-info {
+            max-width: 160px;
+            p {
+                font-size: 10px;
+                line-height: 13px;
+                margin-bottom: 15px;
+            }
+            .accept {
+                font-size: 10px;
+                line-height: 13px;
+                width: 91px;
+                height: 23px;
+            }
+            .decline {
+                margin-left: 15px;
+                font-size: 10px;
+                line-height: 13px;
+            }
+        }
+    }
+}

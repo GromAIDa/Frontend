@@ -1,31 +1,40 @@
 <button class="modal-close" (click)="closeModal('donate-modal');"></button>
 <div class="payment-methods">
+    <h4>Payment Method</h4>
+    <p>Choose a payment option below</p>
     <form [formGroup]="methods">
         <div class="method">
-            <input type="radio" value="card" name="method" formControlName="method">
-            <div class="method-image">
-                Card
+            <div class="method-image" (click)="methods.setValue({method: 'openCollective'})"
+                [ngStyle]="{'border-color': methods.get('method')?.value === 'openCollective' ? '#4A93C8' : '#343539', 'opacity': methods.get('method')?.value === 'openCollective' ? '1' : '0.5'}">
+                <img src="../../../assets/opencollective.svg" alt="">
+            </div>
+        </div>
+        <div class="method">
+            <div class="method-image" (click)="methods.setValue({method: 'card'})"
+                [ngStyle]="{'border-color': methods.get('method')?.value === 'card' ? '#4A93C8' : '#343539', 'opacity': methods.get('method')?.value === 'card' ? '1' : '0.5'}">
+                <img src="../../../assets/cardIcon.svg" alt="">
             </div>
         </div>
 
         <div class="method">
-            <input type="radio" value="usdt" name="method" formControlName="method">
-            <div class="method-image">
-                <div>USDT</div>
+            <div class="method-image" (click)="methods.setValue({method: 'usdt'})"
+                [ngStyle]="{'border-color': methods.get('method')?.value === 'usdt' ? '#4A93C8' : '#343539', 'opacity': methods.get('method')?.value === 'usdt' ? '1' : '0.5'}">
+                <img src="../../../assets/usdtIcon.svg" alt="">
+
             </div>
         </div>
     </form>
 
 </div>
 <div class="pm-form" *ngIf="methods.get('method')?.value === 'usdt'">
-    <h4>Transfer Usdt</h4>
     <form [formGroup]="paymentDataForm">
 
         <label for="address">Receiver address</label>
         <input id="address" type="text" formControlName="address">
 
         <label for="amount">Amount</label>
-        <input id="amount" type="text" formControlName="amount">
+        <input id="amount" type="text" formControlName="amount" currencyMask
+            [options]="{ prefix: 'USDT ', thousands: '.', decimal: ',', align: 'left' }">
         <div *ngIf="errors.length" class="errors">
             <span *ngFor="let e of errors">{{e}}</span>
         </div>
@@ -34,14 +43,11 @@
     </form>
 </div>
 <div class="pm-form" *ngIf="methods.get('method')?.value === 'card'">
-    <div ngxStripeCardGroup [formGroup]="stripeTest" [elementsOptions]="elementsOptions">
-        <input formControlName="name" />
-        <input formControlName="amount" />
-        <ngx-stripe-card-number [options]="cardOptions"></ngx-stripe-card-number>
-        <ngx-stripe-card-expiry [options]="cardOptions"></ngx-stripe-card-expiry>
-        <ngx-stripe-card-cvc [options]="cardOptions"></ngx-stripe-card-cvc>
-        <button type="submit" (click)="pay()">
-            PAY
-        </button>
-    </div>
+    <form [formGroup]="paymentDataForm">
+        <label for="amount">Donate the amount</label>
+        <input id="amount" type="text" formControlName="amount" currencyMask
+            [options]="{ prefix: '$ ', thousands: '.', decimal: ',' , align: 'left' }">
+
+        <button (click)="createPayment()" [disabled]="isClicked">Continue</button>
+    </form>
 </div>

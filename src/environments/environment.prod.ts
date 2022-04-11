@@ -10,5 +10,8 @@ export const environment = {
     notInstalled: 'ERROR.METAMASK__NOT__INSTALLED',
     needUserPermission: 'ERROR.NEED__USER__PERMISSION',
     failedToRetrieveGasPrice: 'ERROR.FAILED__RETRIEVING__GAS__PRICE',
-  }
+  },
+  CURRENCY: "usd",
+  SUCCESS_URL: "http://localhost:4200/",
+  CANCEL_URL: "http://localhost:4200/"
 };

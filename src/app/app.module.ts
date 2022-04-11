@@ -6,6 +6,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 import { SharedModule } from './shared/shared.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { CurrencyMaskModule } from 'ng2-currency-mask';
 
 
 @NgModule({
@@ -13,6 +14,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     AppComponent,
   ],
   imports: [
+    CurrencyMaskModule,
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
