@@ -91,7 +91,7 @@
                     <button>List of necessary goods<img src="../../../assets/arrowRight.svg" alt="">
                     </button>
                 </a>
-                
+
             </div>
 
         </div>
@@ -111,7 +111,7 @@
         </div>
     </div>
     <div class="bottom-section" *ngIf="reports && !burgerService.isOpenedNav">
-        <swiper [freeMode]="true" [slidesPerView]="'auto'" class="bottomSwiper" [breakpoints]="{
+        <swiper *ngIf="reports.docs.length" [freeMode]="true" [slidesPerView]="'auto'" class="bottomSwiper" [breakpoints]="{
             '300': {
                 spaceBetween: 10
             },
@@ -139,6 +139,30 @@
                     </div>
                 </div>
             </ng-template>
+        </swiper>
+        <div class="noProducts" *ngIf="!reports.docs.length">The are currently no updates. Be the first donator this week</div>
+        <swiper *ngIf="!reports.docs.length" [freeMode]="true" [slidesPerView]="'auto'" class="bottomSwiper" [breakpoints]="{
+            '300': {
+                spaceBetween: 10
+            },
+            '600': {
+              spaceBetween: 15
+            },
+            '768': {
+              spaceBetween: 25
+            },
+            '1281': {
+              spaceBetween: 25
+            }
+          }">
+         <ng-template *ngFor="let report of fakeArray(8)" swiperSlide>
+                <div class="item">
+                    <div class="background-image">
+                        <img src="../../../assets/noProduct.svg" alt="">
+                    </div>
+                </div>
+            </ng-template>
+
         </swiper>
     </div>
     <div class="paginations" *ngIf="reports">

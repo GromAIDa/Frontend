@@ -7,6 +7,15 @@
   width: 500px;
   height: 500px;
 }
+.noProducts {
+  font-weight: 200;
+  font-size: 22px;
+  line-height: 28px;
+  text-align: center;
+  margin-bottom: -40px;
+  margin-top: 41px;
+  color: #454b4d;
+}
 
 header {
   background: linear-gradient(179.75deg, #141618 0.22%, rgba(20, 22, 24, 0.65) 50.8%, rgba(20, 22, 24, 0) 99.78%);
@@ -404,8 +413,8 @@ nav {
             height: 45px;
             border: 1px solid #a8a8a8;
             border-radius: 50%;
-            top: -19px;
-            left: -17px;
+            top: -18px;
+            left: -16px;
           }
         }
       }
@@ -845,7 +854,7 @@ nav {
   }
   .campaign-join {
     .bg-image {
-      .laptop{
+      .laptop {
         display: block;
       }
       .desktop,
@@ -942,7 +951,7 @@ nav {
 @media screen and (max-width: 835px) {
   .campaign-join {
     .bg-image {
-      .tablet{
+      .tablet {
         display: block;
       }
       .desktop,
@@ -1199,6 +1208,15 @@ nav {
 }
 
 @media screen and (max-width: 580px) {
+  .noProducts {
+    font-weight: 200;
+    font-size: 14px;
+    line-height: 18px;
+    text-align: center;
+    margin-bottom: -20px;
+    margin-top: 22px;
+    color: #454b4d;
+  }
   .swiper-container {
     margin-top: 55px;
   }
@@ -1371,7 +1389,7 @@ nav {
   }
   .campaign-join {
     .bg-image {
-      .mobile{
+      .mobile {
         display: block;
       }
       .desktop,
