@@ -12,6 +12,6 @@ export const environment = {
     failedToRetrieveGasPrice: 'ERROR.FAILED__RETRIEVING__GAS__PRICE',
   },
   CURRENCY: "usd",
-  SUCCESS_URL: "https://gromaida.org/",
-  CANCEL_URL: "https://gromaida.org/"
+  SUCCESS_URL: "https://gromaida.org/?payment=success",
+  CANCEL_URL: "https://gromaida.org/?payment=cancel"
 };

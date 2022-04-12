@@ -23,7 +23,7 @@ export class DonateModalComponent {
     address: new FormControl({ value: environment.ADDRESS, disabled: true }),
     amount: new FormControl(0),
   });
-  errors: string[] = []
+  error!: string
   constructor(
     public ethersService: EthersService,
     private modalService: ModalService,
@@ -36,7 +36,7 @@ export class DonateModalComponent {
       await this.ethersService.transferUsdc(environment.ADDRESS, this.paymentDataForm.value.amount)
     } catch (err) {
       const error = err as Error
-      this.errors.push(error.message)
+      this.error = error.message
 
       return
     }
@@ -44,8 +44,22 @@ export class DonateModalComponent {
     this.closeModal('donate-modal');
   }
 
-  async createPayment(){
-    this.api.createPaymentLink({currency: environment.CURRENCY, description: 'Donate', amount: this.paymentDataForm.value.amount, success_url: environment.SUCCESS_URL, cancel_url: environment.CANCEL_URL}).subscribe((value) => window.open(value.url))
+  async createPayment() {
+    if (this.paymentDataForm.value.amount < 1) {
+      this.error = 'Amount should be equal or greater than 1'
+      return
+    }
+    this.error = ''
+    this.api.createPaymentLink(
+      {
+        currency: environment.CURRENCY,
+        description: 'Donate',
+        amount: this.paymentDataForm.value.amount,
+        success_url: environment.SUCCESS_URL,
+        cancel_url: environment.CANCEL_URL
+      }
+    ).subscribe((value) => window.open(value.url, "_self"))
+
   }
 
   closeModal(id: string) {

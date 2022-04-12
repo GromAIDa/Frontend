@@ -35,8 +35,8 @@
         <label for="amount">Amount</label>
         <input id="amount" type="text" formControlName="amount" currencyMask
             [options]="{ prefix: 'USDT ', thousands: '.', decimal: ',', align: 'left' }">
-        <div *ngIf="errors.length" class="errors">
-            <span *ngFor="let e of errors">{{e}}</span>
+        <div *ngIf="error" class="errors">
+            <span>{{error}}</span>
         </div>
 
         <button (click)="startTransaction($event)" [disabled]="isClicked">Continue</button>
@@ -46,8 +46,9 @@
     <form [formGroup]="paymentDataForm">
         <label for="amount">Donate the amount</label>
         <input id="amount" type="text" formControlName="amount" currencyMask
-            [options]="{ prefix: '$ ', thousands: '.', decimal: ',' , align: 'left' }">
-
+            [options]="{ prefix: '$ ', thousands: '.', decimal: ',' , align: 'left' }"
+            [ngStyle]="{border: error ? '1px solid #9B0505': ''}">
+        <span *ngIf="error">{{error}}</span>
         <button (click)="createPayment()" [disabled]="isClicked">Continue</button>
     </form>
 </div>

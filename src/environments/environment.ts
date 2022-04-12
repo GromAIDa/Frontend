@@ -16,8 +16,8 @@ export const environment = {
     failedToRetrieveGasPrice: 'ERROR.FAILED__RETRIEVING__GAS__PRICE',
   },
   CURRENCY: "usd",
-  SUCCESS_URL: "http://localhost:4200/",
-  CANCEL_URL: "http://localhost:4200/"
+  SUCCESS_URL: "http://localhost:4200/?payment=success",
+  CANCEL_URL: "http://localhost:4200/?payment=cancel"
 };
 
 /*

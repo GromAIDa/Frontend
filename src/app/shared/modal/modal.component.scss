@@ -167,7 +167,6 @@ body.jw-modal-open {
                         background: #242628;
                         border-radius: 20px;
                         border: none;
-                        margin-bottom: 44px;
                         font-family: "Inter";
 
                         width: 100%;
@@ -175,11 +174,23 @@ body.jw-modal-open {
                         padding: 0 15px;
                         font-size: 23px;
                     }
-                    app-button {
-                        margin: 0 auto;
+                    #address{
+                        margin-bottom: 30px;
+                    }
+                    button {
+                        margin: 44px auto 0;
                     }
                 }
             }
+        }
+    }
+}
+
+#success-modal, #cancel-modal{
+    .jw-modal{
+        .jw-modal-body{
+            max-width: 360px;
+            max-height: 360px;
         }
     }
 }
@@ -239,8 +250,8 @@ body.jw-modal-open {
     }
     .donate-modal .jw-modal .jw-modal-body .payment-methods form {
         display: flex;
-        justify-content: center;
-        margin: 35px 0;
+        justify-content: space-between;
+        margin: 35px auto;
     }
     .donate-modal .jw-modal .jw-modal-body .pm-form form label {
         font-weight: 400;

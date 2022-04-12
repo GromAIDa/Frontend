@@ -8,15 +8,17 @@ import { FooterComponent } from './footer/footer.component';
 
 import { CurrencyMaskModule } from 'ng2-currency-mask';
 import { CookiesModalComponent } from './cookies-modal/cookies-modal.component';
+import { PaymentSuccessModalComponent } from './payment-success-modal/payment-success-modal.component';
+import { PaymentCancelModalComponent } from './payment-cancel-modal/payment-cancel-modal.component';
 
 
 @NgModule({
-  declarations: [ButtonComponent, DonateModalComponent, HeaderComponent, FooterComponent, CookiesModalComponent],
+  declarations: [ButtonComponent, DonateModalComponent, HeaderComponent, FooterComponent, CookiesModalComponent, PaymentSuccessModalComponent, PaymentCancelModalComponent],
   imports: [
     CommonModule,
     ReactiveFormsModule,
     CurrencyMaskModule
   ],
-  exports: [ButtonComponent, DonateModalComponent, HeaderComponent, FooterComponent, CookiesModalComponent],
+  exports: [ButtonComponent, DonateModalComponent, HeaderComponent, FooterComponent, CookiesModalComponent, PaymentSuccessModalComponent, PaymentCancelModalComponent],
 })
 export class SharedModule { }

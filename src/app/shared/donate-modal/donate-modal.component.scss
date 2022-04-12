@@ -1,11 +1,14 @@
-
 .pm-form {
     form {
-        .errors{
-            span{
-                color: red;
-            }
+        span {
+            font-weight: 300;
+            font-size: 12px;
+            line-height: 15px;
+            color: #ec5151;
+            margin-top: 10px;
+            margin-left: 10px;
         }
+
         button {
             font-weight: 600;
             font-size: 20px;
@@ -19,11 +22,11 @@
             height: 47px;
             background: #4a93c8;
             border-radius: 17.9086px;
-            margin: 0 auto;
+            margin: 44px auto 0;
             border: none;
         }
-        button:disabled{
-            &:hover{
+        button:disabled {
+            &:hover {
                 filter: unset;
                 cursor: not-allowed;
             }
