@@ -25,7 +25,7 @@ export class PaymentSuccessModalComponent implements OnInit {
               ['.'], 
               {
                 relativeTo: this.route,
-                queryParams: {payment: null}, 
+                queryParams: {payment: null, amount: null}, 
                 queryParamsHandling: 'merge', // remove to replace all query params by provided
               });
           }, 2500)
