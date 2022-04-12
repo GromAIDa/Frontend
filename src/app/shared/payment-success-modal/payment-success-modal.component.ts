@@ -20,7 +20,7 @@ export class PaymentSuccessModalComponent implements OnInit {
           this.modalService.open(`${params['payment']}-modal`)
           this.amount = params['amount']
           setTimeout(() => {
-            this.modalService.close(`${params['payment']}-modal`)
+            // this.modalService.close(`${params['payment']}-modal`)
             this.router.navigate(
               ['.'], 
               {

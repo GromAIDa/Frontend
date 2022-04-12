@@ -17,7 +17,7 @@ export class PaymentCancelModalComponent implements OnInit {
         if (params['payment'] === 'cancel') {
           this.modalService.open(`${params['payment']}-modal`)
           setTimeout(() => {
-            this.modalService.close(`${params['payment']}-modal`)
+            // this.modalService.close(`${params['payment']}-modal`)
             this.router.navigate(
               ['.'],
               {
