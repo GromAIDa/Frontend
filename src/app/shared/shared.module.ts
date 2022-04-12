@@ -10,6 +10,7 @@ import { CurrencyMaskModule } from 'ng2-currency-mask';
 import { CookiesModalComponent } from './cookies-modal/cookies-modal.component';
 import { PaymentSuccessModalComponent } from './payment-success-modal/payment-success-modal.component';
 import { PaymentCancelModalComponent } from './payment-cancel-modal/payment-cancel-modal.component';
+import { RouterModule } from '@angular/router';
 
 
 @NgModule({
@@ -17,7 +18,8 @@ import { PaymentCancelModalComponent } from './payment-cancel-modal/payment-canc
   imports: [
     CommonModule,
     ReactiveFormsModule,
-    CurrencyMaskModule
+    CurrencyMaskModule,
+    RouterModule
   ],
   exports: [ButtonComponent, DonateModalComponent, HeaderComponent, FooterComponent, CookiesModalComponent, PaymentSuccessModalComponent, PaymentCancelModalComponent],
 })

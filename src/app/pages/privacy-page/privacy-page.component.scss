@@ -1,0 +1,162 @@
+.privacy {
+    margin-top: 90px;
+    padding: 0 155px;
+    h2 {
+        font-weight: 500;
+        font-size: 96px;
+        line-height: 121px;
+        text-transform: capitalize;
+        color: #ffffff;
+        margin-bottom: 50px;
+        margin-left: 80px;
+    }
+    .paragraph {
+        display: flex;
+        justify-content: space-between;
+        padding: 95px 17px 65px;
+        border-bottom: 2px solid #2e3032;
+
+        h4 {
+            max-width: 25%;
+            font-weight: 400;
+            font-size: 32px;
+            line-height: 40px;
+            text-transform: capitalize;
+            margin-right: 15px;
+            color: #b0b4b9;
+        }
+        p {
+            max-width: 70%;
+            font-weight: 400;
+            font-size: 22px;
+            line-height: 28px;
+
+            color: #656a70;
+        }
+    }
+}
+
+@media screen and (max-width: 1280px) {
+    .privacy {
+        margin-top: 63px;
+        padding: 0 85px;
+        h2 {
+            font-weight: 500;
+            font-size: 70px;
+            line-height: 88px;
+            text-transform: capitalize;
+            color: #ffffff;
+            margin-bottom: 50px;
+            margin-left: 80px;
+        }
+        .paragraph {
+            display: flex;
+            justify-content: space-between;
+            padding: 95px 0 65px;
+            border-bottom: 2px solid #2e3032;
+            h4 {
+                max-width: 40%;
+                font-weight: 400;
+                font-size: 26px;
+                line-height: 33px;
+                text-transform: capitalize;
+
+                color: #b0b4b9;
+            }
+            p {
+                max-width: 60%;
+                font-weight: 400;
+                font-size: 18px;
+                line-height: 23px;
+
+                color: #656a70;
+            }
+            &:last-child {
+                border: none;
+            }
+        }
+    }
+}
+@media screen and (max-width: 835px) {
+    .privacy {
+        margin-top: 63px;
+        padding: 0 40px;
+        h2 {
+            font-weight: 500;
+            font-size: 48px;
+            line-height: 60px;
+            text-transform: capitalize;
+            color: #ffffff;
+            margin-bottom: 10px;
+            margin-left: 80px;
+        }
+        .paragraph {
+            display: flex;
+            justify-content: space-between;
+            padding: 95px 0 65px;
+            border-bottom: 2px solid #2e3032;
+            h4 {
+                max-width: 40%;
+                font-weight: 400;
+                font-size: 22px;
+                line-height: 28px;
+                text-transform: capitalize;
+
+                color: #b0b4b9;
+            }
+            p {
+                max-width: 60%;
+                font-weight: 400;
+                font-size: 16px;
+                line-height: 20px;
+
+                color: #656a70;
+            }
+            &:last-child {
+                border: none;
+            }
+        }
+    }
+}
+@media screen and (max-width: 580px) {
+    .privacy {
+        margin-top: 17px;
+        padding: 0 25px;
+        h2 {
+            font-weight: 500;
+            font-size: 24px;
+            line-height: 30px;
+            text-transform: capitalize;
+            color: #ffffff;
+            margin-bottom: 0;
+            margin-left: 35px;
+        }
+        .paragraph {
+            display: flex;
+            flex-direction: column;
+            justify-content: left;
+            padding: 31px 17px 26px;
+            border-bottom: 1px solid #2e3032;
+            h4 {
+                max-width: 100%;
+                font-weight: 400;
+                font-size: 12px;
+                line-height: 15px;
+                text-transform: capitalize;
+                margin-bottom: 10px;
+                color: #b0b4b9;
+            }
+            p {
+                max-width: 100%;
+                font-weight: 400;
+                font-size: 9px;
+                line-height: 11px;
+
+                color: #656a70;
+            }
+            &:last-child {
+                border: none;
+            }
+        }
+    }
+}
