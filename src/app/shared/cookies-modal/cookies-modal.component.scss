@@ -30,7 +30,15 @@
             font-size: 20px;
             line-height: 25px;
             color: #848a8e;
-            margin-bottom: 20px;
+        }
+        p{
+            a{
+                color: #4A93C8;
+                text-decoration: none;
+            }
+            &:nth-of-type(2){
+                margin-bottom: 20px;
+            }
         }
         .accept {
             width: 160px;
