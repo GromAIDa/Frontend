@@ -36,8 +36,6 @@ export class NewsPageComponent implements OnInit {
     this.apiServise.getTotalDontions().subscribe((response) => {
       this.totalDontions = response.data;
     })
-    console.log(this.fakeArray(8));
-    
   }
 
   selectDonat(report: Report) {
