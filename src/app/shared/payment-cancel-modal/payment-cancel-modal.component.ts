@@ -16,16 +16,13 @@ export class PaymentCancelModalComponent implements OnInit {
       .subscribe(params => {
         if (params['payment'] === 'cancel') {
           this.modalService.open(`${params['payment']}-modal`)
-          setTimeout(() => {
-            // this.modalService.close(`${params['payment']}-modal`)
-            this.router.navigate(
-              ['.'],
-              {
-                relativeTo: this.route,
-                queryParams: { payment: null },
-                queryParamsHandling: 'merge', // remove to replace all query params by provided
-              });
-          }, 2500)
+          this.router.navigate(
+            ['.'],
+            {
+              relativeTo: this.route,
+              queryParams: { payment: null },
+              queryParamsHandling: 'merge', // remove to replace all query params by provided
+            });
         }
       }
       );

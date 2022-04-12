@@ -16,22 +16,19 @@ export class PaymentSuccessModalComponent implements OnInit {
   ngOnInit(): void {
     this.route.queryParams
       .subscribe(params => {
-        if(params['payment'] === 'success'){
+        if (params['payment'] === 'success') {
           this.modalService.open(`${params['payment']}-modal`)
           this.amount = params['amount']
-          setTimeout(() => {
-            // this.modalService.close(`${params['payment']}-modal`)
-            this.router.navigate(
-              ['.'], 
-              {
-                relativeTo: this.route,
-                queryParams: {payment: null, amount: null}, 
-                queryParamsHandling: 'merge', // remove to replace all query params by provided
-              });
-          }, 2500)
+          this.router.navigate(
+            ['.'],
+            {
+              relativeTo: this.route,
+              queryParams: { payment: null, amount: null },
+              queryParamsHandling: 'merge', // remove to replace all query params by provided
+            });
         }
       }
-    );
+      );
   }
 
 }

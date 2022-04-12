@@ -1,7 +1,5 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { Z_FULL_FLUSH } from 'zlib';
-import { AppComponent } from './app.component';
 
 const routes: Routes = [
   {

@@ -29,10 +29,6 @@ export class CookiesModalComponent {
     return '';
   }
 
-  private deleteCookie(name: string) {
-    this.setCookie(name, '', -1);
-  }
-
   public setCookie(name: string, value: string, expireDays: number, path: string = '') {
     let d: Date = new Date();
     d.setTime(d.getTime() + expireDays * 24 * 60 * 60 * 1000);
@@ -41,15 +37,5 @@ export class CookiesModalComponent {
     document.cookie = `${name}=${value}; ${expires}${cpath}`;
     this.isConsented = true
   }
-
-  // private consent(isConsent: boolean, e: any) {
-  //   if (!isConsent) {
-  //     return this.isConsented;
-  //   } else if (isConsent) {
-  //     this.setCookie('COOKIE_CONSENT', '1', 30);
-  //     this.isConsented = true;
-  //     e.preventDefault();
-  //   }
-  // }
 
 }
