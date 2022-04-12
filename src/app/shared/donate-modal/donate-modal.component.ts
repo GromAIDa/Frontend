@@ -45,8 +45,10 @@ export class DonateModalComponent {
   }
 
   async createPayment() {
+    this.isClicked = true
     if (this.paymentDataForm.value.amount < 1) {
       this.error = 'Amount should be equal or greater than 1'
+      this.isClicked = false
       return
     }
     this.error = ''
@@ -55,10 +57,13 @@ export class DonateModalComponent {
         currency: environment.CURRENCY,
         description: 'Donate',
         amount: this.paymentDataForm.value.amount,
-        success_url: environment.SUCCESS_URL,
+        success_url: environment.SUCCESS_URL + `&amount=${this.paymentDataForm.value.amount}`,
         cancel_url: environment.CANCEL_URL
       }
-    ).subscribe((value) => window.open(value.url, "_self"))
+    ).subscribe((value) => { 
+      window.open(value.url, "_self")
+      this.isClicked = false
+    })
 
   }
 

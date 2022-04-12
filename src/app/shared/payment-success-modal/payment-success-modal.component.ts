@@ -9,6 +9,7 @@ import { ModalService } from '../modal';
   styleUrls: ['./payment-success-modal.component.scss']
 })
 export class PaymentSuccessModalComponent implements OnInit {
+  amount!: string
 
   constructor(private route: ActivatedRoute, private modalService: ModalService, private router: Router) { }
 
@@ -17,6 +18,7 @@ export class PaymentSuccessModalComponent implements OnInit {
       .subscribe(params => {
         if(params['payment'] === 'success'){
           this.modalService.open(`${params['payment']}-modal`)
+          this.amount = params['amount']
           setTimeout(() => {
             this.modalService.close(`${params['payment']}-modal`)
             this.router.navigate(
