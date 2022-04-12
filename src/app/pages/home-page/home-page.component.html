@@ -1,6 +1,12 @@
 <jw-modal id="donate-modal" class="donate-modal">
   <app-donate-modal></app-donate-modal> 
 </jw-modal>
+<jw-modal id="success-modal" class="success-modal">
+    <app-payment-success-modal></app-payment-success-modal>
+</jw-modal>
+<jw-modal id="cancel-modal" class="cancel-modal">
+    <app-payment-cancel-modal></app-payment-cancel-modal>
+</jw-modal>
 <div class="top-background">
     <div class="background-blur">
         <app-header></app-header>
@@ -16,7 +22,7 @@
                 <h4>Donate so far:</h4>
                 <div class="counter">
                     <p>$</p>
-                    <span>{{totalDontions.donated | currency:'USD':'':'1.0' }}</span>
+                    <span>{{totalDontions.donated | currency:'USD':'':'1.0-0' }}</span>
                 </div>
             </div>
             <div class="donate__create-mobile">
@@ -159,7 +165,7 @@
                 </div>
                 <div class="info-block">
                     <div class="info-name">donated</div>
-                    <div class="info-value">{{totalDontions.donated | currency:'USD':'symbol-narrow':'1.0' }}</div>
+                    <div class="info-value">{{totalDontions.donated | currency:'USD':'symbol-narrow':'1.0-0' }}</div>
                 </div>
                 
             </div>

@@ -101,7 +101,7 @@
                     height: 100%;
                     font-size: 15px;
                     &:focus {
-                        outline: yellow solid 1px;
+                        outline: #4A93C8 solid 1px;
                     }
                 }
                 img {
@@ -229,7 +229,7 @@
                     height: 100%;
                     font-size: 15px;
                     &:focus {
-                        outline: yellow solid 1px;
+                        outline: #4A93C8 solid 1px;
                     }
                 }
                 img {
@@ -264,6 +264,7 @@
                         overflow: hidden;
                         border-radius: 10px;
                         background-color: white;
+                        filter: brightness(0.8);
                         img {
                             width: 100%;
                             height: 100%;
