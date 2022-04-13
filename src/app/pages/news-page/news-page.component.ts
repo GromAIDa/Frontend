@@ -50,15 +50,23 @@ export class NewsPageComponent implements OnInit {
   getReprots(page?: number | null) {
     if (page !== null) {
       this.apiServise.getReports({ page, time: this.currentTimePeriod }).subscribe((response) => {
-        this.reports = response.data;
-        this.currentReport = response.data.docs[0];
-        this.firstMainReports = this.reports.docs.slice(0, this.reports.docs.length / 2);
-        this.secondMainReports = this.reports.docs.slice(this.reports.docs.length / 2, this.reports.docs.length);
+        if (response.data.docs.length) {
+          this.reports = response.data;
+          this.currentReport = response.data.docs[0];
+          this.firstMainReports = this.reports.docs.slice(0, this.reports.docs.length / 2);
+          this.secondMainReports = this.reports.docs.slice(this.reports.docs.length / 2, this.reports.docs.length);
+        } else {
+          this.reports = response.data;
+        }
+
       });
     }
   }
-  setCurrentTimePeriod(period: string){
+  setCurrentTimePeriod(period: string) {
     this.currentTimePeriod = period
     this.getReprots(1)
+  }
+  fakeArray(number: number){
+    return Array.from(Array(number).keys());
   }
 }
