@@ -14,8 +14,8 @@
                     et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
                     aliquip ex ea commodo consequat. </p>
                 <div class="donate__create desktop">
-                    <app-button text="Donate" (open)="modalService.open('donate-modal')"></app-button>
-                    <app-button text="Read more" [transparent]="true"></app-button>
+                    <app-button  (click)="modalService.open('donate-modal')">Donate</app-button>
+                    <app-button  [class]="'app-button app-button__transparent'">Read more</app-button>
                 </div>
             </div>
             <div class="gallery-flex">
@@ -54,8 +54,8 @@
 
             </div>
             <div class="donate__create mobile">
-                <app-button text="Donate" (open)="modalService.open('donate-modal')"></app-button>
-                <app-button text="Read more" [transparent]="true"></app-button>
+                <app-button  (open)="modalService.open('donate-modal')">Donate</app-button>
+                <app-button  [class]="'app-button app-button__transparent'">Read more</app-button>
             </div>
         </div>
 
@@ -88,7 +88,7 @@
             </ul>
             <div>
                 <a routerLink="/goods">
-                    <button>List of necessary goods<img src="../../../assets/arrowRight.svg" alt="">
+                    <button>List of necessary goods<img src="assets/arrowRight.svg" alt="">
                     </button>
                 </a>
 
@@ -158,7 +158,7 @@
          <ng-template *ngFor="let report of fakeArray(8)" swiperSlide>
                 <div class="item">
                     <div class="background-image">
-                        <img src="../../../assets/noProduct.svg" alt="">
+                        <img src="assets/noProduct.svg" alt="">
                     </div>
                 </div>
             </ng-template>
@@ -178,10 +178,10 @@
 
 <div class="campaign-join" *ngIf="!burgerService.isOpenedNav">
     <div class="bg-image">
-        <img class="desktop" src="../../../assets/news-bg-desktop.png" alt="">
-        <img class="laptop" src="../../../assets/news-bg-laptop.png" alt="">
-        <img class="tablet" src="../../../assets/news-bg-tablet.png" alt="">
-        <img class="mobile" src="../../../assets/news-bg-mobile.png" alt="">
+        <img class="desktop" src="assets/news-bg-desktop.png" alt="">
+        <img class="laptop" src="assets/news-bg-laptop.png" alt="">
+        <img class="tablet" src="assets/news-bg-tablet.png" alt="">
+        <img class="mobile" src="assets/news-bg-mobile.png" alt="">
     </div>
     <div class="content" *ngIf="totalDontions">
         <div class="short-info">
@@ -202,7 +202,7 @@
             <h2>join our campaing!</h2>
             <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
                 dolore magna aliqua. </p>
-            <app-button text="Donate" (open)="modalService.open('donate-modal')"></app-button>
+            <app-button  (click)="modalService.open('donate-modal')">Donate</app-button>
         </div>
     </div>
 </div>

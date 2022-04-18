@@ -1,10 +1,12 @@
 import { Component, OnInit, ViewEncapsulation } from '@angular/core';
-import { ModalService } from 'src/app/shared/modal';
-import { ApiService } from 'src/app/services/api.service';
-import { EthersService } from 'src/app/services/ethers.service';
-import { TotalDonations } from 'src/app/core/types/totalDonations';
+
 import SwiperCore, { EffectFade, Navigation } from 'swiper';
-import { BurgerToggleService } from 'src/app/services/burger-toggle.service';
+import { BurgerToggleService } from '@services/burger-toggle.service';
+import { TotalDonations } from '@interfaces/totalDonations';
+import { ApiService } from '@services/api/api.service';
+import { EthersService } from '@services/ethers/ethers.service';
+import { ModalService } from '@shared/modal';
+
 
 SwiperCore.use([EffectFade, Navigation]);
 

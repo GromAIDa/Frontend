@@ -1,9 +1,11 @@
 import { Component, OnInit } from '@angular/core';
-import { GoodsItem } from 'src/app/core/types/goodsItem';
-import { Pagination } from 'src/app/core/types/pagination';
-import { ApiService } from 'src/app/services/api.service';
+import { GoodsItem } from '@interfaces/goodsItem';
+import { Pagination } from '@interfaces/pagination';
+import { ApiService } from '@services/api/api.service';
+
 import { Subject, Subscription } from 'rxjs';
 import { debounceTime, distinctUntilChanged } from 'rxjs/operators';
+
 
 @Component({
     selector: 'app-goods-page',

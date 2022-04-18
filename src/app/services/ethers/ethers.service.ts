@@ -1,9 +1,10 @@
 import { Injectable, OnInit } from '@angular/core';
+import { environment } from 'environments/environment';
 
 import { BigNumber, ethers } from 'ethers';
 import { throwError } from 'rxjs/internal/observable/throwError';
-import { environment } from 'src/environments/environment';
-import * as abi from '../../assets/erc20abi';
+
+import * as abi from 'assets/erc20abi';
 declare let window: any;
 
 const usdc = {
@@ -26,20 +27,16 @@ export class EthersService {
   address: string = '';
   currentBlock: string = '';
   private amounts: ethers.BigNumber | undefined = undefined;
-  constructor() {
-
-  }
-
+  constructor() {}
 
   isMetaMaskInstalled(): boolean {
     let status = !!window?.ethereum;
     if (!status || status === undefined) {
       window.open(environment.METAMASK_LINK, '_blank');
-      return false
+      return false;
     }
     return true;
   }
-
 
   async getUserAddress() {
     await this.provider.send('eth_requestAccounts', []);
@@ -60,7 +57,10 @@ export class EthersService {
 
   async transferUsdc(receiverId: string, amountMoney: string) {
     if (!this.isMetaMaskInstalled()) {
-      throw { message: 'Metamask not installed, please install it or choose another donate method.'};
+      throw {
+        message:
+          'Metamask not installed, please install it or choose another donate method.',
+      };
     }
     this.provider = new ethers.providers.Web3Provider(window.ethereum, 'any');
     let receiver = receiverId;

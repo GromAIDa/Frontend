@@ -5,6 +5,7 @@ import { NewsPageRoutingModule } from './news-page-routing.module';
 import { SharedModule } from '../../shared/shared.module';
 import { SwiperModule } from 'swiper/angular';
 import { ModalModule } from '../../shared/modal';
+import { CoreModule } from '@core/core.module';
 
 @NgModule({
   declarations: [NewsPageComponent],
@@ -14,6 +15,7 @@ import { ModalModule } from '../../shared/modal';
     SharedModule,
     SwiperModule,
     ModalModule,
+    CoreModule,
   ],
 })
 export class NewsPageModule {}

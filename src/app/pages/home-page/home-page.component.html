@@ -14,8 +14,8 @@
             <div class="donate">
                 <h2>Donate For Better World</h2>
                 <div class="donate__create">
-                    <app-button text="Donate" (open)="modalService.open('donate-modal')"></app-button>
-                    <app-button text="Read more" [transparent]="true"></app-button>
+                    <app-button (click)="modalService.open('donate-modal')">Donate</app-button>
+                    <app-button [class]="'app-button app-button__transparent'">Read more</app-button>
                 </div>
             </div>
             <div class="donate__live">
@@ -26,27 +26,27 @@
                 </div>
             </div>
             <div class="donate__create-mobile">
-                <app-button text="Donate" (open)="modalService.open('donate-modal')"></app-button>
-                <app-button text="Read more" [transparent]="true"></app-button>
+                <app-button  (click)="modalService.open('donate-modal')">Donate</app-button>
+                <app-button  [class]="'app-button app-button__transparent'">Read more</app-button>
             </div>
         </div>
         <div class="jobs-container">
             <div class="jobs__item">
-                <img src="../../../assets/volunteering.svg" alt="">
+                <img src="assets/volunteering.svg" alt="">
                 <div class="job__info">
                     <h4>Volunteering</h4>
                     <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
                 </div>
             </div>
             <div class="jobs__item">
-                <img src="../../../assets/donating.svg" alt="">
+                <img src="assets/donating.svg" alt="">
                 <div class="job__info">
                     <h4>Donating</h4>
                     <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
                 </div>
             </div>
             <div class="jobs__item">
-                <img src="../../../assets/supporting.svg" alt="">
+                <img src="assets/supporting.svg" alt="">
                 <div class="job__info">
                     <h4>Supporting</h4>
                     <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
@@ -76,7 +76,7 @@
       }}">
         <ng-template swiperSlide *ngFor="let a of defaultArray">
             <div class="company">
-                <img src="../../../assets/company.svg" alt="">
+                <img src="assets/company.svg" alt="">
                 <span>company name</span>
             </div>
         </ng-template>
@@ -85,14 +85,14 @@
 <div class="story">
     <div class="story-container">
         <div class="story-image">
-            <img src="../../../assets/story-0.png" alt="">
+            <img src="assets/story-0.png" alt="">
         </div>
         <div class="story-info">
             <h3>Story about what we do</h3>
             <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
                 dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip
                 ex ea commodo consequat. </p>
-            <button>view our report <img src="../../../assets/arrowRight.svg" alt=""></button>
+            <button>view our report <img src="assets/arrowRight.svg" alt=""></button>
         </div>
     </div>
     <div class="story-gallery">
@@ -130,7 +130,7 @@
             spaceBetween: 25
           }}">
             <ng-template swiperSlide *ngFor="let a of defaultArray">
-                <div class="image-wrap"><img src="../../../assets/story-1.png" alt=""></div>
+                <div class="image-wrap"><img src="assets/story-1.png" alt=""></div>
             </ng-template>            
         </swiper>
     </div>
@@ -138,15 +138,15 @@
 <div class="join-container">
     <h3>Let’s build the world without war</h3>
     <div class="bg-image-mobile">
-        <img class="tablet" src="../../../assets/home-bg-2-tablet.png" alt="">
-        <img class="mobile" src="../../../assets/home-bg-2-mobile.png" alt="">
+        <img class="tablet" src="assets/home-bg-2-tablet.png" alt="">
+        <img class="mobile" src="assets/home-bg-2-mobile.png" alt="">
     </div>
     <div class="join-box">
         <div class="bg-image">
-            <img class="desktop" src="../../../assets/home-bg-2-desktop.png" alt="">
-            <img class="laptop" src="../../../assets/home-bg-2-laptop.png" alt="">
-            <img class="tablet" src="../../../assets/home-bg-2-tablet.png" alt="">
-            <img class="mobile" src="../../../assets/home-bg-2-mobile.png" alt="">
+            <img class="desktop" src="assets/home-bg-2-desktop.png" alt="">
+            <img class="laptop" src="assets/home-bg-2-laptop.png" alt="">
+            <img class="tablet" src="assets/home-bg-2-tablet.png" alt="">
+            <img class="mobile" src="assets/home-bg-2-mobile.png" alt="">
         </div>
         <div class="join-us">
             <div class="join-title">
@@ -169,7 +169,7 @@
                 </div>
                 
             </div>
-            <app-button text="Donate" (open)="modalService.open('donate-modal')"></app-button>
+            <app-button  (click)="modalService.open('donate-modal')">Donate</app-button>
         </div>
     </div>
 </div>

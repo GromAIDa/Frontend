@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
-import { BurgerToggleService } from 'src/app/services/burger-toggle.service';
+import { Router } from '@angular/router';
+import { BurgerToggleService } from '@services/burger-toggle.service';
 
 @Component({
   selector: 'app-header',
@@ -8,8 +8,10 @@ import { BurgerToggleService } from 'src/app/services/burger-toggle.service';
   styleUrls: ['./header.component.scss'],
 })
 export class HeaderComponent implements OnInit {
-  
-  constructor(public burgerService: BurgerToggleService, public router: Router) {}
+  constructor(
+    public burgerService: BurgerToggleService,
+    public router: Router
+  ) {}
 
   ngOnInit(): void {
     document
@@ -21,6 +23,4 @@ export class HeaderComponent implements OnInit {
         }
       });
   }
-
-  
 }

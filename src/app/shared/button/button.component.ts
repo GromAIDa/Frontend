@@ -1,26 +1,20 @@
-import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { Component, Input } from '@angular/core';
+import {
+  ButtonType,
+  BUTTON_TYPES_ENUM,
+} from 'app/models/enums/button-type.enum';
 
 @Component({
   selector: 'app-button',
   templateUrl: './button.component.html',
-  styleUrls: ['./button.component.scss']
+  styleUrls: ['./button.component.scss'],
 })
-export class ButtonComponent implements OnInit {
-  @Input()
-  text:string = '';
-  @Input()
-  transparent: boolean = false;
+export class ButtonComponent {
+  @Input() type: ButtonType;
+  @Input() class: string;
 
-  @Output() open: EventEmitter<any> = new EventEmitter();
-
-
-  constructor() { }
-
-  ngOnInit(): void {
+  constructor() {
+    this.class = 'app-button';
+    this.type = BUTTON_TYPES_ENUM.BUTTON;
   }
-
-  onClick(){
-    this.open.emit()
-  }
-
 }

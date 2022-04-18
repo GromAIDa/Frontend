@@ -1,0 +1,14 @@
+.auth-container{
+    display: flex;
+    width: 100%;
+    min-height: 100vh;
+    &__video{
+        width: 62%;
+        display: flex;
+        align-items: center;
+        background: url('/assets/video-background.png');
+    }
+    &__forms{
+        width: 38%;
+    }
+}
