@@ -1,22 +1,23 @@
 /* You can add global styles to this file, and also import other style files */
 @import "~hamburgers/_sass/hamburgers/hamburgers.scss";
+@import "@angular/material/prebuilt-themes/deeppurple-amber.css";
 
 @import "sass/main";
 
-* {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-  font-family: "Outfit";
-  font-style: normal;
-  color: #a8aeb0;
-}
+// * {
+//   box-sizing: border-box;
+//   margin: 0;
+//   padding: 0;
+//   font-family: "Outfit";
+//   font-style: normal;
+//   color: #a8aeb0;
+// }
 
-body,
-html {
-  background: #252829;
-  position: relative;
-}
+// body,
+// html {
+//   background: #252829;
+//   position: relative;
+// }
 .hidden {
   overflow: hidden;
 }
@@ -26,3 +27,6 @@ button, a {
     filter: brightness(0.8);
   }
 }
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }

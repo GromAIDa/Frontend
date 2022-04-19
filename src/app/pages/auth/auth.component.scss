@@ -1,14 +1,75 @@
-.auth-container{
+@import "sass/colors";
+
+.auth-container {
+  display: flex;
+  width: 100%;
+  min-height: 100vh;
+
+  &__header {
+    margin-left: 13.6%;
+
+    h1 {
+      text-shadow: 0px 4px 62px #131415;
+      color: $on-signIn-header;
+      width: 85%;
+      margin-bottom: 90px;
+    }
+  }
+  &__video {
+    width: 60%;
     display: flex;
-    width: 100%;
-    min-height: 100vh;
-    &__video{
-        width: 62%;
+    align-items: center;
+    background: url("/assets/video-background.png");
+
+    .play-icon {
+      margin-right: 41px;
+    }
+  }
+  &__forms {
+    width: 40%;
+
+    .auth-form {
+      width: 100%;
+      display: flex;
+      padding: 0 45px;
+      flex-direction: column;
+      // rewrite
+      margin-top: 158px;
+
+      &__header {
         display: flex;
+        flex-direction: column;
         align-items: center;
-        background: url('/assets/video-background.png');
+        justify-content: center;
+
+        h2 {
+          color: $base-light;
+          margin-bottom: 10px;
+          text-transform: uppercase;
+        }
+
+        p {
+          color: $on-description-text;
+          // width: 85%;
+        }
+      }
+      &__actions {
+        margin-top: 68px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+        &--links {
+          a {
+            color: $on-a-links;
+            text-transform: uppercase;
+          }
+        }
+
+        &--content {
+          margin-top: 50px;
+        }
+      }
     }
-    &__forms{
-        width: 38%;
-    }
+  }
 }

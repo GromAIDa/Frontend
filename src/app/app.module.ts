@@ -10,6 +10,7 @@ import { CurrencyMaskModule } from 'ng2-currency-mask';
 import { CoreModule } from '@core/core.module';
 
 
+
 @NgModule({
   declarations: [
     AppComponent,

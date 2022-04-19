@@ -1,15 +1,51 @@
 <div class="auth-container">
   <div class="auth-container__video">
     <div class="auth-container__header">
-      <h1>Donate For Better World</h1>
+      <h1 class="semi-bold semi-bold__h1">Donate For Better World</h1>
       <app-button [class]="'app-button app-button__video-play'">
-        <span>
-          Watch demo
-        </span>
+        <img class="play-icon" src="assets/play-icon.png" alt="" />
+        <span class="semi-bold"> Watch demo </span>
       </app-button>
     </div>
   </div>
   <div class="auth-container__forms">
-    <router-outlet></router-outlet>
+    <div class="auth-form">
+      <div class="auth-form__header">
+        <h2 class="medium">Let`s build the world without war</h2>
+        <p class="regular">
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+          eiusmod tempor incididunt ut labore et dolore magna aliqua.
+        </p>
+      </div>
+
+      <div class="auth-form__actions">
+        <div mat-tab-nav-bar class="auth-form__actions--links">
+          <a
+            class="medium"
+            mat-tab-link
+            routerLink="./sign-in"
+            routerLinkActive
+            #signIn="routerLinkActive"
+            [active]="signIn.isActive"
+          >
+            Sign in
+          </a>
+          <a
+            class="medium"
+            mat-tab-link
+            routerLink="./sign-up"
+            routerLinkActive
+            #signUp="routerLinkActive"
+            [active]="signUp.isActive"
+
+          >
+            Sign up
+          </a>
+        </div>
+        <div class="auth-form__actions--content">
+          <router-outlet></router-outlet>
+        </div>
+      </div>
+    </div>
   </div>
 </div>

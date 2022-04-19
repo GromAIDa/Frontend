@@ -21,6 +21,10 @@
   &__video-play {
     background: rgba(23, 24, 27, 0.75);
     border-radius: 50px;
-    padding: 33px 43px;
+    width: 336px;
+    height: 102px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
 }

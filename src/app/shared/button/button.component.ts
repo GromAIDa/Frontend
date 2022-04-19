@@ -1,8 +1,5 @@
 import { Component, Input } from '@angular/core';
-import {
-  ButtonType,
-  BUTTON_TYPES_ENUM,
-} from 'app/models/enums/button-type.enum';
+import { ButtonType, BUTTON_TYPES_ENUM } from '@enums/button-type.enum';
 
 @Component({
   selector: 'app-button',

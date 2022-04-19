@@ -9,6 +9,7 @@ import { PaymentSuccessModalComponent } from './payment-success-modal/payment-su
 import { PaymentCancelModalComponent } from './payment-cancel-modal/payment-cancel-modal.component';
 import { RouterModule } from '@angular/router';
 import { ButtonModule } from './button/button.module';
+import { ControlsModule } from './controls/controls.module';
 
 @NgModule({
   declarations: [
@@ -23,10 +24,13 @@ import { ButtonModule } from './button/button.module';
     ReactiveFormsModule,
     CurrencyMaskModule,
     RouterModule,
-    ButtonModule
+    
+    ButtonModule,
+    ControlsModule
   ],
   exports: [
     ButtonModule,
+    ControlsModule,
 
     DonateModalComponent,
 
