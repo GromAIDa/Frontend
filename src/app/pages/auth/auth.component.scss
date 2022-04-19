@@ -1,4 +1,5 @@
 @import "sass/colors";
+@import "sass/mixins";
 
 .auth-container {
   display: flex;
@@ -19,7 +20,12 @@
     width: 60%;
     display: flex;
     align-items: center;
-    background: url("/assets/video-background.png");
+    background: url("/assets/img/video-background.png");
+    background-repeat: no-repeat;
+
+    @include screen("desktop") {
+      width: 55%;
+    }
 
     .play-icon {
       margin-right: 41px;
@@ -27,7 +33,9 @@
   }
   &__forms {
     width: 40%;
-
+    @include screen("desktop") {
+      width: 45%;
+    }
     .auth-form {
       width: 100%;
       display: flex;
@@ -35,6 +43,9 @@
       flex-direction: column;
       // rewrite
       margin-top: 158px;
+      @include screen("desktop") {
+        margin-top: 50px;
+      }
 
       &__header {
         display: flex;
@@ -46,11 +57,20 @@
           color: $base-light;
           margin-bottom: 10px;
           text-transform: uppercase;
+
+          @include screen("desktop") {
+            font-size: 24px;
+            line-height: 30px;
+          }
         }
 
         p {
           color: $on-description-text;
-          // width: 85%;
+          @include screen("desktop") {
+            font-size: 16px;
+            line-height: 20px;
+            text-align: center;
+          }
         }
       }
       &__actions {
@@ -59,15 +79,25 @@
         flex-direction: column;
         align-items: center;
 
+        @include screen("desktop") {
+          margin-top: 30px;
+        }
+
         &--links {
           a {
             color: $on-a-links;
             text-transform: uppercase;
+
+            @include screen("desktop") {
+              font-size: 16px;
+              line-height: 20px;
+            }
           }
         }
 
         &--content {
           margin-top: 50px;
+          width: 100%;
         }
       }
     }

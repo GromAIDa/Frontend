@@ -27,6 +27,7 @@ export class PasswordComponent implements OnInit, ControlValueAccessor {
   @Output() changed = new EventEmitter<string>();
 
   value: string;
+  hide:boolean = true;
   isDisabled!: boolean;
   passwordType: PasswordType;
 

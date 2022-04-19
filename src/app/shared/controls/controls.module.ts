@@ -6,7 +6,12 @@ import { PasswordModule } from './password/password.module';
 
 @NgModule({
   declarations: [],
-  imports: [CommonModule, InputModule, FormFieldModule, PasswordModule],
+  imports: [
+    CommonModule,
+    InputModule,
+    FormFieldModule,
+    PasswordModule,
+  ],
   exports: [InputModule, FormFieldModule, PasswordModule],
 })
 export class ControlsModule {}

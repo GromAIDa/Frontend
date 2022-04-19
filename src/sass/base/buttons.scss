@@ -27,4 +27,11 @@
     align-items: center;
     justify-content: center;
   }
+
+  &__auth {
+    width: 370px;
+    height: 51px;
+    text-transform: none;
+    color: $base;
+  }
 }

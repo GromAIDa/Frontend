@@ -1,7 +1,10 @@
 .app-input {
+  width: 448px;
+  border-radius: 50px;
+  height: 51px;
+  border: none;
 
-    border-radius: 50px;
-    height: 51px;
-
-    background: $on-input-bg;
+  max-width: 448px;
+  padding: 10px 0 10px 94px;
+  background: $on-input-bg;
 }

@@ -1,7 +1,7 @@
 <div class="goods-container">
     <div class="left-box">
         <a routerLink="/">
-            <div class="company-logo"><img src="assets/Logotype.svg" alt=""></div>
+            <div class="company-logo"><img src="assets/icons/Logotype.svg" alt=""></div>
         </a>
         <div class="goods-categories">
             <ul class="list">
@@ -16,10 +16,10 @@
     <div class="right-box">
         <div class="header-mobile">
             <a routerLink="/">
-                <div class="company-logo"><img src="assets/Logotype.svg" alt=""></div>
+                <div class="company-logo"><img src="assets/icons/Logotype.svg" alt=""></div>
             </a>
             <div class="search">
-                <img src="assets/Search.svg" alt="">
+                <img src="assets/icons/Search.svg" alt="">
                 <input type="text" [ngModel]='searchTerm' (ngModelChange)='searchTermChanged.next($event)' />
             </div>
         </div>
@@ -29,7 +29,7 @@
             </a>
             <span class="title">List of necessary goods</span>
             <div class="search">
-                <img src="assets/Search.svg" alt="">
+                <img src="assets/icons/Search.svg" alt="">
                 <input type="text" [ngModel]='searchTerm' (ngModelChange)='searchTermChanged.next($event)' />
             </div>
         </div>
@@ -58,15 +58,15 @@
                             <div>Bought</div>
                         </div>
                         <div class="name">{{goodsItem.productName}}<img *ngIf="!goodsItem.productName" class="noData"
-                                src="assets/noneIcon.svg"></div>
+                                src="assets/icons/noneIcon.svg"></div>
                         <div class="units">{{goodsItem.packing}}<img *ngIf="!goodsItem.packing" class="noData"
-                                src="assets/noneIcon.svg"></div>
+                                src="assets/icons/noneIcon.svg"></div>
                         <div class="size">{{goodsItem.size}}<img *ngIf="!goodsItem.size" class="noData"
-                                src="assets/noneIcon.svg"></div>
+                                src="assets/icons/noneIcon.svg"></div>
                         <div class="quantity">{{goodsItem.count}}<img *ngIf="!goodsItem.count" class="noData"
-                                src="assets/noneIcon.svg"></div>
+                                src="assets/icons/noneIcon.svg"></div>
                         <div class="bought"><img
-                                [src]="goodsItem.isBought ? 'assets/trueIcon.svg': 'assets/falseIcon.svg'"
+                                [src]="goodsItem.isBought ? 'assets/icons/trueIcon.svg': 'assets/icons/falseIcon.svg'"
                                 alt=""></div>
                     </div>
                 </div>
