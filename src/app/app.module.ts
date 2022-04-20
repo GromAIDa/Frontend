@@ -9,6 +9,10 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { CurrencyMaskModule } from 'ng2-currency-mask';
 import { CoreModule } from '@core/core.module';
 import { SvgService } from '@services/svg/svg.service';
+import {
+  MatSnackBarModule,
+  MAT_SNACK_BAR_DEFAULT_OPTIONS,
+} from '@angular/material/snack-bar';
 
 @NgModule({
   declarations: [AppComponent],
@@ -20,8 +24,17 @@ import { SvgService } from '@services/svg/svg.service';
     CoreModule,
     SharedModule,
     BrowserAnimationsModule,
+    MatSnackBarModule,
   ],
   providers: [
+    {
+      provide: MAT_SNACK_BAR_DEFAULT_OPTIONS,
+      useValue: {
+        duration: 7000,
+        verticalPosition: 'top',
+        horizontalPosition: 'right',
+      },
+    },
     {
       provide: APP_INITIALIZER,
       useFactory: (service: SvgService) =>

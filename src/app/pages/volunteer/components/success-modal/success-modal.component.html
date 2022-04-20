@@ -1,0 +1,12 @@
+<div class="container">
+  <mat-icon svgIcon="icon-good-job"></mat-icon>
+
+  <h3>{{ title }}</h3>
+  <p>{{ text }}</p>
+  <app-button
+    [class]="'app-button app-button__auth medium'"
+    [routerLink]="button?.href ? [button?.href] : []"
+    (click)="close()"
+    >{{ button?.text }}</app-button
+  >
+</div>

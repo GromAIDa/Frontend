@@ -6,9 +6,12 @@ import { VolunteerComponent } from './volunteer.component';
 import { CoreModule } from '@core/core.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { SharedModule } from '@shared/shared.module';
+import { SuccessModalComponent } from './components/success-modal/success-modal.component';
+import { MatDialogModule } from '@angular/material/dialog';
+import { MatIconModule } from '@angular/material/icon';
 
 @NgModule({
-  declarations: [VolunteerComponent],
+  declarations: [VolunteerComponent, SuccessModalComponent],
   imports: [
     CommonModule,
     CoreModule,
@@ -16,6 +19,8 @@ import { SharedModule } from '@shared/shared.module';
     FormsModule,
     ReactiveFormsModule,
     SharedModule,
+    MatDialogModule,
+    MatIconModule
   ],
 })
 export class VolunteerModule {}

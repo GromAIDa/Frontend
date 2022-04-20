@@ -1,7 +1,16 @@
+import { HttpErrorResponse } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { MatDialog } from '@angular/material/dialog';
 import { ButtonType, BUTTON_TYPES_ENUM } from '@enums/button-type.enum';
+import { IRegisterRequest } from '@interfaces/register.interface';
+import { RoleItem } from '@interfaces/role.interface';
+import { IVerifyCode } from '@interfaces/verifyCode.interface';
+import { ApiService } from '@services/api/api.service';
+import { ToastService } from '@services/toast/toast.service';
 import { markFormGroupTouched, regex, regexErrors } from '@shared/utils';
+import { catchError, map, switchMap, tap, throwError } from 'rxjs';
+import { SuccessModalComponent } from './components/success-modal/success-modal.component';
 
 @Component({
   selector: 'app-volunteer',
@@ -12,40 +21,118 @@ export class VolunteerComponent implements OnInit {
   emailVerify!: FormGroup;
   codeVerify!: FormGroup;
 
+  roles: RoleItem[];
+
+  emailRequest!: string;
+  codeData!: IVerifyCode;
+  infoData!: IRegisterRequest;
+
   volunteerForm!: FormGroup;
   regexErrors = regexErrors;
   submit: ButtonType;
-  step: number = 2;
+  step: number = 1;
 
-  constructor(private fb: FormBuilder) {
+  constructor(
+    private fb: FormBuilder,
+    private api: ApiService,
+    private toast: ToastService,
+    private dialog: MatDialog
+  ) {
     this.submit = BUTTON_TYPES_ENUM.SUBMIT;
+
+    this.roles = [
+      { label: 'Volunteer', value: 'User' },
+      { label: 'Company', value: 'Volunteer' },
+      { label: 'Supplier of the goods', value: 'Shop' },
+    ];
   }
 
   ngOnInit(): void {
     this.initEmailForm();
-
-   
+    this.initVolunteerForm();
   }
 
   onVerifyMail() {
     if (this.emailVerify.valid) {
-      this.step++;
       const value = this.emailVerify.value;
+
+      this.api
+        .verifyEmail(value)
+        .pipe(
+          catchError((error: HttpErrorResponse) => {
+            console.log(13, error);
+
+            if (error.status === 403) {
+              this.toast.error(`Email already verify`, 'Close');
+            } else {
+              this.step++;
+            }
+
+            return throwError(() => error);
+          })
+        )
+        .subscribe();
+
       this.initCodeForm();
-      // Here send code
-      console.log(123, value);
     } else {
       markFormGroupTouched(this.emailVerify);
     }
   }
+
   onVerifyCode() {
     if (this.codeVerify.valid) {
-      this.step++;
-      const value = this.codeVerify.value;
-      // Here send code
-      console.log(123, value);
+      const value = this.codeVerify.value.code;
+      this.codeData = {
+        email: this.emailVerify.value.email,
+        verificationCode: Number(value),
+      };
+      this.api
+        .verifyCode(this.codeData)
+        .pipe(tap(() => this.step++))
+        .subscribe();
+
+      this.initVolunteerForm();
     } else {
       markFormGroupTouched(this.codeVerify);
+    }
+  }
+
+  onSubmit() {
+    if (this.volunteerForm.valid) {
+      const value = this.volunteerForm.value;
+      this.infoData = {
+        email: this.emailVerify.value.email,
+        roles: value.role,
+        firstName: value.firstName,
+        lastName: value.lastName,
+        phone: value.phone,
+        info: value.info,
+      };
+      this;
+      this.api
+        .sendData(this.infoData)
+        .pipe(
+          switchMap(() =>
+            this.dialog
+              .open(SuccessModalComponent, {
+                data: {
+                  text: 'Thank you. We will contact you soon!',
+                  button: {
+                    text: 'Close',
+                    href: '/',
+                  },
+                },
+              })
+              .afterClosed()
+          ),
+          catchError((error: HttpErrorResponse) => {
+            this.toast.error(`${error.error.message}`, 'Close');
+            return throwError(() => error);
+          })
+        )
+        .subscribe();
+    } else {
+      markFormGroupTouched(this.volunteerForm);
     }
   }
 
@@ -68,6 +155,7 @@ export class VolunteerComponent implements OnInit {
       ],
     });
   }
+
   private initCodeForm(): void {
     this.codeVerify = this.fb.group({
       code: [
@@ -80,7 +168,7 @@ export class VolunteerComponent implements OnInit {
     });
   }
 
-  private initVolunteerForm():void {
+  private initVolunteerForm(): void {
     this.volunteerForm = this.fb.group({
       firstName: [
         null,
@@ -103,6 +191,14 @@ export class VolunteerComponent implements OnInit {
           validators: [Validators.required, Validators.maxLength(128)],
         },
       ],
-    })
+      role: [
+        null,
+        {
+          updateOn: 'change',
+          validators: [Validators.required],
+        },
+      ],
+      info: [null],
+    });
   }
 }

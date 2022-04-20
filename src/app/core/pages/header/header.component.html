@@ -9,6 +9,9 @@
         <a class="header-link" (click)="burgerService.openRouter('news')"  [class.header-link__active]="router.url === '/news'">
             <div>News</div>
         </a>
+        <a class="header-link" (click)="burgerService.openRouter('join-us')"  [class.header-link__active]="router.url === '/join-us'">
+            <div>Join Us</div>
+        </a>
     </nav>
     <button class="burger-toggle" (click)="burgerService.toggleMenu()" [ngClass]="{'close': burgerService.isOpenedNav}" id="click-outside"></button>
     <div class="burger-menu" [ngClass]="{'opened': burgerService.isOpenedNav}">
@@ -19,6 +22,9 @@
                 </a>
                 <a class="header-link"  [class.header-link__active]="router.url === '/news'" (click)="burgerService.toggleMenu('news')">
                     <div>News</div>
+                </a>
+                <a class="header-link"  [class.header-link__active]="router.url === '/join-us'" (click)="burgerService.toggleMenu('join-us')">
+                    <div>Join Us</div>
                 </a>
             </nav>
         </div>

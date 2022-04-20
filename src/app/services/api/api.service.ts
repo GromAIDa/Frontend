@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { GoodsItem } from '@interfaces/goodsItem';
 import { Pagination } from '@interfaces/pagination';
@@ -9,13 +9,23 @@ import { SearchRequest } from '@interfaces/searchRequest';
 import { TotalDonations } from '@interfaces/totalDonations';
 import { PaymentRequest } from '@interfaces/paymentRequest';
 import { environment } from 'environments/environment';
-import { Observable } from 'rxjs';
+import { catchError, Observable, throwError } from 'rxjs';
+import { ToastService } from '@services/toast/toast.service';
+import { IVerifyCode } from '@interfaces/verifyCode.interface';
+import { IRegisterRequest } from '@interfaces/register.interface';
+
+export interface IError {
+  value: string;
+  msg: string;
+  param: string;
+  location: string;
+}
 
 @Injectable({
   providedIn: 'root',
 })
 export class ApiService {
-  constructor(private httpClient: HttpClient) {}
+  constructor(private httpClient: HttpClient, private toast: ToastService) {}
 
   apiUrl = environment.API_URL;
 
@@ -57,5 +67,18 @@ export class ApiService {
       `${this.apiUrl}/create-payment-link`,
       req
     );
+  }
+
+  public verifyEmail(email: string): Observable<string> {
+    return this.httpClient
+      .put<string>(`${this.apiUrl}/email-verification`, email)
+  }
+  public verifyCode(data: IVerifyCode): Observable<IVerifyCode> {
+    return this.httpClient
+      .post<IVerifyCode>(`${this.apiUrl}/email-verification`, data)
+  }
+  public sendData(data: IRegisterRequest): Observable<IRegisterRequest> {
+    return this.httpClient
+      .post<IRegisterRequest>(`${this.apiUrl}/register`, data)
   }
 }
