@@ -7,4 +7,10 @@
   max-width: 448px;
   padding: 10px 0 10px 94px;
   background: $on-input-bg;
+
+  color: #252829;
+
+  &::placeholder{
+    color: #252829;
+  }
 }

@@ -1,0 +1,85 @@
+<div class="top-background">
+  <div class="background-blur">
+    <app-header></app-header>
+
+    <div class="joinUs">
+      <div class="joinUs__header">
+        <h1>Let`s build the world without war!</h1>
+        <p>Join our team.</p>
+      </div>
+      <div class="joinUs__form">
+        <div class="form__header">
+          <h2>Follow a few steps so that we can contact you</h2>
+        </div>
+        <div class="form__action">
+          <!-- Mail Form -->
+          <div *ngIf="step == 1" class="app-page">
+            <form
+              [formGroup]="emailVerify"
+              novalidate
+              autocomplete="off"
+              (submit)="onVerifyMail()"
+              (keyup.enter)="onVerifyMail()"
+            >
+              <app-form-field
+                label="Please enter your email"
+                [required]="true"
+                [control]="emailVerify.controls['email']"
+                [patternError]="regexErrors.email"
+              >
+                <app-input
+                  [icon]="'icon-email'"
+                  [placeholder]="'example@gmail.com'"
+                  formControlName="email"
+                ></app-input>
+              </app-form-field>
+
+              <app-button
+                [class]="'app-button app-button__auth medium'"
+                [type]="submit"
+                >Next</app-button
+              >
+            </form>
+          </div>
+          <!-- Verification Code -->
+          <div *ngIf="step == 2" class="app-page app-page__code">
+            <p>A confirmation code has been sent to your email</p>
+            <form
+              [formGroup]="codeVerify"
+              novalidate
+              autocomplete="off"
+              (submit)="onVerifyCode()"
+              (keyup.enter)="onVerifyCode()"
+            >
+              <app-form-field
+                label="Please enter code"
+                [required]="true"
+                [control]="codeVerify.controls['code']"
+                [patternError]="regexErrors.numbers"
+              >
+                <app-input
+                  [icon]="'icon-password'"
+                  [placeholder]="'••••••••'"
+                  formControlName="code"
+                ></app-input>
+              </app-form-field>
+
+              <div class="buttons-actions">
+                <app-button
+                  [class]="'app-button app-button__verify medium'"
+                  >Back</app-button
+                >
+                <app-button
+                  [class]="'app-button app-button__verify medium'"
+                  [type]="submit"
+                  >Next</app-button
+                >
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<app-footer></app-footer>

@@ -1,8 +1,14 @@
-<input
-  type="text"
-  class="app-input"
-  [placeholder]="placeholder"
-  [value]="value"
-  (keyup)="onKeyup($event.target.value)"
-  (blur)="onBlur()"
-/>
+<div class="input">
+  <div class="icons">
+    <mat-icon [svgIcon]="icon"></mat-icon>
+  </div>
+
+  <input
+    type="text"
+    class="app-input"
+    [placeholder]="placeholder"
+    [value]="value"
+    (keyup)="onKeyup($event.target.value)"
+    (blur)="onBlur()"
+  />
+</div>

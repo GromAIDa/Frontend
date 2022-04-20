@@ -23,10 +23,12 @@ import { NG_VALUE_ACCESSOR } from '@angular/forms';
 export class InputComponent {
   @Output() changed = new EventEmitter<string>();
   @Input() placeholder: string;
+  @Input() icon: string;
   value: string;
   constructor() {
     this.value = '';
     this.placeholder = '';
+    this.icon = '';
   }
 
   private propagateChange: any = () => {};

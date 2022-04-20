@@ -25,6 +25,10 @@ const routes: Routes = [
   {
     path: 'auth',
     loadChildren: () => import('@pages/auth/auth.module').then(m => m.AuthModule)
+  },
+  {
+    path: 'join-us',
+    loadChildren: () => import('@pages/volunteer/volunteer.module').then(m=>m.VolunteerModule)
   }
 ];
 
