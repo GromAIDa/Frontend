@@ -14,3 +14,9 @@
     color: #252829;
   }
 }
+
+@media (max-width: 425px) {
+  .app-input {
+    width: 100% !important;
+  }
+}

@@ -2,7 +2,7 @@ import { APP_INITIALIZER, NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppComponent } from './app.component';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 import { SharedModule } from './shared/shared.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -13,6 +13,7 @@ import {
   MatSnackBarModule,
   MAT_SNACK_BAR_DEFAULT_OPTIONS,
 } from '@angular/material/snack-bar';
+import { ErrorHandler } from '@core/interseptors/errorHandler';
 
 @NgModule({
   declarations: [AppComponent],
@@ -43,6 +44,12 @@ import {
         },
       multi: true,
       deps: [SvgService],
+    },
+    ErrorHandler,
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: ErrorHandler,
+      multi: true,
     },
   ],
   bootstrap: [AppComponent],

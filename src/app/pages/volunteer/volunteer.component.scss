@@ -1,7 +1,7 @@
 .top-background {
-  min-height: 100vh;
+  height: fit-content;
   .background-blur {
-    height: 100vh;
+    height: fit-content;
     .joinUs {
       display: flex;
       margin-top: 50px;
@@ -64,6 +64,61 @@
                   align-items: center;
                 }
               }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 1024px) {
+  .joinUs {
+    &__header {
+      h1 {
+        font-size: 50px !important;
+        line-height: 60px !important;
+      }
+      p {
+        font-size: 20px !important;
+        line-height: 24px !important;
+      }
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .joinUs {
+    padding: 0 20px;
+    &__header {
+      h1 {
+        text-align: center;
+      }
+    }
+    &__form {
+      h2 {
+        text-align: center;
+      }
+    }
+  }
+}
+
+@media (max-width: 425px) {
+  .joinUs {
+    &__form {
+      h2 {
+        text-align: center;
+      }
+      .form__action {
+        .app-page {
+          form {
+            width: 100%;
+            app-button, app-form-field{
+              width: 100%;
+            }
+            .buttons-actions {
+              flex-direction: column;
+              height: 115px;
             }
           }
         }

@@ -54,24 +54,12 @@ export class VolunteerComponent implements OnInit {
 
   onVerifyMail() {
     if (this.emailVerify.valid) {
-      const value = this.emailVerify.value;
+      const { value } = this.emailVerify;
 
       this.api
-        .verifyEmail(value)
-        .pipe(
-          catchError((error: HttpErrorResponse) => {
-            console.log(13, error);
-
-            if (error.status === 403) {
-              this.toast.error(`Email already verify`, 'Close');
-            } else {
-              this.step++;
-            }
-
-            return throwError(() => error);
-          })
-        )
-        .subscribe();
+        .verifyEmail(value).subscribe(() => {
+          this.step++;
+        });
 
       this.initCodeForm();
     } else {
@@ -125,10 +113,6 @@ export class VolunteerComponent implements OnInit {
               })
               .afterClosed()
           ),
-          catchError((error: HttpErrorResponse) => {
-            this.toast.error(`${error.error.message}`, 'Close');
-            return throwError(() => error);
-          })
         )
         .subscribe();
     } else {

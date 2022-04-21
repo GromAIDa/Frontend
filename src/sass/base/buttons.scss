@@ -40,3 +40,13 @@
     color: $base;
   }
 }
+
+@media (max-width: 425px) {
+  .app-button{
+    font-size: 18px !important;
+    width: 100%;
+    &__auth {
+      width: 100% !important;
+    }
+  }
+}
