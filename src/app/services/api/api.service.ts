@@ -81,4 +81,8 @@ export class ApiService {
     return this.httpClient
       .post<IRegisterRequest>(`${this.apiUrl}/register`, data)
   }
+  public subscribeUpdate(data: {email: string}) {
+    return this.httpClient
+      .post(`${this.apiUrl}/subscribe-update`, data)
+  }
 }

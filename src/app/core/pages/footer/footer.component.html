@@ -24,10 +24,10 @@
     <div class="footer-third">
         <div class="footer-info">
             <h4>subscribe for our news updates</h4>
-            <div class="subscribe-input">
-                <input type="text" placeholder="enter your email">
-                <button>subscribe</button>
-            </div>
+            <form class="subscribe-input">
+                <input type="text" placeholder="enter your email" [formControl]="email">
+                <button (click)="subscribe()">subscribe</button>
+            </form>
         </div>
         <div class="copyright">ⓒcopyright 2022</div>
     </div>

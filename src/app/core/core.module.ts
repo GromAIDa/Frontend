@@ -3,6 +3,9 @@ import { CommonModule } from '@angular/common';
 import { HeaderComponent } from './pages/header/header.component';
 import { FooterComponent } from './pages/footer/footer.component';
 import { RouterModule } from '@angular/router';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { SharedModule } from '@shared/shared.module';
+import { MatDialogModule } from '@angular/material/dialog';
 
 
 
@@ -14,6 +17,10 @@ import { RouterModule } from '@angular/router';
   imports: [
     CommonModule,
     RouterModule,
+    FormsModule,
+    ReactiveFormsModule,
+    SharedModule,
+    MatDialogModule
   ],
   exports: [
     HeaderComponent,
