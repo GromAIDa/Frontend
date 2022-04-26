@@ -3,6 +3,12 @@
 @import "~swiper/scss/pagination";
 @import "~swiper/scss/navigation";
 
+.background-is-empty {
+  background-image: url('../../../assets/img/background-for-empty-reports.png');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
 .swiper {
   width: 500px;
   height: 500px;
@@ -710,6 +716,12 @@ nav {
 }
 
 @media screen and (max-width: 1300px) {
+  .background-is-empty {
+    background-image: none;
+  }
+  .donate-is-reports-empty{
+    margin-top: 40px !important;
+  }
   .top-background-2 .background-blur .donates-container {
     flex-direction: column;
     align-items: center;
@@ -1222,6 +1234,14 @@ nav {
   }
   .swiper-container .top-section .donat-info {
     margin-top: 30px;
+  }
+  .donate__create button {
+    width: 115px;
+    height: 35px;
+  }
+  .donate__create button {
+      font-size: 14px;
+      line-height: 18px;
   }
   .mySwiper {
     width: 250px;

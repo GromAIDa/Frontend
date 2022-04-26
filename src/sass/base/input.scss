@@ -3,12 +3,10 @@
   border-radius: 50px;
   height: 51px;
   border: none;
-
+  color: #8a949f;
   max-width: 448px;
   padding: 10px 0 10px 94px;
   background: $on-input-bg;
-
-  color: #252829;
 
   &::placeholder{
     color: #252829;

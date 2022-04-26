@@ -36,7 +36,7 @@ export class DonateModalComponent {
       this.isClicked = true;
       await this.ethersService.transferUsdc(
         environment.ADDRESS,
-        this.paymentDataForm.value.amount
+        `${this.paymentDataForm.value.amount}`
       );
     } catch (err) {
       const error = err as Error;

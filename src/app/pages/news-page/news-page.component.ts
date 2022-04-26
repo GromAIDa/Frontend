@@ -40,6 +40,10 @@ export class NewsPageComponent implements OnInit {
     });
   }
 
+  toReadMore() {
+    document.getElementById('scroll-position')?.scrollIntoView({block: "center", behavior: "smooth"});
+  }
+
   selectDonat(report: Report) {
     this.currentReport = report;
     document

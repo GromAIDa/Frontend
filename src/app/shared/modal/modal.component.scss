@@ -109,7 +109,7 @@ body.jw-modal-open {
                 }
                 form {
                     display: flex;
-                    justify-content: space-between;
+                    justify-content: space-evenly;
                     margin: 60px auto;
                     width: 100%;
                     max-width: 516px;
@@ -250,7 +250,7 @@ body.jw-modal-open {
     }
     .donate-modal .jw-modal .jw-modal-body .payment-methods form {
         display: flex;
-        justify-content: space-between;
+        justify-content: space-evenly;
         margin: 35px auto;
     }
     .donate-modal .jw-modal .jw-modal-body .pm-form form label {

@@ -3,12 +3,12 @@
     <h4>Payment Method</h4>
     <p>Choose a payment option below</p>
     <form [formGroup]="methods">
-        <div class="method">
+        <!-- <div class="method">
             <div class="method-image" (click)="methods.setValue({method: 'openCollective'})"
                 [ngStyle]="{'border-color': methods.get('method')?.value === 'openCollective' ? '#4A93C8' : '#343539', 'opacity': methods.get('method')?.value === 'openCollective' ? '1' : '0.5'}">
                 <img src="assets/icons/opencollective.svg" alt="">
             </div>
-        </div>
+        </div> -->
         <div class="method">
             <div class="method-image" (click)="methods.setValue({method: 'card'})"
                 [ngStyle]="{'border-color': methods.get('method')?.value === 'card' ? '#4A93C8' : '#343539', 'opacity': methods.get('method')?.value === 'card' ? '1' : '0.5'}">
@@ -46,7 +46,7 @@
     <form [formGroup]="paymentDataForm">
         <label for="amount">Donate the amount</label>
         <input id="amount" type="text" formControlName="amount" currencyMask
-            [options]="{ prefix: '$ ', thousands: '.', decimal: ',' , align: 'left' }"
+            [options]="{ prefix: '$ ', thousands: '.', decimal: ',' , align: 'left', precision: 0 }"
             [ngStyle]="{border: error ? '1px solid #9B0505': ''}">
         <span *ngIf="error">{{error}}</span>
         <button (click)="createPayment()" [disabled]="isClicked">Continue</button>

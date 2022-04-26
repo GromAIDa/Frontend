@@ -43,4 +43,8 @@ export class HomePageComponent implements OnInit {
   getTimeLeft(year: string) {
     return Math.ceil((Number(new Date()) - Number(new Date(year))) / 1000 / 60 / 60 / 24)
   }
+
+  toReadMore() {
+    document.getElementById('scroll-to')?.scrollIntoView({block: "center", behavior: "smooth"});
+  }
 }

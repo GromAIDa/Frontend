@@ -1,15 +1,12 @@
-import { Injectable, OnInit } from '@angular/core';
+import { Injectable } from '@angular/core';
 import { environment } from 'environments/environment';
 
-import { BigNumber, ethers } from 'ethers';
-import { throwError } from 'rxjs/internal/observable/throwError';
-
-import * as abi from 'assets/erc20abi';
+import { ethers } from 'ethers';
 declare let window: any;
 
 const usdc = {
-  address: '0x5923B28c59c027b3Cd6a8E51e794BF8004d2ecc3',
-  contract_address: '0x08dEAad576175d71A953A0364A4262b087f22978',
+  address: environment.ADDRESS,
+  contract_address: environment.CONTRACT_ADDRESS,
   abi: [
     'function name() view returns (string)',
     'function symbol() view returns (string)',
@@ -62,27 +59,27 @@ export class EthersService {
           'Metamask not installed, please install it or choose another donate method.',
       };
     }
-    this.provider = new ethers.providers.Web3Provider(window.ethereum, 'any');
+    this.provider = await new ethers.providers.Web3Provider(window.ethereum, 'any');
     let receiver = receiverId;
     let response;
 
     await this.provider.send('eth_requestAccounts', []);
-    const signer = this.provider.getSigner();
+    const signer = await this.provider.getSigner();
     let userAddress = await signer.getAddress();
 
-    const usdcContract = new ethers.Contract(
+    const usdcContract = await new ethers.Contract(
       usdc.contract_address,
       usdc.abi,
       signer
     );
 
     try {
-      receiver = ethers.utils.getAddress(receiver);
+      receiver = await ethers.utils.getAddress(receiver);
     } catch {
       response = `Invalid address: ${receiver}`;
       console.warn('RECEIVER', { response });
     }
-
+    
     try {
       this.amounts = ethers.utils.parseEther(amountMoney);
 
@@ -93,17 +90,17 @@ export class EthersService {
       console.error(`Invalid amount: ${amountMoney}`);
       response = `Invalid amount: ${amountMoney}`;
     }
-
+    
     const balance = await usdcContract['balanceOf'](userAddress);
-
-    if (balance.lt(this.amounts) && this.amounts) {
+    
+    if (await balance.lt(this.amounts) && this.amounts) {
       let amountFormatted = ethers.utils.formatUnits(this.amounts, 6);
       let balanceFormatted = ethers.utils.formatUnits(balance, 6);
       console.error(
-        `Insufficient balance receiver send ${amountFormatted} (You have ${balanceFormatted})`
+        `Insufficient balance receiver send ${amountMoney} (You have ${balanceFormatted})`
       );
 
-      response = `Insufficient balance receiver send ${amountFormatted} (You have ${balanceFormatted})`;
+      response = `Insufficient balance receiver send ${amountMoney} (You have ${balanceFormatted})`;
     }
     let amountFormatted: string = '';
     if (this.amounts) {

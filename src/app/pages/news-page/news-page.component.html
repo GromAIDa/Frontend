@@ -7,7 +7,7 @@
         <div class="shadow"></div>
 
         <app-header></app-header>
-        <div class="donates-container">
+        <div class="donates-container" [class.background-is-empty]="!reports.docs?.length" *ngIf="reports">
             <div class="donate">
                 <h2>Donate For Better World</h2>
                 <p>One of the most effective ways to help Ukraine and its citizens is to donate to humanitarian aid or provide the help with physical assistance in direct delivery to the Ukrainian cities.
@@ -15,11 +15,11 @@
                     100% of your donation will go towards paying for humanitarian goods for those who in need.</p>
                 <div class="donate__create desktop">
                     <app-button  (click)="modalService.open('donate-modal')">Donate</app-button>
-                    <app-button  [class]="'app-button app-button__transparent'">Read more</app-button>
+                    <app-button  [class]="'app-button app-button__transparent'" (click)="toReadMore()">Read more</app-button>
                 </div>
             </div>
-            <div class="gallery-flex">
-                <div class="reports-gallery" *ngIf="reports">
+            <div class="gallery-flex" *ngIf="reports.docs.length">
+                <div class="reports-gallery" >
                     <div class="shadow-top"></div>
                     <div class="first-gallery">
                         <div class="item" *ngFor="let report of firstMainReports;">
@@ -53,9 +53,9 @@
                 </div>
 
             </div>
-            <div class="donate__create mobile">
+            <div class="donate__create mobile" [class.donate-is-reports-empty]="!reports.docs.length">
                 <app-button  (open)="modalService.open('donate-modal')">Donate</app-button>
-                <app-button  [class]="'app-button app-button__transparent'">Read more</app-button>
+                <app-button  [class]="'app-button app-button__transparent'" (click)="toReadMore()">Read more</app-button>
             </div>
         </div>
 
