@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { environment } from 'environments/environment';
 
-import { ethers } from 'ethers';
+import { BigNumber, ethers } from 'ethers';
 declare let window: any;
 
 const usdc = {
@@ -59,9 +59,12 @@ export class EthersService {
           'Metamask not installed, please install it or choose another donate method.',
       };
     }
-    this.provider = await new ethers.providers.Web3Provider(window.ethereum, 'any');
+    this.provider = await new ethers.providers.Web3Provider(
+      window.ethereum,
+      'any'
+    );
     let receiver = receiverId;
-    let response;
+    let response = '';
 
     await this.provider.send('eth_requestAccounts', []);
     const signer = await this.provider.getSigner();
@@ -77,9 +80,10 @@ export class EthersService {
       receiver = await ethers.utils.getAddress(receiver);
     } catch {
       response = `Invalid address: ${receiver}`;
+      throw { message: response };
       console.warn('RECEIVER', { response });
     }
-    
+
     try {
       this.amounts = ethers.utils.parseEther(amountMoney);
 
@@ -89,33 +93,32 @@ export class EthersService {
     } catch {
       console.error(`Invalid amount: ${amountMoney}`);
       response = `Invalid amount: ${amountMoney}`;
+      throw { message: response };
     }
-    
+
     const balance = await usdcContract['balanceOf'](userAddress);
-    
-    if (await balance.lt(this.amounts) && this.amounts) {
+    const isAmount = await balance.lt(this.amounts);
+    if (isAmount && this.amounts) {
       let amountFormatted = ethers.utils.formatUnits(this.amounts, 6);
       let balanceFormatted = ethers.utils.formatUnits(balance, 6);
-      console.error(
-        `Insufficient balance receiver send ${amountMoney} (You have ${balanceFormatted})`
-      );
-
-      response = `Insufficient balance receiver send ${amountMoney} (You have ${balanceFormatted})`;
+      throw {
+        message: `Insufficient balance receiver send ${amountMoney} (You have ${balanceFormatted})`,
+      };
     }
     let amountFormatted: string = '';
     if (this.amounts) {
       amountFormatted = ethers.utils.formatUnits(this.amounts, 6);
     }
+    const gasPrice: BigNumber = await signer.getGasPrice();
+    try {
+      const tx = await usdcContract['transfer'](receiver, this.amounts, {
+        gasPrice,
+      });
 
-    response = `Transferring ${amountFormatted} USDC receiver ${receiver.slice(
-      0,
-      6
-    )}...`;
-
-    const tx = await usdcContract['transfer'](receiver, this.amounts, {
-      gasPrice: 20e9,
-    });
-
-    const receipt = await tx.wait();
+      const receipt = await tx.wait();
+    } catch (error: any) {
+      if (error && error.code && error.code === -32000)
+        throw { message: error.message };
+    }
   }
 }

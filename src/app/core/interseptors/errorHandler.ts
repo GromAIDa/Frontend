@@ -15,7 +15,7 @@ export class ErrorHandler implements HttpInterceptor { // need renaming
       tap(
         () => {},
         (error) => {
-          const errorMsg = error.error.errors.map((el: ResponseError) => el.msg).join(', ');
+          const errorMsg = error.error.errors?.map((el: ResponseError) => el.msg).join(', ');
             if(errorMsg){
               this.toastService.error(errorMsg, 'close')
             }
