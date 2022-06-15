@@ -14,49 +14,49 @@
             <div class="donate">
                 <h2>Donate For Better World</h2>
                 <div class="donate__create">
-                    <app-button text="Donate" (open)="modalService.open('donate-modal')"></app-button>
-                    <app-button text="Read more" [transparent]="true"></app-button>
+                    <app-button (click)="modalService.open('donate-modal')">Donate</app-button>
+                    <app-button [class]="'app-button app-button__transparent'" (click)="toReadMore()">Read more</app-button>
                 </div>
             </div>
             <div class="donate__live">
-                <h4>Donate so far:</h4>
+                <h4>Donated so far:</h4>
                 <div class="counter">
                     <p>$</p>
                     <span>{{totalDontions.donated | currency:'USD':'':'1.0-0' }}</span>
                 </div>
             </div>
             <div class="donate__create-mobile">
-                <app-button text="Donate" (open)="modalService.open('donate-modal')"></app-button>
-                <app-button text="Read more" [transparent]="true"></app-button>
+                <app-button  (click)="modalService.open('donate-modal')">Donate</app-button>
+                <app-button  [class]="'app-button app-button__transparent'" (click)="toReadMore()">Read more</app-button>
             </div>
         </div>
         <div class="jobs-container">
             <div class="jobs__item">
-                <img src="../../../assets/volunteering.svg" alt="">
+                <img src="assets/icons/volunteering.svg" alt="">
                 <div class="job__info">
                     <h4>Volunteering</h4>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                    <p>Join a network of a volunteer management leaders in Ukraine.</p>
                 </div>
             </div>
             <div class="jobs__item">
-                <img src="../../../assets/donating.svg" alt="">
+                <img src="assets/icons/donating.svg" alt="">
                 <div class="job__info">
                     <h4>Donating</h4>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                    <p>No matter where in the world you are, you can save lives.</p>
                 </div>
             </div>
             <div class="jobs__item">
-                <img src="../../../assets/supporting.svg" alt="">
+                <img src="assets/icons/supporting.svg" alt="">
                 <div class="job__info">
                     <h4>Supporting</h4>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                    <p>We would like to invite you to join us in making the world a better place.</p>
                 </div>
             </div>
         </div>
     </div>
 </div>
 
-<div class="companies" *ngIf="!burgerService.isOpenedNav">
+<!-- <div class="companies" *ngIf="!burgerService.isOpenedNav">
     <swiper [freeMode]="true" [slidesPerView]="5" class="companiesSwiper" [breakpoints]="{
         '300': {
         slidesPerView: 1.5,
@@ -76,23 +76,22 @@
       }}">
         <ng-template swiperSlide *ngFor="let a of defaultArray">
             <div class="company">
-                <img src="../../../assets/company.svg" alt="">
+                <img src="assets/icons/company.svg" alt="">
                 <span>company name</span>
             </div>
         </ng-template>
     </swiper>
-</div>
+</div> -->
 <div class="story">
     <div class="story-container">
         <div class="story-image">
-            <img src="../../../assets/story-0.png" alt="">
+            <img src="assets/img/story-0.png" alt="">
         </div>
-        <div class="story-info">
+        <div class="story-info" id="scroll-to">
             <h3>Story about what we do</h3>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
-                dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip
-                ex ea commodo consequat. </p>
-            <button>view our report <img src="../../../assets/arrowRight.svg" alt=""></button>
+            <p>We are a nonprofit organization started with the aim to transform the lives of individuals by providing food, clothing, medicine and other humanitarian aid, but this does not include the provision of weapons. We created the platform where the community can be created. Feel free to JOIN US as a volunteer, supplier of goods or you just get inspire and want to help.
+            </p>
+            <button routerLink="/news">view our report <img src="assets/icons/arrowRight.svg" alt=""></button>
         </div>
     </div>
     <div class="story-gallery">
@@ -130,7 +129,7 @@
             spaceBetween: 25
           }}">
             <ng-template swiperSlide *ngFor="let a of defaultArray">
-                <div class="image-wrap"><img src="../../../assets/story-1.png" alt=""></div>
+                <div class="image-wrap"><img src="assets/img/story-1.png" alt=""></div>
             </ng-template>            
         </swiper>
     </div>
@@ -138,21 +137,20 @@
 <div class="join-container">
     <h3>Let’s build the world without war</h3>
     <div class="bg-image-mobile">
-        <img class="tablet" src="../../../assets/home-bg-2-tablet.png" alt="">
-        <img class="mobile" src="../../../assets/home-bg-2-mobile.png" alt="">
+        <img class="tablet" src="assets/img/home-bg-2-tablet.png" alt="">
+        <img class="mobile" src="assets/img/home-bg-2-mobile.png" alt="">
     </div>
     <div class="join-box">
         <div class="bg-image">
-            <img class="desktop" src="../../../assets/home-bg-2-desktop.png" alt="">
-            <img class="laptop" src="../../../assets/home-bg-2-laptop.png" alt="">
-            <img class="tablet" src="../../../assets/home-bg-2-tablet.png" alt="">
-            <img class="mobile" src="../../../assets/home-bg-2-mobile.png" alt="">
+            <img class="desktop" src="assets/img/home-bg-2-desktop.png" alt="">
+            <img class="laptop" src="assets/img/home-bg-2-laptop.png" alt="">
+            <img class="tablet" src="assets/img/home-bg-2-tablet.png" alt="">
+            <img class="mobile" src="assets/img/home-bg-2-mobile.png" alt="">
         </div>
         <div class="join-us">
             <div class="join-title">
                 <h4>join our campaing!</h4>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore
-                    et.</p>
+                <p>We hope you will want to be part of the campaign and help support the people in need.</p>
             </div>
             <div class="join-info">
                 <div class="info-block">
@@ -169,7 +167,7 @@
                 </div>
                 
             </div>
-            <app-button text="Donate" (open)="modalService.open('donate-modal')"></app-button>
+            <app-button  (click)="modalService.open('donate-modal')">Donate</app-button>
         </div>
     </div>
 </div>

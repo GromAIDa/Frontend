@@ -1,1 +1,3 @@
-<button [attr.isTransparent]="transparent" (click)="onClick()">{{text}}</button>
+<button [type]="type" [class]="class">
+  <ng-content></ng-content>
+</button>

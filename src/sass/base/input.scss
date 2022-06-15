@@ -1,0 +1,20 @@
+.app-input {
+  width: 448px;
+  border-radius: 50px;
+  height: 51px;
+  border: none;
+  color: #8a949f;
+  max-width: 448px;
+  padding: 10px 0 10px 94px;
+  background: $on-input-bg;
+
+  &::placeholder{
+    color: #252829;
+  }
+}
+
+@media (max-width: 425px) {
+  .app-input {
+    width: 100% !important;
+  }
+}

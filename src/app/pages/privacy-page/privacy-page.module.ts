@@ -2,7 +2,8 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { PrivacyPageComponent } from './privacy-page.component';
 import { PrivacyPageRoutingModule } from './privacy-page-routing.module';
-import { SharedModule } from 'src/app/shared/shared.module';
+
+import { CoreModule } from '@core/core.module';
 
 
 
@@ -13,7 +14,7 @@ import { SharedModule } from 'src/app/shared/shared.module';
   imports: [
     CommonModule,
     PrivacyPageRoutingModule,
-    SharedModule
+    CoreModule
   ]
 })
 export class PrivacyPageModule { }

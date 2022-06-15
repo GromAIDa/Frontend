@@ -21,6 +21,14 @@ const routes: Routes = [
     path: 'privacy',
     loadChildren: () =>
       import('./pages/privacy-page/privacy-page.module').then((m) => m.PrivacyPageModule),
+  },
+  {
+    path: 'auth',
+    loadChildren: () => import('@pages/auth/auth.module').then(m => m.AuthModule)
+  },
+  {
+    path: 'join-us',
+    loadChildren: () => import('@pages/volunteer/volunteer.module').then(m=>m.VolunteerModule)
   }
 ];
 

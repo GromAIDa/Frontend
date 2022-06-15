@@ -4,15 +4,12 @@
 @import "~swiper/scss/navigation";
 
 app-home-page {
-    .background-blur {
-        background: rgba(25, 28, 30, 0.79);
-        backdrop-filter: blur(5px);
-    }
+    // .background-blur {
+    //     background: rgba(25, 28, 30, 0.79);
+    //     backdrop-filter: blur(5px);
+    // }
 }
-.top-background {
-    background: url(../../../assets/home-bg-desktop.png);
-    background-size: cover;
-}
+
 .background-blur {
     background: rgba(25, 28, 30, 0.79);
     backdrop-filter: blur(5px);
@@ -454,7 +451,7 @@ app-home-page {
 }
 @media screen and(max-width:1280px) {
     .top-background {
-        background: url(../../../assets/home-bg-laptop.png);
+        background: url(/assets/img/home-bg-laptop.png);
         background-size: cover;
     }
     .join-container {
@@ -503,7 +500,7 @@ app-home-page {
 
 @media screen and (max-width: 835px) {
     .top-background {
-        background: url(../../../assets/home-bg-tablet.png);
+        background: url(/assets/img/home-bg-tablet.png);
         background-size: cover;
     }
     .join-container {
@@ -718,11 +715,11 @@ app-home-page {
     .donates-container .donate__live .counter {
         margin-top: 16px;
     }
-    .donates-container .donate__create-mobile button {
+    .donates-container .donate__create-mobile button, .join-box button {
         width: 115px;
         height: 35px;
     }
-    .donates-container .donate__create-mobile button {
+    .donates-container .donate__create-mobile button, .join-box button {
         font-size: 14px;
         line-height: 18px;
     }
@@ -867,7 +864,7 @@ app-home-page {
         height: 100px;
     }
     .top-background {
-        background: url(../../../assets/home-bg-mobile.png);
+        background: url(/assets/img/home-bg-mobile.png);
         background-size: cover;
     }
     .join-container {

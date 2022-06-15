@@ -1,0 +1,65 @@
+<div class="app-form">
+  <form
+    [formGroup]="loginForm"
+    novalidate
+    autocomplete="off"
+    (submit)="onSubmit()"
+    (keyup.enter)="onSubmit()"
+  >
+    <div class="app-form__content">
+      <app-form-field
+        label=""
+        [required]="true"
+        [control]="loginForm.controls['email']"
+        [patternError]="regexErrors.email"
+      >
+        <app-input
+          [placeholder]="'example@gmail.com'"
+          formControlName="email"
+        ></app-input>
+      </app-form-field>
+
+      <app-form-field
+        label=""
+        [required]="true"
+        [control]="loginForm.controls['password']"
+        [patternError]="regexErrors.password"
+      >
+        <app-password
+          [placeholder]="'••••••••'"
+          formControlName="password"
+        ></app-password>
+      </app-form-field>
+    </div>
+
+    <div class="app-form__footer">
+      <div class="app-form__footer--actions">
+        <mat-checkbox formControlName="rememberMe">Remember Me </mat-checkbox>
+
+        <a
+          class="app-a"
+          routerLink="/auth/restore"
+          routerLinkActive="app-a_active"
+        >
+          Forgot Password
+        </a>
+      </div>
+      <app-button [class]="'app-button app-button__auth medium'" [type]="submit"
+        >Log in with your account</app-button
+      >
+    </div>
+  </form>
+</div>
+
+<div class="signUp-info">
+  <p>
+    Don`t have an account?
+    <a
+      class="app-a--register"
+      routerLink="/auth/sign-up"
+      routerLinkActive="app-a_active"
+    >
+      Create new one</a
+    >
+  </p>
+</div>

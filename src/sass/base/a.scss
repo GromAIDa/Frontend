@@ -1,0 +1,14 @@
+.app-a {
+  color: $on-signIn-header;
+  transition: 0.25s;
+  cursor: pointer;
+  // margin-right: 1em;
+
+  &:hover {
+    // color: $primary-dark;
+  }
+
+  &--register {
+    color: $base-light;
+  }
+}

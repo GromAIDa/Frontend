@@ -1,0 +1,15 @@
+@import "sass/colors";
+.input {
+  position: relative;
+  .icons {
+    position: absolute;
+    left: 35px;
+    top: 14px;
+  }
+}
+
+:host-context(.form-field_error) {
+  input {
+    border: 1px solid $error;
+  }
+}

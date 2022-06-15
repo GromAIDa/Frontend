@@ -1,0 +1,34 @@
+<div class="footer-container">
+    <div class="footer-first">
+        <div class="footer-logo">
+            <a routerLink="/">
+                <div class="company-logo">
+                    <img  src="assets/icons/GromAIDa-logo-vertical-light.svg" alt="">
+                    <img class="mobile" src="assets/icons/GromAIDa-logo-light.svg" alt="">
+                </div>
+            </a>
+        </div>
+        <div  class="footer-socials">
+            <a href="https://www.instagram.com/grom.aida/?target_user_id=53117849908&ndid=5dd8db39ffa2cG24bc39390c5134G5dd8dfd35fd00Gb81&utm_medium=email&utm_campaign=support_ticket_v2&__bp=1" target="_blank"><img src="assets/icons/instgram.svg" alt="" ></a>
+            <!-- <a href="#"><img src="assets/icons/linkedin.svg" alt=""></a> -->
+            <a href="https://www.facebook.com/Gromaida-108372301860562" target="_blank"><img src="assets/icons/facebook.svg" alt=""></a>
+        </div>
+    </div>
+    <div class="footer-second">
+        <div class="footer-info">
+            <h4>Contact us</h4>
+            <a href="mailto:info@gromaida.org">info@gromaida.org</a>
+            
+        </div>
+    </div>
+    <div class="footer-third">
+        <div class="footer-info">
+            <h4>subscribe for our news updates</h4>
+            <form class="subscribe-input">
+                <input type="text" placeholder="enter your email" [formControl]="email">
+                <button (click)="subscribe()">subscribe</button>
+            </form>
+        </div>
+        <!-- <div class="copyright">ⓒcopyright 2022</div> -->
+    </div>
+</div>
