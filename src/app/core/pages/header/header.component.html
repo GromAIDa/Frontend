@@ -9,6 +9,9 @@
         <a class="header-link" (click)="burgerService.openRouter('news')"  [class.header-link__active]="router.url === '/news'">
             <div>News</div>
         </a>
+        <a class="header-link" (click)="burgerService.openRouter('goods')"  [class.header-link__active]="router.url === '/goods'">
+            <div>Goods</div>
+        </a>
         <a class="header-link" (click)="burgerService.openRouter('join-us')"  [class.header-link__active]="router.url === '/join-us'">
             <div>Join Us</div>
         </a>
@@ -22,6 +25,9 @@
                 </a>
                 <a class="header-link"  [class.header-link__active]="router.url === '/news'" (click)="burgerService.toggleMenu('news')">
                     <div>News</div>
+                </a>
+                <a class="header-link"  [class.header-link__active]="router.url === '/goods'" (click)="burgerService.toggleMenu('goods')">
+                    <div>Goods</div>
                 </a>
                 <a class="header-link"  [class.header-link__active]="router.url === '/join-us'" (click)="burgerService.toggleMenu('join-us')">
                     <div>Join Us</div>

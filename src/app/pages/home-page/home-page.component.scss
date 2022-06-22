@@ -156,7 +156,22 @@ app-home-page {
 
 .story {
     margin-top: 123px;
-
+    .company-container {
+        padding-bottom: 40px;
+        .story-info {
+            max-width: 800px !important;
+            > h4 {
+                font-weight: 400;
+                font-size: 60px;
+                line-height: 70px;
+                color: #b0b4b9;
+                text-align: justify;
+            }
+        }
+    }
+    .story-image img {
+        max-width: 845px;
+    }
     .story-container {
         display: flex;
         justify-content: left;
@@ -177,6 +192,7 @@ app-home-page {
                 color: #b0b4b9;
             }
             > p {
+                text-align: justify;
                 font-weight: 400;
                 font-size: 22px;
                 line-height: 28px;
@@ -368,11 +384,12 @@ app-home-page {
     }
 
     .story-container {
+        flex-direction: column;
+        align-items: center;
         justify-content: space-around !important;
-    }
-
-    .story-info {
-        margin-left: 30px !important;
+        .story-info {
+            margin-left: 0 !important;
+        }
     }
     .story-gallery > div {
         margin: 5px;
@@ -502,6 +519,12 @@ app-home-page {
     .top-background {
         background: url(/assets/img/home-bg-tablet.png);
         background-size: cover;
+    }
+    .company-container {
+        h4 {
+            font-size: 40px !important;
+            line-height: 50px !important;
+        }
     }
     .join-container {
         .bg-image-mobile{

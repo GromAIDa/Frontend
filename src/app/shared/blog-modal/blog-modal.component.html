@@ -1,0 +1,12 @@
+<div class="blog-modal-container" *ngIf="post">
+    <swiper [freeMode]="true" [slidesPerView]="2" [spaceBetween]="20" class="blogSwiper" *ngIf="post.photos.length > 1">
+        <ng-template swiperSlide *ngFor="let photo of post.photos; let i = index;">
+            <div class="image-wrap"><img src="{{imgService.getUrlImg(photo.photo)}}" alt=""></div>
+        </ng-template>            
+    </swiper>
+    <img src="{{imgService.getUrlImg(post.photos[0].photo)}}" alt="" *ngIf="post.photos.length === 1" class="aloneImg">
+    <h3>{{getDate(post.createdAt)}} <span class="dot"></span> {{post.timeToRead}} min read <span class="views">{{post.views}} views</span></h3>
+    <h1>{{post.title}}</h1>
+    <p>{{post.description}}</p>
+    <button (click)="modalService.close('blog-modal')">Close</button>
+</div>
