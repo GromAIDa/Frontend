@@ -67,10 +67,10 @@
 
 </div>
 
-<div class="blog-container" *ngIf="posts">
+<div class="blog-container" *ngIf="posts.docs.length">
     <div class="blog-top">
         <h2>Blog</h2>
-        <div class="paginations" *ngIf="posts">
+        <div class="paginations">
             <a (click)="getPosts(posts.prevPage)">Previous</a>
             <a (click)="getPosts(posts.nextPage)" class="desktop-paginator">Next</a>
             <span>
