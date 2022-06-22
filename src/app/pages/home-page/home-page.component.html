@@ -22,7 +22,7 @@
                 <h4>Donated so far:</h4>
                 <div class="counter">
                     <p>$</p>
-                    <span>{{totalDontions.donated | currency:'USD':'':'1.0-0' }}</span>
+                    <span>{{totalDonations.donated | currency:'USD':'':'1.0-0' }}</span>
                 </div>
             </div>
             <div class="donate__create-mobile">
@@ -83,6 +83,23 @@
     </swiper>
 </div> -->
 <div class="story">
+    <div class="story-container company-container">
+        <div class="story-image">
+            <img src="assets/img/company.jpg" alt="">
+        </div>
+        <div class="story-info" id="scroll-to">
+            <h4>We are pleased to announce that we are starting a fundraiser </h4>
+            <p>Gromaida has received many applications for humanitarian aid. All your applications are being processed and everyone will receive a response. Unfortunately, not all applications can be considered due to logistical problems and transportation. We recommend that individuals apply directly to volunteer centers and help points in your area of ​​residence.
+
+                Thank you for your response and special thanks to volunteer organizations that provide assistance directly on the territory of Ukraine now. <br>
+                </p>
+                <p>We are pleased to announce that we are starting a fundraiser for one of these organizations.
+                    "Grant Good Ukraine", has been working since 2019 on the territory of the P'yatikhatska Territorial Community, the Likhivska Territorial Community, the Saksaganska Territorial Community and the Zhovtovodsk Regional Community of the Dnipro region. 
+                   
+                   The list of the goods needed for this donation campaign you can check in the "lists of goods section"</p>
+            <button routerLink="/goods">See what we needs to by<img src="assets/icons/arrowRight.svg" alt=""></button>
+        </div>
+    </div>
     <div class="story-container">
         <div class="story-image">
             <img src="assets/img/story-0.png" alt="">
@@ -128,8 +145,8 @@
             slidesPerView: 8,
             spaceBetween: 25
           }}">
-            <ng-template swiperSlide *ngFor="let a of defaultArray">
-                <div class="image-wrap"><img src="assets/img/story-1.png" alt=""></div>
+            <ng-template swiperSlide *ngFor="let a of defaultArray; let i = index;">
+                <div class="image-wrap"><img src="assets/img/story-{{i}}.png" alt=""></div>
             </ng-template>            
         </swiper>
     </div>
@@ -149,21 +166,17 @@
         </div>
         <div class="join-us">
             <div class="join-title">
-                <h4>join our campaing!</h4>
+                <h4>join our campaign!</h4>
                 <p>We hope you will want to be part of the campaign and help support the people in need.</p>
             </div>
             <div class="join-info">
                 <div class="info-block">
                     <div class="info-name">Donators</div>
-                    <div class="info-value">{{totalDontions.donators}}</div>
-                </div>
-                <div class="info-block">
-                    <div class="info-name">Time left</div>
-                    <div class="info-value">{{getTimeLeft(totalDontions.start)}} days left</div>
+                    <div class="info-value">{{totalDonations.donators}}</div>
                 </div>
                 <div class="info-block">
                     <div class="info-name">donated</div>
-                    <div class="info-value">{{totalDontions.donated | currency:'USD':'symbol-narrow':'1.0-0' }}</div>
+                    <div class="info-value">{{totalDonations.donated | currency:'USD':'symbol-narrow':'1.0-0' }}</div>
                 </div>
                 
             </div>

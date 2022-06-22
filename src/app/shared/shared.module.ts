@@ -10,6 +10,8 @@ import { PaymentCancelModalComponent } from './payment-cancel-modal/payment-canc
 import { RouterModule } from '@angular/router';
 import { ButtonModule } from './button/button.module';
 import { ControlsModule } from './controls/controls.module';
+import { BlogModalComponent } from './blog-modal/blog-modal.component';
+import { SwiperModule } from 'swiper/angular';
 
 @NgModule({
   declarations: [
@@ -18,13 +20,14 @@ import { ControlsModule } from './controls/controls.module';
     CookiesModalComponent,
     PaymentSuccessModalComponent,
     PaymentCancelModalComponent,
+    BlogModalComponent,
   ],
   imports: [
     CommonModule,
     ReactiveFormsModule,
     CurrencyMaskModule,
     RouterModule,
-    
+    SwiperModule,
     ButtonModule,
     ControlsModule
   ],
@@ -33,7 +36,7 @@ import { ControlsModule } from './controls/controls.module';
     ControlsModule,
 
     DonateModalComponent,
-
+    BlogModalComponent,
     CookiesModalComponent,
     PaymentSuccessModalComponent,
     PaymentCancelModalComponent,

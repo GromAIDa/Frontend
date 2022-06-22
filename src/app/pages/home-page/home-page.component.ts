@@ -18,7 +18,7 @@ SwiperCore.use([EffectFade, Navigation]);
 })
 export class HomePageComponent implements OnInit {
   defaultArray: any[] = new Array(8);
-  totalDontions: TotalDonations = {
+  totalDonations: TotalDonations = {
     donated: 0,
     donators: 0,
     start: new Date().toDateString()
@@ -34,9 +34,8 @@ export class HomePageComponent implements OnInit {
   }
 
   ngOnInit() {
-
-    this.apiService.getTotalDontions().subscribe(response => {
-      this.totalDontions = response.data;
+    this.apiService.getTotalDonations().subscribe(response => {
+      this.totalDonations = response.data;
     })
   }
 

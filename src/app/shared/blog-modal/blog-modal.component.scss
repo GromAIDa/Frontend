@@ -1,0 +1,61 @@
+.blogSwiper {
+    width: 100%;
+    height: fit-content;
+    .image-wrap {
+        img {
+            width: 100%;
+            object-fit: cover;
+        }
+    }
+}
+.aloneImg {
+    height: 350px;
+    margin: auto;
+}
+h3 {
+    font-size: 16px;
+    font-weight: 300;
+    margin-top: 20px;
+    margin-bottom: 20px;
+
+    .dot {
+      display: inline-block;
+      width: 5px;
+      height: 5px;
+      border-radius: 50%;
+      margin: 0 5px 3px;
+      background-color: #a8aeb0;
+    }
+
+    .views {
+        float: right;
+    }
+}
+
+h1 {
+    font-weight: 300;
+    margin-bottom: 30px;
+}
+
+p{
+    height: 150px;
+    overflow: scroll;
+}
+
+button {
+    padding: 5px 50px;
+    background: #a8aeb0;
+    border-radius: 10px;
+    margin-top: 20px;
+}
+
+@media screen and (max-width: 800px) {
+    p{
+        height: fit-content;
+    }
+    .aloneImg {
+        width: 100%;
+        height: auto;
+        object-fit: contain;
+    }
+}

@@ -9,6 +9,7 @@ import { ImgService } from '@services/img.service';
 import { Pagination } from '@interfaces/pagination';
 import { Report } from '@interfaces/report';
 import { ApiService } from '@services/api/api.service';
+import { Post } from '@interfaces/post';
 
 SwiperCore.use([EffectFade, Navigation]);
 
@@ -21,22 +22,27 @@ SwiperCore.use([EffectFade, Navigation]);
 export class NewsPageComponent implements OnInit {
   currentReport!: Report;
   reports!: Pagination<Report[]>;
-  totalDontions!: TotalDonations;
+  totalDonations!: TotalDonations;
   firstMainReports!: Report[];
   secondMainReports!: Report[];
+  posts!: Pagination<Post[]>;
   currentTimePeriod: string = 'all';
+  chosenPost!: Post;
 
   constructor(
-    private apiServise: ApiService,
+    private apiService: ApiService,
     public imgService: ImgService,
     public modalService: ModalService,
     public burgerService: BurgerToggleService
   ) {}
 
   ngOnInit(): void {
-    this.getReprots();
-    this.apiServise.getTotalDontions().subscribe((response) => {
-      this.totalDontions = response.data;
+    this.getReports();
+    this.apiService.getTotalDonations().subscribe((response) => {
+      this.totalDonations = response.data;
+    });
+    this.apiService.getPosts({limit: 8}).subscribe((response) => {
+      this.posts = response.data;
     });
   }
 
@@ -44,7 +50,7 @@ export class NewsPageComponent implements OnInit {
     document.getElementById('scroll-position')?.scrollIntoView({block: "center", behavior: "smooth"});
   }
 
-  selectDonat(report: Report) {
+  selectDonate(report: Report) {
     this.currentReport = report;
     document
       .getElementById('scroll-position')
@@ -57,10 +63,16 @@ export class NewsPageComponent implements OnInit {
     );
   }
 
-  getReprots(page?: number | null) {
+  getDate(date: string) {
+    let array = new Date(date).toDateString().split(' ')
+    array.shift();
+    return array.join(' ')
+  }
+
+  getReports(page?: number | null) {
     if (page !== null) {
-      this.apiServise
-        .getReports({ page, time: this.currentTimePeriod })
+      this.apiService
+        .getReports({ page, time: this.currentTimePeriod, limit: 8 })
         .subscribe((response) => {
           if (response.data.docs.length) {
             this.reports = response.data;
@@ -79,11 +91,36 @@ export class NewsPageComponent implements OnInit {
         });
     }
   }
+
+  getPosts(page?: number | null) {
+    if (page !== null) {
+      this.apiService
+        .getPosts({ page, time: this.currentTimePeriod, limit: 8 })
+        .subscribe((response) => {
+            if (response.data.docs.length) {
+              this.posts = response.data;
+            }
+        });
+    }
+  }
+
   setCurrentTimePeriod(period: string) {
     this.currentTimePeriod = period;
-    this.getReprots(1);
+    this.getReports(1);
   }
+
   fakeArray(number: number) {
     return Array.from(Array(number).keys());
+  }
+
+  openPost(post: Post) {
+    const idsOfPostsThatHaveBeenSeen: string[] = JSON.parse(localStorage.getItem('idsOfPostsThatHaveBeenSeen') || '[]');
+    if (!idsOfPostsThatHaveBeenSeen.includes(post._id)) {
+      idsOfPostsThatHaveBeenSeen.push(post._id)
+      localStorage.setItem('idsOfPostsThatHaveBeenSeen', JSON.stringify(idsOfPostsThatHaveBeenSeen));
+      this.apiService.postView(post._id).subscribe(()=>{});
+    }
+    this.chosenPost = post;
+    this.modalService.open('blog-modal')
   }
 }

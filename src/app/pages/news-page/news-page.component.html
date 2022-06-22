@@ -1,6 +1,9 @@
 <jw-modal id="donate-modal" class="donate-modal">
     <app-donate-modal></app-donate-modal>
 </jw-modal>
+<jw-modal id="blog-modal" class="blog-modal">
+    <app-blog-modal [post]='chosenPost'></app-blog-modal> 
+</jw-modal>
 
 <div class="top-background top-background-2">
     <div class="background-blur">
@@ -19,14 +22,14 @@
                 </div>
             </div>
             <div class="gallery-flex" *ngIf="reports.docs.length">
-                <div class="reports-gallery" >
+                <div class="reports-gallery">
                     <div class="shadow-top"></div>
                     <div class="first-gallery">
                         <div class="item" *ngFor="let report of firstMainReports;">
                             <div class="background-image">
                                 <img src="{{imgService.getUrlImg(report.photos[0].photo)}}" alt="">
                             </div>
-                            <div class="content" (click)="selectDonat(report)">
+                            <div class="content" (click)="selectDonate(report)">
                                 <h3>The amount donated</h3>
                                 <span>{{report.price | currency:'USD':'symbol-narrow':'1.0' }}</span>
                                 <h3>What was bought</h3>
@@ -40,7 +43,7 @@
                             <div class="background-image">
                                 <img src="{{imgService.getUrlImg(report.photos[0].photo)}}" alt="">
                             </div>
-                            <div class="content" (click)="selectDonat(report)">
+                            <div class="content" (click)="selectDonate(report)">
                                 <h3>The amount donated</h3>
                                 <span>{{report.price | currency:'USD':'symbol-narrow':'1.0' }}</span>
                                 <h3>What was bought</h3>
@@ -62,6 +65,35 @@
     </div>
 
 
+</div>
+
+<div class="blog-container" *ngIf="posts">
+    <div class="blog-top">
+        <h2>Blog</h2>
+        <div class="paginations" *ngIf="posts">
+            <a (click)="getPosts(posts.prevPage)">Previous</a>
+            <a (click)="getPosts(posts.nextPage)" class="desktop-paginator">Next</a>
+            <span>
+                <span class="current">{{posts?.page}}</span> of <span class="last">{{posts?.totalPages}}</span>
+            </span>
+            <a (click)="getPosts(posts.nextPage)" class="mobile-paginator">Next</a>
+        </div>
+    </div>
+    <div class="blog-list">
+        <div class="blog-cart" *ngFor="let post of posts.docs" (click)="openPost(post)">
+            <div class="opacity"></div>
+            <img src="{{imgService.getUrlImg(post.photos[0].photo)}}" alt="">
+            <div class="date">
+                {{getDate(post.createdAt)}} <span class="dot"></span> {{post.timeToRead}} min
+            </div>
+            <div class="views">{{post.views}} views</div>
+            <div class="title">
+                <h3>
+                    {{post.title}}
+                </h3>
+            </div>
+        </div>
+    </div>
 </div>
 
 <div class="swiper-container" id="scroll-position">
@@ -101,9 +133,9 @@
             <div class="radio-label">Last Week</div>
             <input type="radio" name="time" id="" [checked]="currentTimePeriod === 'week'">
         </div>
-        <div class="check-item" (click)="setCurrentTimePeriod('mounth')">
-            <div class="radio-label">Last Mounth</div>
-            <input type="radio" name="time" id="" [checked]="currentTimePeriod === 'mounth'">
+        <div class="check-item" (click)="setCurrentTimePeriod('month')">
+            <div class="radio-label">Last Month</div>
+            <input type="radio" name="time" id="" [checked]="currentTimePeriod === 'month'">
         </div>
         <div class="check-item" (click)="setCurrentTimePeriod('all')">
             <div class="radio-label">All Time</div>
@@ -130,7 +162,7 @@
                     <div class="background-image">
                         <img src="{{imgService.getUrlImg(report.photos[0].photo)}}" alt="">
                     </div>
-                    <div class="content" (click)="selectDonat(report)">
+                    <div class="content" (click)="selectDonate(report)">
                         <h3>The amount donated</h3>
                         <span>{{report.price | currency:'USD':'symbol-narrow':'1.0' }}</span>
                         <h3>What was bought</h3>
@@ -166,13 +198,13 @@
         </swiper>
     </div>
     <div class="paginations" *ngIf="reports">
-        <a (click)="getReprots(1)">First</a>
-        <a (click)="getReprots(reports.prevPage)">Previous</a>
+        <a (click)="getReports(1)">First</a>
+        <a (click)="getReports(reports.prevPage)">Previous</a>
         <span>
             <span class="current">{{reports?.page}}</span> of <span class="last">{{reports?.totalPages}}</span>
         </span>
-        <a (click)="getReprots(reports.nextPage)">Next</a>
-        <a (click)="getReprots(reports.totalPages)">Last</a>
+        <a (click)="getReports(reports.nextPage)">Next</a>
+        <a (click)="getReports(reports.totalPages)">Last</a>
     </div>
 </div>
 
@@ -183,23 +215,19 @@
         <img class="tablet" src="assets/img/news-bg-tablet.png" alt="">
         <img class="mobile" src="assets/img/news-bg-mobile.png" alt="">
     </div>
-    <div class="content" *ngIf="totalDontions">
+    <div class="content" *ngIf="totalDonations">
         <div class="short-info">
             <div class="item">
-                <span>{{totalDontions.donated | currency:'USD':'symbol-narrow':'1.0' }}</span>
+                <span>{{totalDonations.donated | currency:'USD':'symbol-narrow':'1.0' }}</span>
                 <p>Donated so far </p>
             </div>
             <div class="item">
-                <span>{{totalDontions.donators}}</span>
+                <span>{{totalDonations.donators}}</span>
                 <p>donators</p>
-            </div>
-            <div class="item">
-                <span>{{getTimeLeft(totalDontions.start)}} Days</span>
-                <p>time left</p>
             </div>
         </div>
         <div class="long-info">
-            <h2>join our campaing!</h2>
+            <h2>join our campaign!</h2>
             <p>We hope you will want to be part of the campaign and help support the people in need.</p>
             <app-button  (click)="modalService.open('donate-modal')">Donate</app-button>
         </div>

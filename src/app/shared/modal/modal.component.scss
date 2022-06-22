@@ -56,6 +56,12 @@ body.jw-modal-open {
     overflow: hidden;
 }
 
+.blog-modal {
+    .jw-modal .jw-modal-body {
+        height: fit-content;
+    }
+}
+
 .donate-modal {
     .jw-modal {
         .jw-modal-body {
@@ -225,7 +231,8 @@ body.jw-modal-open {
     }
     jw-modal .jw-modal .jw-modal-body {
         width: 100%;
-        height: 100%;
+        height: fit-content;
+        min-height: 100%;
         background: #141618;
         border-radius: 0;
         max-width: unset;

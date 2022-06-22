@@ -42,13 +42,11 @@ export class GoodsPageComponent implements OnInit {
             });
 
     }
-    ngOnDestroy() {
-        this.searchTermChangedSubscription.unsubscribe();
-    }
+
     getGoods(page?: number | null, query?: string, type?: string): void {
         if (page !== null) {
-            this.apiService.getGoods({ page }, { query: this.searchTerm, type: this.currentType }).subscribe((responce) => {
-                this.goods = responce.data;
+            this.apiService.getGoods({ page }, { query: this.searchTerm, type: this.currentType }).subscribe((response) => {
+                this.goods = response.data;
                 window.scroll({ 
                     top: 0, 
                     left: 0, 
@@ -57,16 +55,22 @@ export class GoodsPageComponent implements OnInit {
             });
         }
     }
+
     getGoodsTypes(): void {
-        this.apiService.getGoodsTypes().subscribe((responce) => {
-            this.goodsTypes = responce.data;
+        this.apiService.getGoodsTypes().subscribe((response) => {
+            this.goodsTypes = response.data;
             this.setCurrentType(this.goodsTypes[0])
         })
     }
+
     setCurrentType(type: string): void {
         this.currentType = type
         this.searchTerm = ''
         this.getGoods(1, this.searchTerm, this.currentType)
     }
 
+    ngOnDestroy() {
+        this.searchTermChangedSubscription.unsubscribe();
+    }
+    
 }
