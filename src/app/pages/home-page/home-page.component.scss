@@ -356,6 +356,16 @@ app-home-page {
     }
 }
 
+@media screen and (max-width: 1917px) {
+    .story-container {
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-around !important;
+        .story-info {
+            margin-left: 0 !important;
+        }
+    }
+}
 @media screen and (max-width: 1740px) {
     .donates-container {
         padding-top: 0;
@@ -383,14 +393,6 @@ app-home-page {
         }
     }
 
-    .story-container {
-        flex-direction: column;
-        align-items: center;
-        justify-content: space-around !important;
-        .story-info {
-            margin-left: 0 !important;
-        }
-    }
     .story-gallery > div {
         margin: 5px;
     }
